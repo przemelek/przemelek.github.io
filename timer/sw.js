@@ -3,9 +3,9 @@ self.addEventListener('install', function(e) {
    caches.open('timer').then(function(cache) {
      return cache.addAll([
        '/',
-       '/timer.html',
-       '/timer.js',
-       '/timer.png'       
+       'timer.html',
+       'timer.js',
+       'timer.png'
      ]);
    })
  );
