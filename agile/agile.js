@@ -10,9 +10,12 @@ function show(value) {
    } else {
       $("res").innerHTML="<div style='font-size:1em'>Calculating...</div>";;
       var sizeV = Math.round($("res").clientWidth/16/(value.length)*2);
-      var sizeH = Math.floor($("res").parentNode.clientHeight/24);
+      var textHeight = $("res").parentNode.clientHeight;
+      var sizeH = Math.floor(textHeight/24);
       var size = sizeV;
       if (size>sizeH) size=sizeH;
+      console.log($("res").style["line-height"]);
+      $("res").style["line-height"]=textHeight+"px";
       $("res").innerHTML="<div style='font-size:"+size+"em'>"+value+"</div>";
    }
 }

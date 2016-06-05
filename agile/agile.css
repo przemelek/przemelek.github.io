@@ -6,3 +6,21 @@
 	min-width: 1.65em;
 	height: 1.75em;
 }
+
+
+/* Reset */
+html, body { height: 100%; margin: 0; padding: 0; }
+
+/* Essentials */
+.container { display: table; }
+.content { display: table-row; height: 100%; vertical-align: middle; margin-top: auto; }
+.content-body { display: table-cell; }
+
+/* Aestetics */
+.container { width: 100%; height: 100%; }
+.header, .footer { padding: 10px 20px; }
+.content-body { padding: 20px; }
+
+/* text align */
+.container { text-align:center;
+						 }
