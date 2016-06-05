@@ -6,7 +6,7 @@ self.addEventListener('install', function(e) {
        'Agile.html',
        'agile.js',
        'agile.css',
-       'pockercard.png'
+       'pokercard.png'
      ]);
    })
  );
