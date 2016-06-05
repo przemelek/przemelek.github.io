@@ -1,8 +1,8 @@
 var currentlySelected="";
 function $(id) { return document.getElementById(id); }
 var fibonacciVal = ["0","1","2","3","5","8","13","21","34","55","89","?","Coffee","Clear"];
-var val = ["0","1/2","1","2","3","5","8","13","20","40","100","?","Coffee","Clear"];
-if (localStorage["fibonacci"]) val = fibonacciVal;
+var normalVal = ["0","1/2","1","2","3","5","8","13","20","40","100","?","Coffee","Clear"];
+var val = normalVal;
 
 function show(value) {
    if (value=="Clear") {
@@ -27,6 +27,8 @@ function click(elem) {
 }
 
 function init() {
+  val = normalVal;
+  if (JSON.parse(localStorage["fibonacci"]||"false")) val = fibonacciVal;
   var c = "";
   for (var i=0; i<val.length; i++) {
      c+="<button class='agileButton' id='button"+i+"' >"+val[i]+"</button>"
@@ -35,6 +37,19 @@ function init() {
   for (var i=0; i<val.length; i++) {
      $("button"+i).onclick=click;
   }
+  $("gear").addEventListener("click",function(e) {
+    $("settings").style["display"]="block";
+  });
+  $("cancel").addEventListener("click",function(e) {
+    $("settings").style["display"]="none";
+  });
+  $("save").addEventListener("click",function(e) {
+    $("settings").style["display"]="none";
+    localStorage["fibonacci"]=$("fib").checked;
+    init();
+    show("")
+  });
+  $("fib").checked=JSON.parse(localStorage["fibonacci"]||"false");
 }
 
 

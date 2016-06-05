@@ -19,8 +19,15 @@ html, body { height: 100%; margin: 0; padding: 0; }
 /* Aestetics */
 .container { width: 100%; height: 100%; }
 .header, .footer { padding: 10px 20px; }
+.header { height: 1em; }
+.footer {
+	height: 11em;
+}
 .content-body { padding: 20px; }
 
 /* text align */
-.container { text-align:center;
-						 }
+.container { text-align:center; }
+
+#settings {
+	display:none;position:absolute;top:0px;right:0px;width:100%;height:100%;background-color:white;font-size:2em;text-align:center;
+}
