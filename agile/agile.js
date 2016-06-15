@@ -9,14 +9,26 @@ function show(value) {
       $("res").innerHTML="";
    } else {
       $("res").innerHTML="<div style='font-size:1em'>Calculating...</div>";;
-      var sizeV = Math.round($("res").clientWidth/16/(value.length)*2);
+
+      var sizeV = Math.round($("res").clientWidth*0.9/16/(value.length)*2);
       var textHeight = $("res").parentNode.clientHeight;
-      var sizeH = Math.floor(textHeight/24);
+      var sizeH = Math.floor(textHeight/16);
       var size = sizeV;
       if (size>sizeH) size=sizeH;
       console.log($("res").style["line-height"]);
+      var resHeight = screen.availHeight-$("buttons").clientHeight;
       $("res").style["line-height"]=textHeight+"px";
       $("res").innerHTML="<div style='font-size:"+size+"em'>"+value+"</div>";
+      $("res").clientHeight=resHeight+"px";
+
+      // var sizeV = Math.round($("res").clientWidth/16/(value.length)*2);
+      // var textHeight = $("res").parentNode.clientHeight;
+      // var sizeH = Math.floor(textHeight/24);
+      // var size = sizeV;
+      // if (size>sizeH) size=sizeH;
+      // console.log($("res").style["line-height"]);
+      // $("res").style["line-height"]=textHeight+"px";
+      // $("res").innerHTML="<div style='font-size:"+size+"em'>"+value+"</div>";
    }
 }
 

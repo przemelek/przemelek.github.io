@@ -13,7 +13,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 /* Essentials */
 .container { display: table; }
-.content { display: table-row; height: 100%; vertical-align: middle; margin-top: auto; }
+.content { display: table-row; height: 100%; vertical-align: middle; margin-top: auto; margin:0; padding: 0; }
 .content-body { display: table-cell; }
 
 /* Aestetics */
