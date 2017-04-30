@@ -19,8 +19,11 @@ function showP(position) {
    zaw+="</center>";
    document.getElementById("content").innerHTML=zaw;
 }
+function handleError(err) {
+  document.getElementById("content").innerHTML=err;
+}
 function refresh() {
-	navigator.geolocation.getCurrentPosition(showP);
+	navigator.geolocation.getCurrentPosition(showP,handleError);
 }
 
 refresh();
