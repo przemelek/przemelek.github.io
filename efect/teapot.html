@@ -1,0 +1,453 @@
+
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body bgcolor="black" text="black">
+<canvas style="background:black" id="screen" width="640" height="400"></canvas><br />
+<div id="content" style="font-family:courier;color:red;font-size:6em;position:absolute;top:75%;text-align:center;width:100%;overflow:hidden;z-index:100"></div>
+
+<!-- Gourad Shading in JavaScript by <a href="http://przemelek.blogspot.com">Przemysław Rumik</a> :-) -->
+<div id="frames"></div>
+<!-- <button onclick="createFrame(false);">Start Animation</button> -->
+<script src="teapot.js"></script>
+<script>
+
+var width = document.body.clientWidth;
+var height = document.body.clientHeight;
+
+var min = 10;
+var max = -10;
+
+for (var i=0; i<bryla.length; i++) {
+  var p = bryla[i];
+  for (var j=0; j<p.length; j++) {
+    min=Math.min(min, p[j]);
+    max=Math.max(max, p[j]);
+  }
+}
+
+var d = max-min;
+
+var smaller = Math.min(width, height);
+
+console.log(d);
+console.log(smaller/d);
+
+var scale = smaller/d/4;
+
+for (var i=0; i<bryla.length; i++) {
+  var p = bryla[i];
+  p[1]-=1.5;
+  for (var j=0; j<p.length; j++) {
+    p[j]*=scale;
+  }
+}
+
+
+console.log(min);
+console.log(max);
+var startTime = new Date();
+var sizeFactor = 1;
+var canvas = document.getElementById("screen");
+
+// var width = 320*2;
+// var height = 200*2;
+canvas.width=width*sizeFactor;
+canvas.height=height*sizeFactor;
+var ctx = canvas.getContext('2d');
+var canvasData = ctx.createImageData(width, height);
+var pix = canvasData.data;
+
+	var imgWIDTH = width;
+	var imgHEIGHT = Math.floor(height/2)*2;
+  var imgBIGGER = Math.max(width, height);
+//	varimgWIDTH = width*3;
+//	varimgHEIGHT = 200*3;
+
+
+	function Point2d(x,y) {
+		this.x=x;
+		this.y=y;
+		this.kolor=0;
+	}
+
+	function Point3d(x,y,z) {
+		this.x=x;
+		this.y=y;
+		this.z=z;
+		this.kolor=0;
+	}
+
+	function Triang() {
+		this.w=new Array();
+		this.z=0;
+		this.kolor=0;
+	};
+
+	var dokl=16;
+	var divoff=256;
+	var ile_pix=bryla.length;
+	var ile_face=faces.length;
+	var polys0 = new Array();
+	var polys1 = new Array();
+	var colors0 = new Array();
+	var colors1 = new Array();
+	var div = new Array();
+	for (var i=0; i<divoff*2; i++) div[i]=new Array();
+//	var pixels = new Array();
+//	var screenPixels = new Array();
+	var triangs = new Array(); //new Triang[ile_face];
+	var pal = new Array();
+	for (var i=0; i<256; i++) pal[i]=new Array();
+	var katx,katy,katz;
+	var sin_,cos_;
+	var points = new Array(); //private Point3d[] points;
+	var points2d = new Array(); // private Point2d[] points2d;
+	var pcal = new Array(); // private Point3d[] pcal;
+	function comparator(o1,o2) {
+		return (o2.z-o1.z);
+	}
+
+	//BufferedImage img = new BufferedImage(imgWIDTH,imgHEIGHT,BufferedImage.TYPE_INT_RGB);
+
+	var framesCount = 0;
+	var cumulatedTimeInCreateFrame=0;
+	var cumulatedTimeInCreatingImage;
+
+	function FaceAnimator() {
+		tempMain();
+		createFrame(false);
+//		img.setAccelerationPriority(1);
+	}
+
+	function horli(x1, x2, y, c1, c2) {
+	 var i;
+	 var dc,c,cp,id;
+   // if (x1*1!=x1) return;
+	 c=x2-x1;
+         c1 = Math.round(c1);
+         c2 = Math.round(c2);
+   // if (!c) return;
+	 if (c!=0) {
+		 c+=divoff;
+		 id=(y*width);
+		 cp=c2-c1+divoff;
+     // console.log(cp,c,div[cp],div[cp][c]);
+		 dc=div[cp][c];
+		 x2+=id;
+		 x1+=id;
+		 c=c1 << 7 ;
+		 for (i=x1; i<=x2; i++) {
+		  cp=c >> 7;
+//		  var color = Math.floor(pal[cp][0]);
+		  var color = pal[cp][0];
+		  var id = i*4;
+		  pix[id]=color;
+		  pix[id+1]=color;
+		  pix[id+2]=color;
+		  pix[id+3]=255;
+		  c+=dc;
+		 };
+	 };
+	}
+
+	function scanpoly(x1, y1, x2, y2, c1, c2) {
+	 var i;
+	 if ((i=(y2-y1))==0) return;
+	 if (i<0)
+	 {
+	  var tmp=y1;
+	  var tmp2=c1;
+	  y1=y2;
+	  c1=c2;
+	  y2=tmp;
+
+	  c2=tmp2;
+	  tmp=x1;
+	  i=-i;
+	  x1=x2;
+	  x2=tmp;
+	 };
+	 i+=divoff;
+
+	 var DeltaX=div[(x2-x1)+divoff][i];
+//	 int DeltaX=(x2-x1)*128/(y2-y1);
+	 var dc=div[(c2-c1)+divoff][i];
+//	 int dc=(c2-c1)*128/(y2-y1);
+
+	 var Xposfixed=x1 << 7;
+	 y1+=(imgHEIGHT/2);
+	 y2+=(imgHEIGHT/2);
+	 var cp=c1 << 7;
+	 for (i=y1; i<y2; i++)
+	 {
+	  var Xpos=Xposfixed >> 7;
+	  var cpos=cp >> 7;
+	  if (Xpos < polys0[i]) {polys0[i]=Xpos; colors0[i]=cpos;}
+	  if (Xpos > polys1[i]) {polys1[i]=Xpos; colors1[i]=cpos;}
+	  Xposfixed+=DeltaX;
+	  cp+=dc;
+	 };
+	}
+
+	function triangle(x1, y1, x2, y2, x3, y3, c1, c2, c3) {
+
+    x1=Math.floor(x1);
+    x2=Math.floor(x2);
+    x3=Math.floor(x3);
+    y1=Math.floor(y1);
+    y2=Math.floor(y2);
+    y3=Math.floor(y3);
+    c1=Math.floor(c1);
+    c2=Math.floor(c2);
+    c3=Math.floor(c3);
+
+	 var Ymin=y1;
+	 var Ymax=y1;
+
+	 if (y2 < Ymin) Ymin=y2;
+	 if (y2 > Ymax) Ymax=y2;
+
+	 if (y3 < Ymin) Ymin=y3;
+	 if (y3 > Ymax) Ymax=y3;
+
+	 scanpoly(x1,y1,x2,y2,c1,c2);
+	 scanpoly(x2,y2,x3,y3,c2,c3);
+	 scanpoly(x3,y3,x1,y1,c3,c1);
+
+	 if (Ymin<0) Ymin=0;
+	 if (Ymax>(imgHEIGHT-1)) Ymax=imgHEIGHT-1;
+
+	 Ymin+=(imgHEIGHT/2);
+	 Ymax+=(imgHEIGHT/2);
+   if (colors0.length==0) return;
+	 for (var i=Ymin; i<Ymax; i++) {
+	  horli((polys0[i]),(polys1[i]),i-imgHEIGHT/2,(colors0[i]),(colors1[i]));
+	  (polys0[i])=imgHEIGHT*3;
+	  (polys1[i])=-imgHEIGHT*3;
+	 };
+	}
+
+	function tempMain()	{
+	 var x,y;
+
+	 for (x=-divoff+1; x<divoff; x++)
+	  for (y=-divoff+1; y<divoff; y++) if (y!=0) div[divoff+x][divoff+y]=(x<<7)/y;
+
+//	 sin_=new int[362];
+	 sin_=new Array();;
+//	 cos_=new int[362];
+	 cos_=new Array();
+
+	 //pcal = new Point3d[ile_pix];
+	 pcal = new Array();
+	 //points = new Point3d[ile_pix];
+	 points = new Array();
+	 //points2d = new Point2d[ile_pix];
+	 points2d = new Array();
+
+	 for (x=0; x<imgHEIGHT*2; x++) {
+	  polys0[x]=32000;
+	  polys1[x]=-32000;
+	 };
+
+	 for (x=0;x<=360;x++) {
+	 sin_[x]=(Math.sin(x*(Math.PI/180))*(2<<(dokl-1)));
+	 cos_[x]=(Math.cos(x*(Math.PI/180))*(2<<(dokl-1)));
+	 }
+
+	 for (x=0;x<ile_pix;x++)
+	 {
+		  points[x]=new Point3d();
+		  points[x].x=bryla[x][0]*7;
+		  points[x].y=bryla[x][1]*7;
+		  points[x].z=bryla[x][2]*7-100;
+	 }
+
+	 for (x=0;x<ile_face;x++) {
+		 triangs[x] = new Triang();
+		 for (y=0;y<=2;y++) {
+			 triangs[x].w[y]=faces[x][y];
+		 }
+	 }
+
+	 pal[0][0]=0;
+	 pal[0][1]=0;
+	 pal[0][2]=0;
+
+	 for (x=0;x<=255;x++) {
+		  pal[x]=new Array();
+		  pal[x][0]=0;
+		  pal[x][1]=0;
+		  pal[x][2]=0;
+	 }
+
+	 pal[255][0]=255;
+
+	 for (x=255;x>0;x--)
+	 {
+	  for (y=0; y<=2; y++) {
+		  pal[x][y]=(255-(Math.sin(90.0/255.0*x*Math.PI/180.0)*255.0));
+ 		}
+	 };
+	 for (x=0; x<ile_pix; x++) {
+		 points2d[x] = new Point2d();
+		 points2d[x].kolor=0;
+	 }
+
+	 for (x=0; x<ile_pix; x++) {
+		 pcal[x]=new Point3d();
+	 }
+	 katx=katy=katz=0;
+	 katx=180;
+	}
+
+function createFrame(inLoop) {
+	var start = new Date().getTime();
+        canvasData = ctx.createImageData(width, height);
+	pix = canvasData.data;
+	//canvasData.data = pixels;
+	//pixels = canvasDat.data;
+	var x1;
+	var y1;
+	var z1;
+	var x;
+	var y;
+	var cosyz;
+	var sinyz;
+	var sinx;
+	var cosx;
+	var X;
+	var Y;
+	var Z;
+	var xcos;
+	var ysin;
+	var ycos;
+	var zsin;
+	var kolor;
+	 var ox=0,oy=0,oz=2500;
+	 var ox_,oy_,oz_;
+	 kolor=Math.sqrt(ox*ox+oy*oy+oz*oz);
+	 ox_=(ox<<8)/kolor;
+	 oy_=(oy<<8)/kolor;
+	 oz_=(oz<<8)/kolor;
+	 var xo,yo,zo,D;
+	 D=2048;
+	 while (1==1) {
+//	 ctx.clearRect(0,0,320*sizeFactor,200*sizeFactor);
+//	  pixels = new Array();
+	  cosyz=cos_[katy];
+	  sinyz=sin_[katy];
+	  cosx=cos_[katx];
+	  sinx=sin_[katx];
+	  for (x=0; x<ile_pix; x++) {
+	    xo=points[x].x;
+	    yo=points[x].y;
+	    zo=points[x].z;
+
+	    xcos=(xo*cosyz);
+	    ysin=(yo*sinyz);
+
+	    x1=(xcos-ysin);
+	    y1=((xo+yo)*((cosyz+sinyz))-(xcos+ysin))>>dokl;
+	    x1=x1>>dokl;
+
+	    xo=x1;
+	    yo=y1;
+	    z1=zo;
+
+	    xcos=(xo*cosyz);
+	    zsin=(zo*sinyz);
+
+	    x1=(xcos-zsin);
+	    z1=((xo+zo)*((cosyz+sinyz))-(xcos+zsin))>>dokl;
+	    x1=x1>>dokl;
+
+	    xo=x1;
+	    yo=y1;
+	    y1=yo;
+	    pcal[x].x=xo;
+	    zo=z1;
+
+	    ycos=(yo*cosx);
+	    zsin=(zo*sinx);
+
+	    y1=(ycos-zsin);
+	    z1=((zo+yo)*((cosx+sinx))-(ycos+zsin))>>dokl;
+	    y1=y1>>dokl;
+
+	    pcal[x].y=yo=y1;
+	    pcal[x].z=zo=z1;
+	    x1=xo;
+
+	    points2d[x].x=((xo<<8)/(zo+D)*3+imgWIDTH/2);
+	    points2d[x].y=((yo<<8)/(zo+D)*3+imgHEIGHT/2);
+
+	  }
+
+	  for (x=0;x<ile_face; x++) {
+	   triangs[x].z=0;
+	   for (y=0;y<3;y++) {
+
+       triangs[x].z+=pcal[triangs[x].w[y]].z;
+     }
+
+	   triangs[x].kolor=Z=((((pcal[triangs[x].w[1]].x-pcal[triangs[x].w[0]].x)*(pcal[triangs[x].w[0]].y-pcal[triangs[x].w[2]].y)-
+	   (pcal[triangs[x].w[1]].y-pcal[triangs[x].w[0]].y)*(pcal[triangs[x].w[0]].x-pcal[triangs[x].w[2]].x))));
+
+	   if (Z>=0) {
+		   X=((((pcal[triangs[x].w[1]].y-pcal[triangs[x].w[0]].y)*(pcal[triangs[x].w[0]].z-pcal[triangs[x].w[2]].z)-
+		   (pcal[triangs[x].w[1]].z-pcal[triangs[x].w[0]].z)*(pcal[triangs[x].w[0]].y-pcal[triangs[x].w[2]].y))));
+		   Y=((((pcal[triangs[x].w[1]].z-pcal[triangs[x].w[0]].z)*(pcal[triangs[x].w[0]].x-pcal[triangs[x].w[2]].x)-
+		   (pcal[triangs[x].w[1]].x-pcal[triangs[x].w[0]].x)*(pcal[triangs[x].w[0]].z-pcal[triangs[x].w[2]].z))));
+
+		   kolor=Math.sqrt(X*X+Y*Y+Z*Z)+1;
+
+		   X=(X<<8)/kolor;
+		   Y=(Y<<8)/kolor;
+		   Z=(Z<<8)/kolor;
+
+		   kolor=(Math.sqrt((ox_-X)*(ox_-X)+(oy_-Y)*(oy_-Y)+(oz_-Z)*(oz_-Z))>>1)+1;
+	   } else kolor=255;
+
+	   for (y=0; y<=2; y++) {
+		   if (points2d[triangs[x].w[y]].kolor==0) points2d[triangs[x].w[y]].kolor=kolor;
+		   else points2d[triangs[x].w[y]].kolor=(points2d[triangs[x].w[y]].kolor+kolor)>>1;
+	   };
+	  };
+
+	  triangs.sort(comparator);
+	  for (x=0;x<ile_face; x++) {
+	   if (triangs[x].kolor>0)
+	   triangle(points2d[triangs[x].w[0]].x,points2d[triangs[x].w[0]].y,
+	            points2d[triangs[x].w[1]].x,points2d[triangs[x].w[1]].y,
+	            points2d[triangs[x].w[2]].x,points2d[triangs[x].w[2]].y,
+	            points2d[triangs[x].w[0]].kolor,points2d[triangs[x].w[1]].kolor,
+	            points2d[triangs[x].w[2]].kolor);
+	  };
+	  katx=(katx+1)%360;
+	  katy=(katy+1)%360;
+	  katz=(katz+1)%360;
+	  ctx.putImageData(canvasData,0,0);
+	  framesCount++;
+	  var lastFrameTime = new Date()-start;
+	  cumulatedTimeInCreateFrame+=lastFrameTime;
+	  var time = new Date()-startTime;
+	  document.getElementById("frames").innerHTML = "average "+Math.round(framesCount/(cumulatedTimeInCreateFrame/1000)*100)/100+" frames per second, last frame took "+lastFrameTime+" ms\nTrue speed is "+(framesCount/time*1000)+" fps";
+	  if (!inLoop) {
+		  break;
+	  }
+	 }
+	 setTimeout("createFrame(false)",1);
+	}
+
+
+tempMain();
+createFrame(false);
+
+
+
+</script>
+</body>
+</html>
