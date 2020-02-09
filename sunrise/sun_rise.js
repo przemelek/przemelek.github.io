@@ -16,7 +16,7 @@ function compute(DD,MM,YY,Lon, Lat) {
      <!--longitud y latitud del observador-->
         //Lon=LG+LM/60+LS/3600
         //Lat=BG+BM/60+BS/3600
-     <!--fecha juliana-->  
+     <!--fecha juliana-->
         GGG = 1;
         if (YY <= 1585) GGG = 0;
         JD = -1 * floor(7 * (floor((MM + 9) / 12) + YY) / 4);
@@ -28,7 +28,7 @@ function compute(DD,MM,YY,Lon, Lat) {
         JD = JD + floor(275 * MM / 9) + DD + (GGG * J1);
         JD = JD + 1721027 + 2 * GGG + 367 * YY - 0.5;
         J2=JD;
-      
+
       <!--asignacion valores Tierra-->
 	RAD=180/PI
 	ET=0.016718;
@@ -59,7 +59,7 @@ function compute(DD,MM,YY,Lon, Lat) {
 		}
 	OB=OB*RAD
         L=L*RAD
-	
+
 	AR = AR * 12 / PI;
 	<!--conversion a h.ms de la AR-->
 	H=floor(AR);
@@ -79,7 +79,7 @@ function compute(DD,MM,YY,Lon, Lat) {
 		M1=-M1;
 		S1=-S1;
 		}
-        <!--calculo de la ecuación de tiempo-->
+        <!--calculo de la ecuaciï¿½n de tiempo-->
     	MR = 0.04301;
 
 	F=13750.987;
@@ -88,12 +88,12 @@ function compute(DD,MM,YY,Lon, Lat) {
 
 	R=-MR*F*sin(2*(P+AM))+MR*MR*F*sin(4*(P+AM))/2;
         ET=C+R
-	<!--cálculo del arco semidiurno-->
+	<!--cï¿½lculo del arco semidiurno-->
 	   H0=acos(-tan(Lat/RAD)*tan(DC/RAD))
 	   H0=H0*RAD
-	<!--variación en declinación-->
+	<!--variaciï¿½n en declinaciï¿½n-->
 	   VD=0.9856*sin(OB/RAD)*cos(L/RAD)/cos(DC/RAD)
-	<!--cálculo del orto-->
+	<!--cï¿½lculo del orto-->
            VDOR=VD*(-H0+180)/360
            DCOR=DC+VDOR
            HORTO=-acos(-tan(Lat/RAD)*tan(DCOR/RAD))
@@ -103,9 +103,9 @@ function compute(DD,MM,YY,Lon, Lat) {
         <!--conversion a h.m de la Hora del orto-->
 	   HOR=floor(TUORTO);
 	   MOR=floor((TUORTO - HOR) * 60+0.5)
-        <!--cálculo de la culminación-->
+        <!--cï¿½lculo de la culminaciï¿½n-->
            TUC=12+ET/3600-Lon/15
-       <!--conversion a h.m de la Hora de la culminación-->
+       <!--conversion a h.m de la Hora de la culminaciï¿½n-->
 	   HC=floor(TUC);
 	   MC=floor((TUC - HC) * 60+0.5)
 	<!--calculo del ocaso-->
@@ -118,15 +118,15 @@ function compute(DD,MM,YY,Lon, Lat) {
         <!--conversion a h.m de la Hora del ocaso-->
 	   HOC=floor(TUOC);
 	   MOC=floor((TUOC - HOC) * 60+0.5)
-        <!--altura de la culminación-->
+        <!--altura de la culminaciï¿½n-->
            HCUL=90-Lat+(DCOR+DCOC)/2
-        <!--conversion a º ' de la altura de la culminación-->
+        <!--conversion a ï¿½ ' de la altura de la culminaciï¿½n-->
 	   GCUL=floor(HCUL);
 	   MCUL=floor((HCUL - GCUL) * 60+0.5)
         <!--acimut del orto y ocaso-->
            ACOC=acos(-sin(DCOC/RAD)/cos(Lat/RAD))*RAD
            ACOR=360-acos(-sin(DCOR/RAD)/cos(Lat/RAD))*RAD
-        <!--conversion a º ' de los acimuts-->
+        <!--conversion a ï¿½ ' de los acimuts-->
 	   GACOC=floor(ACOC);
 	   MACOC=floor((ACOC - GACOC) * 60+0.5)
            GACOR=floor(ACOR);
@@ -147,8 +147,10 @@ var Dsun_set=new Date(YY_,MM_,DD_,eval(sun_set[0]-date.getTimezoneOffset()/60),s
 
 var Dsun_rise=new Date(YY_,MM_,DD_,eval(sun_rise[0]-date.getTimezoneOffset()/60),sun_rise[1]);
 
+var dayLength = Math.floor(Dsun_rise-Dsun_set)/1000/60;
+var dayLengthStr=(lz(Math.floor(dayLength/60))+":"+lz(dayLength%60));
 
- return(lz(Dsun_set.getHours())+":"+lz(Dsun_set.getMinutes())+","+lz(Dsun_rise.getHours())+":"+lz(Dsun_rise.getMinutes()));
+
+ return(lz(Dsun_set.getHours())+":"+lz(Dsun_set.getMinutes())+","+lz(Dsun_rise.getHours())+":"+lz(Dsun_rise.getMinutes()+","+dayLengthStr));
 
 }
-

@@ -8,13 +8,13 @@ function showP(position) {
      alt = " ("+position.coords.altitude+"m)";
    }
    var zaw = "<center style='font-size:1.5em'>("+lat+","+lon+alt+")<br /><hr width='25%' />";
-   zaw+="<span style='font-size:1.25em'>Today</span><br />";
+   zaw+="<span style='font-size:1.25em'>Today<br />(day length "+elems[2]+")</span><br />";
    zaw+="<span style='font-size:2em'>Sunrise: "+elems[0]+"<br />";
    zaw+="Sunset: "+elems[1]+"<br /></span><hr width='25%' />";
    var tomorrow = new Date();
    tomorrow.setDate(today.getDate()+1);
    elems = set_rise(tomorrow,lat,lon).split(",");
-   zaw+="<span style='font-size:1em'>Tomorrow<br />Sunrise: "+elems[0]+"<br />";
+   zaw+="<span style='font-size:1em'>Tomorrow<br />(day length "+elems[2]+")<br />Sunrise: "+elems[0]+"<br />";
    zaw+="Sunset: "+elems[1]+"<br /></span><hr width='25%' />";
    zaw+="</center>";
    document.getElementById("content").innerHTML=zaw;
