@@ -150,7 +150,6 @@ var Dsun_rise=new Date(YY_,MM_,DD_,eval(sun_rise[0]-date.getTimezoneOffset()/60)
 var dayLength = Math.floor(Dsun_rise-Dsun_set)/1000/60;
 var dayLengthStr=(lz(Math.floor(dayLength/60))+":"+lz(dayLength%60));
 
-
- return(lz(Dsun_set.getHours())+":"+lz(Dsun_set.getMinutes())+","+lz(Dsun_rise.getHours())+":"+lz(Dsun_rise.getMinutes()+","+dayLengthStr));
+return(lz(Dsun_set.getHours())+":"+lz(Dsun_set.getMinutes())+","+lz(Dsun_rise.getHours())+":"+lz(Dsun_rise.getMinutes())+","+dayLengthStr);
 
 }

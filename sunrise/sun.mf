@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2020-02-09 16:42
+# 2020-02-16 15:53
 CACHE:
 sunrise.html
 sun.png
