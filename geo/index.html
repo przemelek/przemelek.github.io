@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0b0f19">
+  <title>GeoCompass Navigator</title>
+  
+  <!-- PWA Manifest & Favicon -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    
+    <!-- Premium Glass Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <span class="logo-dot"></span>
+        <h1>GEO-COMPASS</h1>
+      </div>
+      <div class="status-indicators">
+        <div id="gps-status" class="status-pill status-inactive" title="GPS Status">
+          <span class="status-dot"></span>
+          <span class="status-label">GPS LOCKING</span>
+        </div>
+        <div id="compass-status" class="status-pill status-inactive" title="Compass Status">
+          <span class="status-dot"></span>
+          <span class="status-label">COMPASS: OFF</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Permission Banner (Mainly iOS) -->
+    <div id="permission-banner" class="banner hidden">
+      <div class="banner-content">
+        <h3>Sensor Calibration Required</h3>
+        <p>This navigator requires compass and motion data to accurately point towards your targets.</p>
+        <button id="request-permission-btn" class="btn btn-primary">Enable Compass</button>
+      </div>
+    </div>
+
+    <!-- Main Content Tab Area -->
+    <main class="tab-content">
+      
+      <!-- TAB 1: RADAR / COMPASS NAVIGATION -->
+      <section id="tab-radar" class="tab-panel active">
+        <div class="radar-container">
+          <canvas id="radar-canvas"></canvas>
+          
+          <!-- Desktop/Manual Rotation Control Widget -->
+          <div id="manual-rotation-card" class="control-card manual-only hidden">
+            <div class="card-header">
+              <span>Manual Heading Control</span>
+              <span class="badge">Simulator</span>
+            </div>
+            <div class="slider-container">
+              <input type="range" id="heading-slider" min="0" max="359" value="0" class="range-input">
+              <div class="slider-labels">
+                <span id="heading-slider-val">0° (N)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Target HUD Card -->
+        <div id="hud-card" class="hud-card glass-panel">
+          <div class="hud-header">
+            <div class="target-title">
+              <span id="hud-target-name">NO TARGET ACTIVE</span>
+              <span id="hud-target-coords" class="subtle-text">Lat: --.----, Lng: --.----</span>
+            </div>
+            <div class="target-indicator-arrow">
+              <svg viewBox="0 0 24 24" width="24" height="24" class="accent-svg">
+                <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <div class="hud-body">
+            <div class="hud-metric">
+              <span class="metric-label">DISTANCE</span>
+              <span id="hud-distance" class="metric-value">--.- km</span>
+            </div>
+            <div class="hud-metric">
+              <span class="metric-label">TARGET BEARING</span>
+              <span id="hud-bearing" class="metric-value font-tech">---°</span>
+            </div>
+            <div class="hud-metric">
+              <span class="metric-label">YOUR HEADING</span>
+              <span id="hud-heading" class="metric-value font-tech">---°</span>
+            </div>
+          </div>
+          <div class="hud-footer">
+            <span id="hud-relative-angle" class="relative-direction font-tech">---</span>
+            <span id="gps-accuracy" class="accuracy-badge">Accuracy: --m</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: SAVED PLACES -->
+      <section id="tab-saved" class="tab-panel">
+        <div class="tab-header-row">
+          <h2>Saved Locations</h2>
+          <button id="store-current-btn" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+            Save Current Position
+          </button>
+        </div>
+
+        <div id="saved-list" class="places-list">
+          <!-- Dynamically filled list -->
+          <div class="list-placeholder">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" class="subtle-icon">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <p>No locations saved yet. Store your current coordinates or search for places to add them here.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: SEARCH & ADD -->
+      <section id="tab-search" class="tab-panel">
+        <div class="search-section">
+          <h2>Find Locations</h2>
+          <div class="search-bar">
+            <div class="search-input-wrapper">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+              </svg>
+              <input type="text" id="search-input" placeholder="Search address, city, landmark..." autocomplete="off">
+              <button id="search-clear-btn" class="search-clear-btn hidden">&times;</button>
+            </div>
+          </div>
+          
+          <div id="search-loading" class="spinner-container hidden">
+            <span class="spinner"></span>
+            <span class="loading-text">Geocoding via OpenStreetMap...</span>
+          </div>
+
+          <div id="search-results" class="search-results-list hidden">
+            <!-- Search Results populated here -->
+          </div>
+        </div>
+
+        <!-- Manual Coordinates Entry Card -->
+        <div class="manual-entry-card glass-panel">
+          <h3>Manual Coordinates Entry</h3>
+          <form id="manual-coords-form">
+            <div class="form-group">
+              <label for="coord-name">Location Name</label>
+              <input type="text" id="coord-name" placeholder="e.g. Secret Campsite" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="coord-lat">Latitude</label>
+                <input type="number" id="coord-lat" placeholder="e.g. 48.8584" step="any" min="-90" max="90" required>
+              </div>
+              <div class="form-group">
+                <label for="coord-lng">Longitude</label>
+                <input type="number" id="coord-lng" placeholder="e.g. 2.2945" step="any" min="-180" max="180" required>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Add Location to List</button>
+          </form>
+        </div>
+
+        <!-- Preset Targets Card -->
+        <div class="presets-card glass-panel">
+          <h3>Interactive Presets</h3>
+          <p class="subtle-text">Load standard destinations to test calculations and radar pointer instantly:</p>
+          <div class="presets-grid">
+            <button class="btn btn-preset" data-name="Eiffel Tower, Paris" data-lat="48.8584" data-lng="2.2945">🗼 Eiffel Tower</button>
+            <button class="btn btn-preset" data-name="Statue of Liberty, NY" data-lat="40.6892" data-lng="-74.0445">🗽 Statue of Liberty</button>
+            <button class="btn btn-preset" data-name="Big Ben, London" data-lat="51.5007" data-lng="-0.1246">🕰️ Big Ben</button>
+            <button class="btn btn-preset" data-name="Mount Fuji, Japan" data-lat="35.3606" data-lng="138.7274">🗻 Mount Fuji</button>
+            <button class="btn btn-preset" data-name="Sydney Opera House" data-lat="-33.8568" data-lng="151.2153">⛵ Sydney Opera</button>
+            <button class="btn btn-preset" data-name="Taj Mahal, India" data-lat="27.1751" data-lng="78.0421">🕌 Taj Mahal</button>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+
+    <!-- Save Location Modal (Hidden by Default) -->
+    <div id="save-modal" class="modal-overlay hidden">
+      <div class="modal glass-panel">
+        <h3>Save Location</h3>
+        <p class="subtle-text">Enter a custom name for your current location coordinates.</p>
+        <div class="form-group">
+          <input type="text" id="save-modal-name" placeholder="e.g. My Car" required>
+          <div id="save-modal-coords" class="modal-coordinates-preview">Lat: --, Lng: --</div>
+        </div>
+        <div class="modal-buttons">
+          <button id="save-modal-cancel" class="btn btn-secondary">Cancel</button>
+          <button id="save-modal-confirm" class="btn btn-primary">Save Coordinates</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Tab Navigation Bar -->
+    <nav class="app-nav">
+      <button id="nav-btn-radar" class="nav-item active" data-tab="tab-radar">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon">
+          <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><path d="M12 2v20M2 12h20"/>
+        </svg>
+        <span class="nav-label">Radar Navigation</span>
+      </button>
+      <button id="nav-btn-saved" class="nav-item" data-tab="tab-saved">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon">
+          <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span class="nav-label">Saved Places</span>
+      </button>
+      <button id="nav-btn-search" class="nav-item" data-tab="tab-search">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/>
+        </svg>
+        <span class="nav-label">Add Location</span>
+      </button>
+    </nav>
+    
+  </div>
+
+  <!-- Core JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
