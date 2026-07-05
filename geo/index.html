@@ -191,6 +191,32 @@
           </div>
         </div>
       </section>
+
+      <!-- TAB 4: CAMERA / AR NAVIGATION -->
+      <section id="tab-camera" class="tab-panel">
+        <div class="camera-container">
+          <video id="camera-preview" autoplay playsinline muted></video>
+          <canvas id="camera-canvas"></canvas>
+          
+          <!-- Permission and error overlay inside the container -->
+          <div id="camera-error" class="camera-overlay-message hidden">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" class="error-icon">
+              <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+            <p id="camera-error-text">Camera Access Required</p>
+            <button id="camera-retry-btn" class="btn btn-primary">Allow Camera</button>
+          </div>
+          
+          <!-- HUD overlay for active target info in camera view -->
+          <div id="camera-hud" class="camera-hud-overlay hidden">
+            <div class="cam-hud-target">
+              <span id="cam-hud-name">TARGET</span>
+              <span id="cam-hud-distance">-- km</span>
+            </div>
+            <div id="cam-hud-relative" class="cam-hud-direction">--</div>
+          </div>
+        </div>
+      </section>
       
     </main>
 
@@ -229,6 +255,13 @@
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/>
         </svg>
         <span class="nav-label">Add Location</span>
+      </button>
+      <button id="nav-btn-camera" class="nav-item" data-tab="tab-camera">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="nav-icon">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+          <circle cx="12" cy="13" r="4"/>
+        </svg>
+        <span class="nav-label">AR Camera</span>
       </button>
     </nav>
     

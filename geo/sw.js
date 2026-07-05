@@ -1,4 +1,4 @@
-const CACHE_NAME = "geocompass-v1";
+const CACHE_NAME = "geocompass-v2";
 const ASSETS = [
   "./",
   "./index.html",

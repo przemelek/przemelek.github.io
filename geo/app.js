@@ -203,12 +203,30 @@ const elSaveModalConfirm = document.getElementById("save-modal-confirm");
 const elNavButtons = document.querySelectorAll(".nav-item");
 const elTabPanels = document.querySelectorAll(".tab-panel");
 
+// Camera Mode DOM Elements
+let cameraStream = null;
+const elCameraPreview = document.getElementById("camera-preview");
+const elCameraCanvas = document.getElementById("camera-canvas");
+const ctxCamera = elCameraCanvas ? elCameraCanvas.getContext("2d") : null;
+const elCameraError = document.getElementById("camera-error");
+const elCameraErrorText = document.getElementById("camera-error-text");
+const elCameraRetryBtn = document.getElementById("camera-retry-btn");
+const elCameraHud = document.getElementById("camera-hud");
+const elCamHudName = document.getElementById("cam-hud-name");
+const elCamHudDistance = document.getElementById("cam-hud-distance");
+const elCamHudRelative = document.getElementById("cam-hud-relative");
+
 let modalLocationPending = null;
 
 // Initialize Navigation Tabs
 elNavButtons.forEach(button => {
   button.addEventListener("click", () => {
     const targetTab = button.getAttribute("data-tab");
+    
+    // Stop camera if leaving tab-camera
+    if (state.activeTab === "tab-camera" && targetTab !== "tab-camera") {
+      stopCamera();
+    }
     
     // Toggle Nav Buttons
     elNavButtons.forEach(btn => btn.classList.remove("active"));
@@ -220,6 +238,11 @@ elNavButtons.forEach(button => {
     activePanel.classList.add("active");
     
     state.activeTab = targetTab;
+    
+    // Start camera if entering tab-camera
+    if (targetTab === "tab-camera") {
+      startCamera();
+    }
     
     // Re-draw canvas on switching back to radar
     if (targetTab === "tab-radar") {
@@ -421,7 +444,12 @@ function resizeCanvas() {
 }
 
 // Handle resizing dynamically
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener("resize", () => {
+  resizeCanvas();
+  if (state.activeTab === "tab-camera") {
+    resizeCameraCanvas();
+  }
+});
 document.addEventListener("DOMContentLoaded", () => {
   resizeCanvas();
   requestAnimationFrame(renderLoop);
@@ -501,6 +529,10 @@ function renderLoop() {
     
     // Clear and draw
     drawRadar();
+    updateHUD();
+  } else if (state.activeTab === "tab-camera") {
+    state.smoothedHeading = smoothAngle(state.smoothedHeading, state.rawHeading, SMOOTHING_ALPHA);
+    drawCameraView();
     updateHUD();
   }
   
@@ -759,6 +791,25 @@ function updateHUD() {
     
     const cardArrow = elHudCard.querySelector(".target-indicator-arrow");
     cardArrow.style.transform = `rotate(0deg)`;
+  }
+
+  // Update camera HUD overlay if active
+  if (state.activeTab === "tab-camera") {
+    if (primaryTarget && state.currentPos) {
+      const lat1 = state.currentPos.latitude;
+      const lon1 = state.currentPos.longitude;
+      const distance = calculateDistance(lat1, lon1, primaryTarget.lat, primaryTarget.lng);
+      const bearing = calculateBearing(lat1, lon1, primaryTarget.lat, primaryTarget.lng);
+      
+      elCameraHud.classList.remove("hidden");
+      elCamHudName.textContent = primaryTarget.name.split(",")[0].toUpperCase();
+      elCamHudDistance.textContent = formatDistance(distance);
+      elCamHudRelative.textContent = getRelativeDirectionText(bearing, state.rawHeading);
+    } else {
+      elCameraHud.classList.add("hidden");
+    }
+  } else {
+    if (elCameraHud) elCameraHud.classList.add("hidden");
   }
 }
 
@@ -1114,6 +1165,235 @@ function renderSearchResults(results) {
 }
 
 // --------------------------------------------------------------------------
+// 9.5. Camera / AR Navigation Utilities
+// --------------------------------------------------------------------------
+
+async function startCamera() {
+  stopCamera(); // Clean up existing
+  if (elCameraError) elCameraError.classList.add("hidden");
+  
+  try {
+    const constraints = {
+      video: {
+        facingMode: "environment", // Request back/rear camera for AR
+        width: { ideal: 1280 },
+        height: { ideal: 720 }
+      },
+      audio: false
+    };
+    
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    cameraStream = stream;
+    if (elCameraPreview) {
+      elCameraPreview.srcObject = stream;
+      elCameraPreview.play();
+      
+      elCameraPreview.onloadedmetadata = () => {
+        resizeCameraCanvas();
+      };
+    }
+  } catch (err) {
+    console.error("Camera access failed:", err);
+    if (elCameraErrorText) {
+      elCameraErrorText.textContent = "Camera access denied or unavailable. Please ensure camera permissions are granted.";
+    }
+    if (elCameraError) {
+      elCameraError.classList.remove("hidden");
+    }
+  }
+}
+
+function stopCamera() {
+  if (cameraStream) {
+    cameraStream.getTracks().forEach(track => track.stop());
+    cameraStream = null;
+  }
+  if (elCameraPreview) {
+    elCameraPreview.srcObject = null;
+  }
+}
+
+function resizeCameraCanvas() {
+  if (!elCameraCanvas || !elCameraPreview) return;
+  const width = elCameraPreview.clientWidth || elCameraCanvas.parentElement.clientWidth;
+  const height = elCameraPreview.clientHeight || elCameraCanvas.parentElement.clientHeight;
+  
+  const dpr = window.devicePixelRatio || 1;
+  elCameraCanvas.width = width * dpr;
+  elCameraCanvas.height = height * dpr;
+  elCameraCanvas.style.width = `${width}px`;
+  elCameraCanvas.style.height = `${height}px`;
+  
+  if (ctxCamera) {
+    ctxCamera.scale(dpr, dpr);
+  }
+}
+
+function drawCameraView() {
+  if (!elCameraCanvas || !ctxCamera) return;
+  
+  const width = elCameraCanvas.width / (window.devicePixelRatio || 1);
+  const height = elCameraCanvas.height / (window.devicePixelRatio || 1);
+  const cx = width / 2;
+  const cy = height / 2;
+  
+  ctxCamera.clearRect(0, 0, width, height);
+  
+  const activeTargets = state.savedPlaces.filter(t => t.active);
+  const primaryTarget = activeTargets.find(t => t.id === state.primaryTargetId);
+  
+  // Field of View in degrees. Rear camera horizontal FOV is generally ~60 degrees.
+  const FOV = 60;
+  
+  if (state.currentPos) {
+    const lat1 = state.currentPos.latitude;
+    const lon1 = state.currentPos.longitude;
+    
+    activeTargets.forEach(target => {
+      const isPrimary = primaryTarget && target.id === primaryTarget.id;
+      const distance = calculateDistance(lat1, lon1, target.lat, target.lng);
+      const bearing = calculateBearing(lat1, lon1, target.lat, target.lng);
+      
+      // Calculate relative bearing wrapped to [-180, 180]
+      let relAngle = bearing - state.smoothedHeading;
+      while (relAngle < -180) relAngle += 360;
+      while (relAngle > 180) relAngle -= 360;
+      
+      const inFOV = Math.abs(relAngle) <= FOV / 2;
+      
+      if (inFOV) {
+        // Horizontal offset based on FOV
+        const x = cx + (relAngle / (FOV / 2)) * (width / 2);
+        
+        // Vertical placement: higher for farther objects, lower for closer objects
+        const maxDistEffect = 10000; // 10 km
+        const distRatio = Math.min(distance / maxDistEffect, 1);
+        const y = cy - 30 - (distRatio - 0.5) * 60;
+        
+        ctxCamera.save();
+        
+        // Glow effect
+        ctxCamera.shadowColor = isPrimary ? "rgba(6, 182, 212, 0.8)" : "rgba(59, 130, 246, 0.6)";
+        ctxCamera.shadowBlur = 8;
+        
+        // 1. Dotted height guideline to ground
+        ctxCamera.strokeStyle = isPrimary ? "rgba(6, 182, 212, 0.4)" : "rgba(59, 130, 246, 0.25)";
+        ctxCamera.lineWidth = isPrimary ? 2 : 1;
+        ctxCamera.setLineDash([4, 4]);
+        ctxCamera.beginPath();
+        ctxCamera.moveTo(x, y + 10);
+        ctxCamera.lineTo(x, height);
+        ctxCamera.stroke();
+        ctxCamera.setLineDash([]);
+        
+        // 2. Target Diamond pin
+        ctxCamera.fillStyle = isPrimary ? "#06b6d4" : "#3b82f6";
+        ctxCamera.beginPath();
+        ctxCamera.moveTo(x, y - 10);
+        ctxCamera.lineTo(x - 8, y);
+        ctxCamera.lineTo(x, y + 10);
+        ctxCamera.lineTo(x + 8, y);
+        ctxCamera.closePath();
+        ctxCamera.fill();
+        
+        ctxCamera.fillStyle = "#ffffff";
+        ctxCamera.beginPath();
+        ctxCamera.arc(x, y, 3, 0, Math.PI * 2);
+        ctxCamera.fill();
+        
+        // 3. Label tag box
+        const label = target.name.split(",")[0];
+        const distLabel = formatDistance(distance);
+        const text = `${label} (${distLabel})`;
+        
+        ctxCamera.font = isPrimary ? "bold 11px 'Inter', sans-serif" : "10px 'Inter', sans-serif";
+        const textWidth = ctxCamera.measureText(text).width;
+        const boxWidth = textWidth + 16;
+        const boxHeight = 22;
+        const boxX = x - boxWidth / 2;
+        const boxY = y - 36;
+        
+        ctxCamera.fillStyle = isPrimary ? "rgba(15, 23, 42, 0.85)" : "rgba(15, 23, 42, 0.75)";
+        ctxCamera.strokeStyle = isPrimary ? "#06b6d4" : "rgba(59, 130, 246, 0.5)";
+        ctxCamera.lineWidth = 1;
+        
+        drawRoundedRect(ctxCamera, boxX, boxY, boxWidth, boxHeight, 6);
+        ctxCamera.fill();
+        ctxCamera.stroke();
+        
+        ctxCamera.fillStyle = "#ffffff";
+        ctxCamera.textAlign = "center";
+        ctxCamera.textBaseline = "middle";
+        ctxCamera.fillText(text, x, boxY + boxHeight / 2);
+        
+        ctxCamera.restore();
+      } else if (isPrimary) {
+        // Draw off-screen helper arrow for primary target
+        ctxCamera.save();
+        
+        const isRight = relAngle > 0;
+        const arrowX = isRight ? width - 30 : 30;
+        const arrowY = cy;
+        
+        ctxCamera.shadowColor = "rgba(6, 182, 212, 0.8)";
+        ctxCamera.shadowBlur = 10;
+        ctxCamera.fillStyle = "#06b6d4";
+        
+        ctxCamera.translate(arrowX, arrowY);
+        if (!isRight) {
+          ctxCamera.rotate(Math.PI);
+        }
+        
+        ctxCamera.beginPath();
+        ctxCamera.moveTo(10, 0);
+        ctxCamera.lineTo(-6, -10);
+        ctxCamera.lineTo(-2, 0);
+        ctxCamera.lineTo(-6, 10);
+        ctxCamera.closePath();
+        ctxCamera.fill();
+        
+        ctxCamera.restore();
+        
+        // Add directions text label
+        ctxCamera.save();
+        ctxCamera.fillStyle = "#ffffff";
+        ctxCamera.font = "bold 11px 'Orbitron', sans-serif";
+        ctxCamera.textAlign = isRight ? "right" : "left";
+        ctxCamera.textBaseline = "middle";
+        
+        const turnAngle = Math.round(Math.abs(relAngle));
+        const directionText = isRight ? `TURN RIGHT ${turnAngle}°` : `TURN LEFT ${turnAngle}°`;
+        const textX = isRight ? width - 50 : 50;
+        
+        ctxCamera.shadowColor = "rgba(0, 0, 0, 0.5)";
+        ctxCamera.shadowBlur = 4;
+        ctxCamera.fillText(directionText, textX, cy - 20);
+        
+        ctxCamera.font = "10px 'Inter', sans-serif";
+        ctxCamera.fillStyle = "rgba(255, 255, 255, 0.8)";
+        ctxCamera.fillText(target.name.split(",")[0], textX, cy + 20);
+        
+        ctxCamera.restore();
+      }
+    });
+  }
+}
+
+function drawRoundedRect(ctx, x, y, width, height, radius) {
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+}
+
+// --------------------------------------------------------------------------
 // 10. Startup Initialization sequence
 // --------------------------------------------------------------------------
 
@@ -1129,6 +1409,13 @@ function init() {
   
   // Initialize Orientation / Compass listener
   initCompass();
+  
+  // Bind camera retry button
+  if (elCameraRetryBtn) {
+    elCameraRetryBtn.onclick = () => {
+      startCamera();
+    };
+  }
   
   // Register PWA service worker if supported
   if ("serviceWorker" in navigator) {
