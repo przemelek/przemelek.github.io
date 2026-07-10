@@ -35,10 +35,16 @@
           <span class="status-dot"></span>
           <span class="status-label">GPS LOCKING</span>
         </div>
-        <div id="compass-status" class="status-pill status-inactive" title="Compass Status">
+        <div id="compass-status" class="status-pill status-inactive" title="Compass Status (Click to Tune)" style="cursor: pointer;">
           <span class="status-dot"></span>
           <span class="status-label">COMPASS: OFF</span>
         </div>
+        <button id="compass-tune-btn" class="btn-icon-header" title="Tune Compass & Calibration">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </button>
       </div>
     </header>
 
@@ -219,6 +225,50 @@
       </section>
       
     </main>
+
+    <!-- Compass Tuning Control Drawer (Hidden by Default) -->
+    <div id="compass-tune-drawer" class="tune-drawer glass-panel hidden">
+      <div class="drawer-header">
+        <h4>Compass Calibration & Offset</h4>
+        <button id="close-tune-btn" class="close-btn">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <p class="subtle-text">If the compass direction is shifted (e.g. 15-30°), apply a manual offset or calibrate sensors to align correctly.</p>
+        
+        <div class="tune-section">
+          <div class="tune-row">
+            <span class="tune-label">Manual Offset</span>
+            <span id="offset-value-display" class="font-tech text-cyan">0°</span>
+          </div>
+          <div class="offset-slider-container">
+            <button type="button" id="offset-minus-btn" class="btn-icon-small" title="Decrease Offset">&minus;</button>
+            <input type="range" id="offset-slider" min="-180" max="180" value="0" class="range-input">
+            <button type="button" id="offset-plus-btn" class="btn-icon-small" title="Increase Offset">+</button>
+          </div>
+          <div class="offset-actions">
+            <button type="button" id="offset-reset-btn" class="btn btn-secondary btn-small">Reset Offset</button>
+            <label class="checkbox-container subtle-text" style="display: inline-flex; align-items: center; gap: 6px; margin: 0; cursor: pointer;">
+              <input type="checkbox" id="offset-keep-checkbox" checked style="width: auto; margin: 0;">
+              Keep offset (persist)
+            </label>
+          </div>
+        </div>
+        
+        <hr class="drawer-divider">
+        
+        <div class="calibration-section">
+          <button type="button" id="request-recalibrate-btn" class="btn btn-primary w-full" style="padding: 8px 16px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            Calibrate Sensors
+          </button>
+          <p class="calibration-instruction subtle-text">
+            Restarts magnetometer tracking. Calibrate by waving your device in a 3D figure-8 pattern several times.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <!-- Save Location Modal (Hidden by Default) -->
     <div id="save-modal" class="modal-overlay hidden">

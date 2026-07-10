@@ -17,6 +17,8 @@ const DEFAULT_PRESETS = [
 const state = {
   currentPos: null,          // { latitude, longitude, accuracy }
   rawHeading: 0,             // Raw sensor compass degrees (0-360)
+  headingOffset: 0,          // Calibration offset in degrees (-180 to 180)
+  keepOffset: true,          // Persistent offset across reloads
   smoothedHeading: 0,        // Smoothed compass degrees for drawing
   savedPlaces: [],           // Array of { id, name, lat, lng, active }
   primaryTargetId: null,     // ID of the currently focused target
@@ -135,16 +137,22 @@ function loadState() {
       const parsed = JSON.parse(raw);
       state.savedPlaces = parsed.savedPlaces || [];
       state.primaryTargetId = parsed.primaryTargetId || null;
+      state.keepOffset = parsed.keepOffset !== undefined ? parsed.keepOffset : true;
+      state.headingOffset = state.keepOffset ? (parsed.headingOffset || 0) : 0;
     } else {
       // Load presets as initial data
       state.savedPlaces = [...DEFAULT_PRESETS];
       state.primaryTargetId = "p1";
+      state.headingOffset = 0;
+      state.keepOffset = true;
       saveState();
     }
   } catch (err) {
     console.error("Failed to load state from localStorage:", err);
     state.savedPlaces = [...DEFAULT_PRESETS];
     state.primaryTargetId = "p1";
+    state.headingOffset = 0;
+    state.keepOffset = true;
   }
 }
 
@@ -152,7 +160,9 @@ function saveState() {
   try {
     localStorage.setItem(STATE_KEY, JSON.stringify({
       savedPlaces: state.savedPlaces,
-      primaryTargetId: state.primaryTargetId
+      primaryTargetId: state.primaryTargetId,
+      headingOffset: state.keepOffset ? state.headingOffset : 0,
+      keepOffset: state.keepOffset
     }));
   } catch (err) {
     console.error("Failed to save state to localStorage:", err);
@@ -167,6 +177,18 @@ const elGpsStatus = document.getElementById("gps-status");
 const elCompassStatus = document.getElementById("compass-status");
 const elPermissionBanner = document.getElementById("permission-banner");
 const elRequestPermissionBtn = document.getElementById("request-permission-btn");
+
+// Compass Tuning DOM Elements
+const elCompassTuneBtn = document.getElementById("compass-tune-btn");
+const elCompassTuneDrawer = document.getElementById("compass-tune-drawer");
+const elCloseTuneBtn = document.getElementById("close-tune-btn");
+const elOffsetSlider = document.getElementById("offset-slider");
+const elOffsetValueDisplay = document.getElementById("offset-value-display");
+const elOffsetMinusBtn = document.getElementById("offset-minus-btn");
+const elOffsetPlusBtn = document.getElementById("offset-plus-btn");
+const elOffsetResetBtn = document.getElementById("offset-reset-btn");
+const elOffsetKeepCheckbox = document.getElementById("offset-keep-checkbox");
+const elRequestRecalibrateBtn = document.getElementById("request-recalibrate-btn");
 
 const elHudCard = document.getElementById("hud-card");
 const elHudTargetName = document.getElementById("hud-target-name");
@@ -523,15 +545,20 @@ canvas.addEventListener("touchend", () => {
  * Main Dynamic Render Loop (Running via requestAnimationFrame)
  */
 function renderLoop() {
+  // Apply offset to raw sensor reading, except in simulator MANUAL mode which is directly set
+  const targetHeading = state.compassStatus === "MANUAL"
+    ? state.rawHeading
+    : normalizeAngle(state.rawHeading + (state.headingOffset || 0));
+
   if (state.activeTab === "tab-radar") {
     // Smooth the compass headings using the Low-Pass Filter
-    state.smoothedHeading = smoothAngle(state.smoothedHeading, state.rawHeading, SMOOTHING_ALPHA);
+    state.smoothedHeading = smoothAngle(state.smoothedHeading, targetHeading, SMOOTHING_ALPHA);
     
     // Clear and draw
     drawRadar();
     updateHUD();
   } else if (state.activeTab === "tab-camera") {
-    state.smoothedHeading = smoothAngle(state.smoothedHeading, state.rawHeading, SMOOTHING_ALPHA);
+    state.smoothedHeading = smoothAngle(state.smoothedHeading, targetHeading, SMOOTHING_ALPHA);
     drawCameraView();
     updateHUD();
   }
@@ -755,8 +782,13 @@ function updateHUD() {
   const activeTargets = state.savedPlaces.filter(t => t.active);
   const primaryTarget = activeTargets.find(t => t.id === state.primaryTargetId);
 
+  // Apply offset to display heading (unless manual simulator is active)
+  const displayHeading = state.compassStatus === "MANUAL"
+    ? state.rawHeading
+    : normalizeAngle(state.rawHeading + (state.headingOffset || 0));
+
   // Update current heading readout
-  const formattedHeading = `${Math.round(state.rawHeading).toString().padStart(3, '0')}°`;
+  const formattedHeading = `${Math.round(displayHeading).toString().padStart(3, '0')}°`;
   elHudHeading.textContent = formattedHeading;
 
   if (primaryTarget && state.currentPos) {
@@ -767,7 +799,7 @@ function updateHUD() {
     const bearing = calculateBearing(lat1, lon1, primaryTarget.lat, primaryTarget.lng);
     
     // Relative pointer rotate
-    const relativeAngle = (bearing - state.rawHeading + 360) % 360;
+    const relativeAngle = (bearing - displayHeading + 360) % 360;
 
     elHudCard.classList.add("active-nav");
     elHudTargetName.textContent = primaryTarget.name.toUpperCase();
@@ -775,7 +807,7 @@ function updateHUD() {
     
     elHudDistance.textContent = formatDistance(distance);
     elHudBearing.textContent = `${Math.round(bearing).toString().padStart(3, '0')}°`;
-    elHudRelativeAngle.textContent = getRelativeDirectionText(bearing, state.rawHeading);
+    elHudRelativeAngle.textContent = getRelativeDirectionText(bearing, displayHeading);
     
     // Rotate target arrow inside card
     const cardArrow = elHudCard.querySelector(".target-indicator-arrow");
@@ -804,7 +836,7 @@ function updateHUD() {
       elCameraHud.classList.remove("hidden");
       elCamHudName.textContent = primaryTarget.name.split(",")[0].toUpperCase();
       elCamHudDistance.textContent = formatDistance(distance);
-      elCamHudRelative.textContent = getRelativeDirectionText(bearing, state.rawHeading);
+      elCamHudRelative.textContent = getRelativeDirectionText(bearing, displayHeading);
     } else {
       elCameraHud.classList.add("hidden");
     }
@@ -1410,6 +1442,9 @@ function init() {
   // Initialize Orientation / Compass listener
   initCompass();
   
+  // Initialize Compass Tuning & Calibration Controls
+  initCompassTuning();
+  
   // Bind camera retry button
   if (elCameraRetryBtn) {
     elCameraRetryBtn.onclick = () => {
@@ -1425,6 +1460,129 @@ function init() {
         .catch(err => console.error("[PWA] Service Worker registration failed:", err));
     });
   }
+}
+
+// --------------------------------------------------------------------------
+// 11. Compass Calibration & Tuning Systems
+// --------------------------------------------------------------------------
+
+function initCompassTuning() {
+  if (elOffsetSlider) {
+    elOffsetSlider.value = state.headingOffset;
+    elOffsetSlider.addEventListener("input", (e) => {
+      updateOffset(e.target.value);
+    });
+  }
+  
+  if (elOffsetValueDisplay) {
+    elOffsetValueDisplay.textContent = (state.headingOffset > 0 ? "+" : "") + state.headingOffset + "°";
+  }
+  
+  if (elOffsetKeepCheckbox) {
+    elOffsetKeepCheckbox.checked = state.keepOffset;
+    elOffsetKeepCheckbox.addEventListener("change", (e) => {
+      state.keepOffset = e.target.checked;
+      saveState();
+    });
+  }
+  
+  if (elCompassTuneBtn) {
+    elCompassTuneBtn.addEventListener("click", toggleTuneDrawer);
+  }
+  
+  if (elCompassStatus) {
+    elCompassStatus.addEventListener("click", toggleTuneDrawer);
+  }
+  
+  if (elCloseTuneBtn) {
+    elCloseTuneBtn.addEventListener("click", () => {
+      elCompassTuneDrawer.classList.add("hidden");
+    });
+  }
+  
+  if (elOffsetMinusBtn) {
+    elOffsetMinusBtn.addEventListener("click", () => {
+      let val = state.headingOffset - 1;
+      if (val < -180) val = 180;
+      updateOffset(val);
+    });
+  }
+  
+  if (elOffsetPlusBtn) {
+    elOffsetPlusBtn.addEventListener("click", () => {
+      let val = state.headingOffset + 1;
+      if (val > 180) val = -180;
+      updateOffset(val);
+    });
+  }
+  
+  if (elOffsetResetBtn) {
+    elOffsetResetBtn.addEventListener("click", () => {
+      updateOffset(0);
+    });
+  }
+  
+  if (elRequestRecalibrateBtn) {
+    elRequestRecalibrateBtn.addEventListener("click", recalibrateCompass);
+  }
+  
+  // Listen to native compass needs calibration event
+  window.addEventListener("compassneedscalibration", (event) => {
+    event.preventDefault();
+    state.compassStatus = "CALIBRATING";
+    updateStatusUI();
+    showToast("Compass calibration needed! Wave device in a figure-8 motion.");
+  }, true);
+}
+
+function toggleTuneDrawer() {
+  if (elCompassTuneDrawer) {
+    elCompassTuneDrawer.classList.toggle("hidden");
+  }
+}
+
+function updateOffset(val) {
+  state.headingOffset = parseInt(val);
+  if (elOffsetSlider) {
+    elOffsetSlider.value = state.headingOffset;
+  }
+  if (elOffsetValueDisplay) {
+    elOffsetValueDisplay.textContent = (state.headingOffset > 0 ? "+" : "") + state.headingOffset + "°";
+  }
+  saveState();
+}
+
+function recalibrateCompass() {
+  // ponytail: Web APIs cannot trigger native system-level magnetometer calibration directly.
+  // We restart browser orientation listeners and display instructions to trigger figure-8 calibration.
+  // Restart listeners
+  window.removeEventListener("deviceorientation", onOrientation, true);
+  window.removeEventListener("deviceorientationabsolute", onOrientation, true);
+  
+  state.compassStatus = "CALIBRATING";
+  updateStatusUI();
+  
+  initCompass();
+  
+  showToast("Compass sensors re-initialized. Wave device in a figure-8 to calibrate.");
+}
+
+function showToast(message) {
+  const existing = document.getElementById("app-toast");
+  if (existing) existing.remove();
+  
+  const toast = document.createElement("div");
+  toast.id = "app-toast";
+  toast.className = "toast";
+  toast.textContent = message;
+  
+  document.body.appendChild(toast);
+  
+  setTimeout(() => toast.classList.add("show"), 50);
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 4000);
 }
 
 // Kick off initialization
