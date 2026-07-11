@@ -24,6 +24,8 @@ const state = {
   primaryTargetId: null,     // ID of the currently focused target
   gpsStatus: "LOCKING",      // LOCKING, ACTIVE, ERROR
   compassStatus: "OFF",      // OFF, CALIBRATING, ACTIVE, MANUAL
+  compassAccuracy: null,     // Estimated heading error in degrees when supplied by the platform
+  compassSource: null,       // "ios", "absolute", or "manual"
   activeTab: "tab-radar",    // tab-radar, tab-saved, tab-search
   isSimulatorActive: false,  // If manual heading slider is visible
   activeKeys: {},
@@ -32,6 +34,7 @@ const state = {
 
 // Compass smoothing coefficient (lower = smoother, higher = faster response)
 const SMOOTHING_ALPHA = 0.08;
+let compassPermissionGranted = false;
 
 // --------------------------------------------------------------------------
 // 2. Geodesic Calculations & Mathematics
@@ -293,7 +296,10 @@ function updateStatusUI() {
   // Compass Indicator
   if (state.compassStatus === "ACTIVE") {
     elCompassStatus.className = "status-pill status-active";
-    elCompassStatus.querySelector(".status-label").textContent = `COMPASS: ON`;
+    const accuracy = Number.isFinite(state.compassAccuracy)
+      ? ` ±${Math.round(state.compassAccuracy)}°`
+      : "";
+    elCompassStatus.querySelector(".status-label").textContent = `COMPASS: ON${accuracy}`;
     elManualRotationCard.classList.add("hidden");
   } else if (state.compassStatus === "MANUAL") {
     elCompassStatus.className = "status-pill status-manual";
@@ -348,31 +354,101 @@ function initGPS() {
   );
 }
 
+/**
+ * Returns an earth-referenced heading for the direction the user/camera faces.
+ * This is the tilt-compensated algorithm from the Device Orientation spec.
+ * When the phone is flat, its top edge is used as the facing direction.
+ */
+function calculateCompassHeading(alpha, beta, gamma) {
+  if (![alpha, beta, gamma].every(Number.isFinite)) return null;
+
+  const degToRad = Math.PI / 180;
+  const x = beta * degToRad;
+  const y = gamma * degToRad;
+  const z = alpha * degToRad;
+  const cX = Math.cos(x);
+  const cY = Math.cos(y);
+  const cZ = Math.cos(z);
+  const sX = Math.sin(x);
+  const sY = Math.sin(y);
+  const sZ = Math.sin(z);
+
+  const vX = -cZ * sY - sZ * sX * cY;
+  const vY = -sZ * sY + cZ * sX * cY;
+
+  // With the screen almost horizontal, the camera-facing vector has no useful
+  // horizontal projection. In that posture, use the top edge of the phone.
+  if (Math.hypot(vX, vY) < 0.01) {
+    return normalizeAngle(360 - alpha + getScreenOrientationAngle());
+  }
+
+  return normalizeAngle(Math.atan2(vX, vY) * 180 / Math.PI);
+}
+
+function getScreenOrientationAngle() {
+  if (screen.orientation && Number.isFinite(screen.orientation.angle)) {
+    return screen.orientation.angle;
+  }
+  return Number.isFinite(window.orientation) ? window.orientation : 0;
+}
+
+function acceptCompassHeading(heading, source, accuracy = null) {
+  if (!Number.isFinite(heading)) return;
+
+  const wasInactive = state.compassStatus !== "ACTIVE";
+  state.rawHeading = normalizeAngle(heading);
+  state.compassSource = source;
+  state.compassAccuracy = Number.isFinite(accuracy) ? accuracy : null;
+  state.compassStatus = "ACTIVE";
+
+  // Avoid animating all the way from north when the first real reading arrives.
+  if (wasInactive) state.smoothedHeading = state.rawHeading;
+  updateStatusUI();
+}
+
 // Device Orientation Handling
 function onOrientation(event) {
-  let heading = null;
-
-  // iOS True North heading
-  if (event.webkitCompassHeading !== undefined) {
-    heading = event.webkitCompassHeading;
-    state.compassStatus = "ACTIVE";
-  } 
-  // Standard Absolute alpha orientation
-  else if (event.absolute === true && event.alpha !== null) {
-    heading = (360 - event.alpha) % 360;
-    state.compassStatus = "ACTIVE";
-  }
-  // Standard orientation fallback
-  else if (event.alpha !== null) {
-    heading = (360 - event.alpha) % 360;
-    if (state.compassStatus === "OFF") {
+  // Safari/iOS exposes a north-referenced compass value directly. A negative
+  // accuracy means the magnetometer is not calibrated and must not be trusted.
+  if (Number.isFinite(event.webkitCompassHeading)) {
+    const accuracy = Number.isFinite(event.webkitCompassAccuracy)
+      ? event.webkitCompassAccuracy
+      : null;
+    if (accuracy !== null && accuracy < 0) {
       state.compassStatus = "CALIBRATING";
+      state.compassAccuracy = null;
+      updateStatusUI();
+      return;
     }
+
+    const nativeHeading = normalizeAngle(
+      event.webkitCompassHeading + getScreenOrientationAngle()
+    );
+    let heading = nativeHeading;
+
+    // webkitCompassHeading supplies the reliable north reference on iOS.
+    // Anchor the full Euler calculation to it so an upright/tilted phone uses
+    // the camera-facing vector instead of only the device's top edge.
+    const tiltHeading = calculateCompassHeading(event.alpha, event.beta, event.gamma);
+    if (tiltHeading !== null) {
+      const uncorrectedTopHeading = normalizeAngle(
+        360 - event.alpha + getScreenOrientationAngle()
+      );
+      let referenceCorrection = nativeHeading - uncorrectedTopHeading;
+      if (referenceCorrection > 180) referenceCorrection -= 360;
+      if (referenceCorrection < -180) referenceCorrection += 360;
+      heading = normalizeAngle(tiltHeading + referenceCorrection);
+    }
+
+    acceptCompassHeading(heading, "ios", accuracy);
+    return;
   }
 
-  if (heading !== null) {
-    state.rawHeading = heading;
-    updateStatusUI();
+  // Pixel/Chrome supplies absolute alpha/beta/gamma. Relative events have an
+  // arbitrary origin and are deliberately ignored for navigation.
+  if (event.absolute === true) {
+    const heading = calculateCompassHeading(event.alpha, event.beta, event.gamma);
+    acceptCompassHeading(heading, "absolute");
   }
 }
 
@@ -383,12 +459,21 @@ function initCompass() {
     typeof DeviceOrientationEvent.requestPermission === 'function';
 
   if (requiresPermission) {
+    if (compassPermissionGranted) {
+      elPermissionBanner.classList.add("hidden");
+      window.addEventListener("deviceorientation", onOrientation, true);
+      state.compassStatus = "CALIBRATING";
+      updateStatusUI();
+      return;
+    }
+
     elPermissionBanner.classList.remove("hidden");
     
     elRequestPermissionBtn.onclick = () => {
       DeviceOrientationEvent.requestPermission()
         .then(response => {
           if (response === 'granted') {
+            compassPermissionGranted = true;
             elPermissionBanner.classList.add("hidden");
             window.addEventListener("deviceorientation", onOrientation, true);
             state.compassStatus = "CALIBRATING";
@@ -407,6 +492,9 @@ function initCompass() {
     // Normal browser sensor binding
     if ('ondeviceorientationabsolute' in window) {
       window.addEventListener('deviceorientationabsolute', onOrientation, true);
+      // Some Chromium versions expose the absolute handler but deliver the
+      // usable earth-referenced reading through deviceorientation instead.
+      window.addEventListener('deviceorientation', onOrientation, true);
     } else if ('ondeviceorientation' in window) {
       window.addEventListener('deviceorientation', onOrientation, true);
     } else {
@@ -418,12 +506,14 @@ function initCompass() {
       if (state.compassStatus === "OFF") {
         activateManualCompass();
       }
-    }, 1500);
+    }, 2500);
   }
 }
 
 function activateManualCompass() {
   state.compassStatus = "MANUAL";
+  state.compassSource = "manual";
+  state.compassAccuracy = null;
   state.rawHeading = parseFloat(elHeadingSlider.value);
   state.smoothedHeading = state.rawHeading;
   updateStatusUI();
@@ -783,9 +873,9 @@ function updateHUD() {
   const primaryTarget = activeTargets.find(t => t.id === state.primaryTargetId);
 
   // Apply offset to display heading (unless manual simulator is active)
-  const displayHeading = state.compassStatus === "MANUAL"
-    ? state.rawHeading
-    : normalizeAngle(state.rawHeading + (state.headingOffset || 0));
+  // Use the same filtered heading as the radar/camera so visual and textual
+  // directions cannot temporarily disagree while the sensor is moving.
+  const displayHeading = state.smoothedHeading;
 
   // Update current heading readout
   const formattedHeading = `${Math.round(displayHeading).toString().padStart(3, '0')}°`;
