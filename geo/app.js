@@ -20,6 +20,7 @@ const state = {
   headingOffset: 0,          // Calibration offset in degrees (-180 to 180)
   keepOffset: true,          // Persistent offset across reloads
   smoothedHeading: 0,        // Smoothed compass degrees for drawing
+  referenceCorrection: null, // Smoothed absolute-to-relative frame offset (degrees)
   savedPlaces: [],           // Array of { id, name, lat, lng, active }
   primaryTargetId: null,     // ID of the currently focused target
   gpsStatus: "LOCKING",      // LOCKING, ACTIVE, ERROR
@@ -434,10 +435,23 @@ function onOrientation(event) {
       const uncorrectedTopHeading = normalizeAngle(
         360 - event.alpha + getScreenOrientationAngle()
       );
-      let referenceCorrection = nativeHeading - uncorrectedTopHeading;
-      if (referenceCorrection > 180) referenceCorrection -= 360;
-      if (referenceCorrection < -180) referenceCorrection += 360;
-      heading = normalizeAngle(tiltHeading + referenceCorrection);
+      let instantCorrection = nativeHeading - uncorrectedTopHeading;
+      if (instantCorrection > 180) instantCorrection -= 360;
+      if (instantCorrection < -180) instantCorrection += 360;
+
+      if (state.referenceCorrection === null) {
+        state.referenceCorrection = normalizeAngle(instantCorrection);
+      } else {
+        const betaRad = event.beta * Math.PI / 180;
+        const gammaRad = event.gamma * Math.PI / 180;
+        const flatness = Math.abs(Math.cos(betaRad) * Math.cos(gammaRad));
+        // ponytail: Dynamic low-pass complementary filter to handle iPhone vertical (camera mode) gimbal lock.
+        // Magnetometer (webkitCompassHeading) is highly unstable when phone is vertical because its top edge points
+        // to the sky. We heavily filter/average the yaw correction factor when vertical, relying on stable gyro integration.
+        const k = 0.002 + 0.08 * flatness * flatness;
+        state.referenceCorrection = smoothAngle(state.referenceCorrection, instantCorrection, k);
+      }
+      heading = normalizeAngle(tiltHeading + state.referenceCorrection);
     }
 
     acceptCompassHeading(heading, "ios", accuracy);
@@ -1650,6 +1664,7 @@ function recalibrateCompass() {
   window.removeEventListener("deviceorientationabsolute", onOrientation, true);
   
   state.compassStatus = "CALIBRATING";
+  state.referenceCorrection = null;
   updateStatusUI();
   
   initCompass();
