@@ -1398,9 +1398,11 @@ async function startCamera() {
     const constraints = {
       video: {
         facingMode: "environment", // Request back/rear camera for AR
-        width: { ideal: 720 },
-        height: { ideal: 1280 },
-        aspectRatio: { ideal: 9 / 16 }
+        // Camera constraints describe the sensor stream, not how the user is
+        // holding the phone. Forcing 9:16 makes iOS Safari crop a normal rear
+        // camera stream and can look like an unintended ~3x zoom.
+        width: { ideal: 1280 },
+        height: { ideal: 720 }
       },
       audio: false
     };
