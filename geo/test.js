@@ -1,4 +1,4 @@
-// Assert-based self-check for smoothAngle and complementary filter logic
+// Assert-based self-check for smoothAngle, complementary filter, and moving average logic
 const assert = require('assert');
 
 function normalizeAngle(angle) {
@@ -60,4 +60,42 @@ const kVertical = updateFilter(90, 0, 180); // k = 0.002
 assert.ok(kVertical < 0.003);
 assert.ok(Math.abs(referenceCorrection - 45) < 0.3); // hardly moved despite 135 deg noise jump!
 
-console.log("All complementary filter and smoothAngle tests passed successfully!");
+
+// Test 5: 15-sample vector moving average simulation
+let headingHistory = null;
+
+function processMovingAverage(heading) {
+  const rad = heading * Math.PI / 180;
+  if (!headingHistory) {
+    headingHistory = Array(15).fill({ x: Math.cos(rad), y: Math.sin(rad) });
+  } else {
+    headingHistory.push({ x: Math.cos(rad), y: Math.sin(rad) });
+    if (headingHistory.length > 15) {
+      headingHistory.shift();
+    }
+  }
+
+  let sumX = 0;
+  let sumY = 0;
+  for (let i = 0; i < headingHistory.length; i++) {
+    sumX += headingHistory[i].x;
+    sumY += headingHistory[i].y;
+  }
+  return normalizeAngle(Math.atan2(sumY, sumX) * 180 / Math.PI);
+}
+
+// 5.1 Initialize with 350
+let avg = processMovingAverage(350);
+assert.strictEqual(Math.round(avg), 350);
+
+// 5.2 Add single sample of 10 degrees. It should smooth wrap-around correctly.
+// Since buffer has 14 samples of 350 and 1 sample of 10:
+// Diff is +20 degrees (from 350 to 10 clockwise).
+// Average should shift slightly clockwise from 350 (i.e. towards 351).
+avg = processMovingAverage(10);
+assert.ok(avg > 350 && avg < 352);
+
+// 5.3 Verify that wrap-around is handled properly (no massive jump to 180 deg)
+assert.ok(Math.abs(avg - 350) < 10);
+
+console.log("All complementary filter, smoothAngle, and vector moving average tests passed successfully!");

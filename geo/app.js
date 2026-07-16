@@ -21,6 +21,7 @@ const state = {
   keepOffset: true,          // Persistent offset across reloads
   smoothedHeading: 0,        // Smoothed compass degrees for drawing
   referenceCorrection: null, // Smoothed absolute-to-relative frame offset (degrees)
+  headingHistory: null,      // Rolling history of compass vectors for moving average
   savedPlaces: [],           // Array of { id, name, lat, lng, active }
   primaryTargetId: null,     // ID of the currently focused target
   gpsStatus: "LOCKING",      // LOCKING, ACTIVE, ERROR
@@ -379,7 +380,9 @@ function calculateCompassHeading(alpha, beta, gamma) {
 
   // With the screen almost horizontal, the camera-facing vector has no useful
   // horizontal projection. In that posture, use the top edge of the phone.
-  if (Math.hypot(vX, vY) < 0.01) {
+  // ponytail: Increase threshold from 0.01 (~0.5 deg tilt) to 0.6 (~37 deg tilt)
+  // to avoid using the extremely noisy camera-facing vector when phone is flat-ish.
+  if (Math.hypot(vX, vY) < 0.6) {
     return normalizeAngle(360 - alpha + getScreenOrientationAngle());
   }
 
@@ -397,7 +400,27 @@ function acceptCompassHeading(heading, source, accuracy = null) {
   if (!Number.isFinite(heading)) return;
 
   const wasInactive = state.compassStatus !== "ACTIVE";
-  state.rawHeading = normalizeAngle(heading);
+
+  // ponytail: Apply a rolling vector moving average to smooth out high-frequency magnetometer noise.
+  const rad = heading * Math.PI / 180;
+  if (!state.headingHistory || wasInactive) {
+    state.headingHistory = Array(15).fill({ x: Math.cos(rad), y: Math.sin(rad) });
+  } else {
+    state.headingHistory.push({ x: Math.cos(rad), y: Math.sin(rad) });
+    if (state.headingHistory.length > 15) {
+      state.headingHistory.shift();
+    }
+  }
+
+  let sumX = 0;
+  let sumY = 0;
+  for (let i = 0; i < state.headingHistory.length; i++) {
+    sumX += state.headingHistory[i].x;
+    sumY += state.headingHistory[i].y;
+  }
+  const avgHeading = normalizeAngle(Math.atan2(sumY, sumX) * 180 / Math.PI);
+
+  state.rawHeading = avgHeading;
   state.compassSource = source;
   state.compassAccuracy = Number.isFinite(accuracy) ? accuracy : null;
   state.compassStatus = "ACTIVE";
@@ -1665,6 +1688,7 @@ function recalibrateCompass() {
   
   state.compassStatus = "CALIBRATING";
   state.referenceCorrection = null;
+  state.headingHistory = null;
   updateStatusUI();
   
   initCompass();
