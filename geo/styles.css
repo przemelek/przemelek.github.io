@@ -1077,6 +1077,28 @@ input[type="number"]:focus {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   animation: drawer-slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  max-height: calc(100% - var(--nav-height) - 36px);
+  overflow-y: auto;
+}
+
+.camera-setting-label {
+  display: block;
+  margin: 10px 0 5px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.camera-setting-select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  background: rgba(15, 23, 42, 0.92);
+}
+
+.camera-slider-heading {
+  margin-top: 12px;
 }
 
 @keyframes drawer-slide-up {
@@ -1476,4 +1498,3 @@ input[type="number"]:focus {
   color: var(--accent-amber);
   font-weight: 600;
 }
-

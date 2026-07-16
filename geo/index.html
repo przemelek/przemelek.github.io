@@ -255,6 +255,44 @@
         </div>
         
         <hr class="drawer-divider">
+
+        <div class="tune-section camera-tune-section">
+          <div class="tune-row">
+            <span class="tune-label">Camera Alignment</span>
+            <span id="camera-fov-status" class="font-tech text-cyan">VISIBLE FOV: --°</span>
+          </div>
+          <label class="camera-setting-label" for="camera-profile-select">Phone profile</label>
+          <select id="camera-profile-select" class="camera-setting-select">
+            <option value="iphone-17-pro-max">iPhone 17 Pro Max</option>
+            <option value="pixel-8-pro">Pixel 8 Pro</option>
+            <option value="generic">Generic phone</option>
+          </select>
+          <label class="camera-setting-label" for="camera-lens-select">Assumed rear lens</label>
+          <select id="camera-lens-select" class="camera-setting-select"></select>
+          <p class="calibration-instruction subtle-text">The browser may not identify the physical lens. Choose the lens matching the visible camera view.</p>
+
+          <div class="tune-row camera-slider-heading">
+            <label class="tune-label" for="camera-fov-slider">FOV calibration</label>
+            <span id="camera-fov-value" class="font-tech text-cyan">100%</span>
+          </div>
+          <input type="range" id="camera-fov-slider" min="80" max="120" value="100" class="range-input">
+
+          <div class="tune-row camera-slider-heading">
+            <label class="tune-label" for="camera-center-slider">Center correction</label>
+            <span id="camera-center-value" class="font-tech text-cyan">0°</span>
+          </div>
+          <input type="range" id="camera-center-slider" min="-15" max="15" value="0" class="range-input">
+
+          <div id="camera-zoom-row" class="hidden">
+            <div class="tune-row camera-slider-heading">
+              <label class="tune-label" for="camera-zoom-slider">Camera zoom</label>
+              <span id="camera-zoom-value" class="font-tech text-cyan">1.0×</span>
+            </div>
+            <input type="range" id="camera-zoom-slider" min="1" max="1" value="1" step="0.1" class="range-input">
+          </div>
+        </div>
+
+        <hr class="drawer-divider">
         
         <div class="calibration-section">
           <button type="button" id="request-recalibrate-btn" class="btn btn-primary w-full" style="padding: 8px 16px;">

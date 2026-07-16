@@ -98,4 +98,19 @@ assert.ok(avg > 350 && avg < 352);
 // 5.3 Verify that wrap-around is handled properly (no massive jump to 180 deg)
 assert.ok(Math.abs(avg - 350) < 10);
 
+// Test 6: camera FOV cropping and zoom use perspective/tangent geometry
+function calculateVisibleFov(baseFov, streamCrop = 1, displayCrop = 1, zoom = 1, scale = 1) {
+  let halfFovTangent = Math.tan(baseFov * Math.PI / 360);
+  halfFovTangent *= Math.min(1, Math.max(0, streamCrop));
+  halfFovTangent *= Math.min(1, Math.max(0, displayCrop));
+  halfFovTangent /= Math.max(1, zoom);
+  halfFovTangent *= scale;
+  return 2 * Math.atan(halfFovTangent) * 180 / Math.PI;
+}
+
+assert.ok(Math.abs(calculateVisibleFov(57) - 57) < 0.0001);
+assert.ok(calculateVisibleFov(57, 0.75) < 57);
+assert.ok(calculateVisibleFov(57, 1, 1, 2) > 30 && calculateVisibleFov(57, 1, 1, 2) < 31);
+assert.ok(calculateVisibleFov(57, 1, 1, 1, 1.2) > 57);
+
 console.log("All complementary filter, smoothAngle, and vector moving average tests passed successfully!");

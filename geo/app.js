@@ -14,6 +14,37 @@ const DEFAULT_PRESETS = [
   { id: "p3", name: "🕰️ Big Ben, London", lat: 51.5007, lng: -0.1246, active: false }
 ];
 
+// Portrait horizontal fields of view for the full 4:3 camera image. These are
+// device-profile estimates; the visible FOV is refined at runtime for stream
+// and CSS cropping, hardware zoom, and the user's calibration adjustment.
+const CAMERA_PROFILES = {
+  "iphone-17-pro-max": {
+    name: "iPhone 17 Pro Max",
+    defaultLens: "main",
+    lenses: {
+      ultrawide: { name: "0.5× Ultra-wide", portraitFov: 90 },
+      main: { name: "1× Main", portraitFov: 57 },
+      telephoto: { name: "4× Telephoto", portraitFov: 15 }
+    }
+  },
+  "pixel-8-pro": {
+    name: "Pixel 8 Pro",
+    defaultLens: "main",
+    lenses: {
+      ultrawide: { name: "0.5× Ultra-wide", portraitFov: 96 },
+      main: { name: "1× Main", portraitFov: 55 },
+      telephoto: { name: "5× Telephoto", portraitFov: 13 }
+    }
+  },
+  generic: {
+    name: "Generic phone",
+    defaultLens: "main",
+    lenses: {
+      main: { name: "Rear Main", portraitFov: 57 }
+    }
+  }
+};
+
 const state = {
   currentPos: null,          // { latitude, longitude, accuracy }
   rawHeading: 0,             // Raw sensor compass degrees (0-360)
@@ -30,6 +61,11 @@ const state = {
   compassSource: null,       // "ios", "absolute", or "manual"
   activeTab: "tab-radar",    // tab-radar, tab-saved, tab-search
   isSimulatorActive: false,  // If manual heading slider is visible
+  cameraProfile: "iphone-17-pro-max",
+  cameraLens: "main",       // Assumed lens; browsers do not reliably identify physical lenses
+  cameraFovScale: 1,         // User calibration multiplier (0.8-1.2)
+  cameraCenterOffset: 0,     // Camera optical-center correction in degrees
+  cameraZoom: 1,             // Actual track zoom when the browser exposes it
   activeKeys: {},
   canvasDrag: { isDragging: false, startX: 0, startHeading: 0 }
 };
@@ -144,6 +180,19 @@ function loadState() {
       state.primaryTargetId = parsed.primaryTargetId || null;
       state.keepOffset = parsed.keepOffset !== undefined ? parsed.keepOffset : true;
       state.headingOffset = state.keepOffset ? (parsed.headingOffset || 0) : 0;
+      state.cameraProfile = CAMERA_PROFILES[parsed.cameraProfile]
+        ? parsed.cameraProfile
+        : "iphone-17-pro-max";
+      const profile = CAMERA_PROFILES[state.cameraProfile];
+      state.cameraLens = profile.lenses[parsed.cameraLens]
+        ? parsed.cameraLens
+        : profile.defaultLens;
+      state.cameraFovScale = Number.isFinite(parsed.cameraFovScale)
+        ? Math.min(1.2, Math.max(0.8, parsed.cameraFovScale))
+        : 1;
+      state.cameraCenterOffset = Number.isFinite(parsed.cameraCenterOffset)
+        ? Math.min(15, Math.max(-15, parsed.cameraCenterOffset))
+        : 0;
     } else {
       // Load presets as initial data
       state.savedPlaces = [...DEFAULT_PRESETS];
@@ -167,7 +216,11 @@ function saveState() {
       savedPlaces: state.savedPlaces,
       primaryTargetId: state.primaryTargetId,
       headingOffset: state.keepOffset ? state.headingOffset : 0,
-      keepOffset: state.keepOffset
+      keepOffset: state.keepOffset,
+      cameraProfile: state.cameraProfile,
+      cameraLens: state.cameraLens,
+      cameraFovScale: state.cameraFovScale,
+      cameraCenterOffset: state.cameraCenterOffset
     }));
   } catch (err) {
     console.error("Failed to save state to localStorage:", err);
@@ -194,6 +247,16 @@ const elOffsetPlusBtn = document.getElementById("offset-plus-btn");
 const elOffsetResetBtn = document.getElementById("offset-reset-btn");
 const elOffsetKeepCheckbox = document.getElementById("offset-keep-checkbox");
 const elRequestRecalibrateBtn = document.getElementById("request-recalibrate-btn");
+const elCameraProfileSelect = document.getElementById("camera-profile-select");
+const elCameraLensSelect = document.getElementById("camera-lens-select");
+const elCameraFovSlider = document.getElementById("camera-fov-slider");
+const elCameraFovValue = document.getElementById("camera-fov-value");
+const elCameraCenterSlider = document.getElementById("camera-center-slider");
+const elCameraCenterValue = document.getElementById("camera-center-value");
+const elCameraZoomRow = document.getElementById("camera-zoom-row");
+const elCameraZoomSlider = document.getElementById("camera-zoom-slider");
+const elCameraZoomValue = document.getElementById("camera-zoom-value");
+const elCameraFovStatus = document.getElementById("camera-fov-status");
 
 const elHudCard = document.getElementById("hud-card");
 const elHudTargetName = document.getElementById("hud-target-name");
@@ -1335,14 +1398,16 @@ async function startCamera() {
     const constraints = {
       video: {
         facingMode: "environment", // Request back/rear camera for AR
-        width: { ideal: 1280 },
-        height: { ideal: 720 }
+        width: { ideal: 720 },
+        height: { ideal: 1280 },
+        aspectRatio: { ideal: 9 / 16 }
       },
       audio: false
     };
     
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     cameraStream = stream;
+    configureCameraTrack(stream.getVideoTracks()[0]);
     if (elCameraPreview) {
       elCameraPreview.srcObject = stream;
       elCameraPreview.play();
@@ -1359,6 +1424,50 @@ async function startCamera() {
     if (elCameraError) {
       elCameraError.classList.remove("hidden");
     }
+  }
+}
+
+function configureCameraTrack(track) {
+  if (!track) return;
+
+  const capabilities = typeof track.getCapabilities === "function"
+    ? track.getCapabilities()
+    : {};
+  const settings = typeof track.getSettings === "function"
+    ? track.getSettings()
+    : {};
+  const zoom = capabilities.zoom;
+
+  if (zoom && Number.isFinite(zoom.min) && Number.isFinite(zoom.max)) {
+    const currentZoom = Number.isFinite(settings.zoom) ? settings.zoom : zoom.min;
+    state.cameraZoom = currentZoom;
+    elCameraZoomRow?.classList.remove("hidden");
+    if (elCameraZoomSlider) {
+      elCameraZoomSlider.min = zoom.min;
+      elCameraZoomSlider.max = zoom.max;
+      elCameraZoomSlider.step = zoom.step || 0.1;
+      elCameraZoomSlider.value = currentZoom;
+    }
+    updateCameraTuningUI();
+  } else {
+    state.cameraZoom = 1;
+    elCameraZoomRow?.classList.add("hidden");
+  }
+}
+
+async function setCameraZoom(value) {
+  const track = cameraStream?.getVideoTracks()[0];
+  if (!track) return;
+
+  const requestedZoom = Number(value);
+  try {
+    await track.applyConstraints({ advanced: [{ zoom: requestedZoom }] });
+    const actualZoom = track.getSettings?.().zoom;
+    state.cameraZoom = Number.isFinite(actualZoom) ? actualZoom : requestedZoom;
+    updateCameraTuningUI();
+  } catch (err) {
+    console.warn("Camera zoom is not available:", err);
+    showToast("This browser could not apply camera zoom.");
   }
 }
 
@@ -1388,6 +1497,47 @@ function resizeCameraCanvas() {
   }
 }
 
+function calculateVisibleFov(baseFov, streamCrop = 1, displayCrop = 1, zoom = 1, scale = 1) {
+  let halfFovTangent = Math.tan(baseFov * Math.PI / 360);
+  halfFovTangent *= Math.min(1, Math.max(0, streamCrop));
+  halfFovTangent *= Math.min(1, Math.max(0, displayCrop));
+  halfFovTangent /= Math.max(1, zoom);
+  halfFovTangent *= scale;
+  return 2 * Math.atan(halfFovTangent) * 180 / Math.PI;
+}
+
+function getVisibleCameraFov() {
+  const profile = CAMERA_PROFILES[state.cameraProfile] || CAMERA_PROFILES.generic;
+  const lens = profile.lenses[state.cameraLens] || profile.lenses[profile.defaultLens];
+  let streamCrop = 1;
+  let displayCrop = 1;
+
+  // Lens presets describe a full 4:3 portrait frame. A narrower stream (often
+  // 16:9 video) crops the short/portrait-horizontal sensor dimension.
+  if (elCameraPreview?.videoWidth && elCameraPreview?.videoHeight) {
+    const portraitAspect = Math.min(elCameraPreview.videoWidth, elCameraPreview.videoHeight) /
+      Math.max(elCameraPreview.videoWidth, elCameraPreview.videoHeight);
+    streamCrop = Math.min(1, portraitAspect / 0.75);
+
+    // Account for the additional center crop made by object-fit: cover.
+    const coverScale = Math.max(
+      elCameraPreview.clientWidth / elCameraPreview.videoWidth,
+      elCameraPreview.clientHeight / elCameraPreview.videoHeight
+    );
+    const visibleWidthFraction = (elCameraPreview.clientWidth / coverScale) /
+      elCameraPreview.videoWidth;
+    if (Number.isFinite(visibleWidthFraction)) displayCrop = Math.min(1, visibleWidthFraction);
+  }
+
+  return calculateVisibleFov(
+    lens.portraitFov,
+    streamCrop,
+    displayCrop,
+    state.cameraZoom || 1,
+    state.cameraFovScale || 1
+  );
+}
+
 function drawCameraView() {
   if (!elCameraCanvas || !ctxCamera) return;
   
@@ -1401,8 +1551,8 @@ function drawCameraView() {
   const activeTargets = state.savedPlaces.filter(t => t.active);
   const primaryTarget = activeTargets.find(t => t.id === state.primaryTargetId);
   
-  // Field of View in degrees. Rear camera horizontal FOV is generally ~60 degrees.
-  const FOV = 60;
+  const FOV = getVisibleCameraFov();
+  if (elCameraFovStatus) elCameraFovStatus.textContent = `VISIBLE FOV: ${FOV.toFixed(1)}°`;
   
   if (state.currentPos) {
     const lat1 = state.currentPos.latitude;
@@ -1414,15 +1564,16 @@ function drawCameraView() {
       const bearing = calculateBearing(lat1, lon1, target.lat, target.lng);
       
       // Calculate relative bearing wrapped to [-180, 180]
-      let relAngle = bearing - state.smoothedHeading;
+      let relAngle = bearing - state.smoothedHeading - state.cameraCenterOffset;
       while (relAngle < -180) relAngle += 360;
       while (relAngle > 180) relAngle -= 360;
       
       const inFOV = Math.abs(relAngle) <= FOV / 2;
       
       if (inFOV) {
-        // Horizontal offset based on FOV
-        const x = cx + (relAngle / (FOV / 2)) * (width / 2);
+        // Perspective projection onto the camera plane.
+        const x = cx + Math.tan(relAngle * Math.PI / 180) /
+          Math.tan(FOV * Math.PI / 360) * cx;
         
         // Vertical placement: higher for farther objects, lower for closer objects
         const maxDistEffect = 10000; // 10 km
@@ -1652,6 +1803,8 @@ function initCompassTuning() {
   if (elRequestRecalibrateBtn) {
     elRequestRecalibrateBtn.addEventListener("click", recalibrateCompass);
   }
+
+  initCameraTuning();
   
   // Listen to native compass needs calibration event
   window.addEventListener("compassneedscalibration", (event) => {
@@ -1660,6 +1813,59 @@ function initCompassTuning() {
     updateStatusUI();
     showToast("Compass calibration needed! Wave device in a figure-8 motion.");
   }, true);
+}
+
+function populateCameraLensOptions() {
+  if (!elCameraLensSelect) return;
+  const profile = CAMERA_PROFILES[state.cameraProfile] || CAMERA_PROFILES.generic;
+  if (!profile.lenses[state.cameraLens]) state.cameraLens = profile.defaultLens;
+  elCameraLensSelect.innerHTML = "";
+  Object.entries(profile.lenses).forEach(([id, lens]) => {
+    const option = document.createElement("option");
+    option.value = id;
+    option.textContent = lens.name;
+    elCameraLensSelect.appendChild(option);
+  });
+  elCameraLensSelect.value = state.cameraLens;
+}
+
+function updateCameraTuningUI() {
+  if (elCameraProfileSelect) elCameraProfileSelect.value = state.cameraProfile;
+  if (elCameraFovSlider) elCameraFovSlider.value = Math.round(state.cameraFovScale * 100);
+  if (elCameraFovValue) elCameraFovValue.textContent = `${Math.round(state.cameraFovScale * 100)}%`;
+  if (elCameraCenterSlider) elCameraCenterSlider.value = state.cameraCenterOffset;
+  if (elCameraCenterValue) {
+    elCameraCenterValue.textContent = `${state.cameraCenterOffset > 0 ? "+" : ""}${state.cameraCenterOffset}°`;
+  }
+  if (elCameraZoomSlider) elCameraZoomSlider.value = state.cameraZoom;
+  if (elCameraZoomValue) elCameraZoomValue.textContent = `${Number(state.cameraZoom).toFixed(1)}×`;
+}
+
+function initCameraTuning() {
+  populateCameraLensOptions();
+  updateCameraTuningUI();
+
+  elCameraProfileSelect?.addEventListener("change", (event) => {
+    state.cameraProfile = event.target.value;
+    state.cameraLens = CAMERA_PROFILES[state.cameraProfile].defaultLens;
+    populateCameraLensOptions();
+    saveState();
+  });
+  elCameraLensSelect?.addEventListener("change", (event) => {
+    state.cameraLens = event.target.value;
+    saveState();
+  });
+  elCameraFovSlider?.addEventListener("input", (event) => {
+    state.cameraFovScale = Number(event.target.value) / 100;
+    updateCameraTuningUI();
+    saveState();
+  });
+  elCameraCenterSlider?.addEventListener("input", (event) => {
+    state.cameraCenterOffset = Number(event.target.value);
+    updateCameraTuningUI();
+    saveState();
+  });
+  elCameraZoomSlider?.addEventListener("input", (event) => setCameraZoom(event.target.value));
 }
 
 function toggleTuneDrawer() {
