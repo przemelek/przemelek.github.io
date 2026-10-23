@@ -622,9 +622,10 @@ html, body {
   background: var(--bg-card);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  padding: 12px;
+  padding: 16px;
   display: flex;
-  gap: 12px;
+  gap: 16px;
+  min-height: 130px;
   cursor: pointer;
   transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
   position: relative;
@@ -644,9 +645,9 @@ html, body {
 }
 
 .card-thumbnail {
-  width: 72px;
-  height: 72px;
-  border-radius: var(--radius-sm);
+  width: 92px;
+  height: 92px;
+  border-radius: var(--radius-md);
   object-fit: cover;
   flex-shrink: 0;
   background: rgba(0, 0, 0, 0.3);
@@ -654,14 +655,14 @@ html, body {
 }
 
 .card-thumbnail-placeholder {
-  width: 72px;
-  height: 72px;
-  border-radius: var(--radius-sm);
+  width: 92px;
+  height: 92px;
+  border-radius: var(--radius-md);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 2.2rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--glass-border);
   color: var(--text-subtle);
@@ -678,14 +679,14 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
-  margin-bottom: 4px;
+  gap: 8px;
+  margin-bottom: 6px;
 }
 
 .card-badge {
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  padding: 2px 7px;
+  padding: 3px 8px;
   border-radius: var(--radius-full);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -705,59 +706,72 @@ html, body {
 
 .card-distance {
   font-family: 'Orbitron', monospace;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--accent-cyan);
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .bearing-arrow {
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1;
 }
 
 .card-title {
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 1.02rem;
+  font-weight: 700;
   color: #fff;
-  line-height: 1.3;
-  margin-bottom: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.card-description {
-  font-size: 0.76rem;
-  color: var(--text-muted);
   line-height: 1.35;
+  margin-bottom: 6px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .card-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-top: auto;
 }
 
 .btn-card-action {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--glass-border);
   color: var(--text-muted);
-  font-size: 0.68rem;
-  padding: 3px 8px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  min-height: 32px;
   border-radius: var(--radius-sm);
   text-decoration: none;
   cursor: pointer;
   display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s;
+}
+
+.btn-card-action:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
   align-items: center;
   gap: 4px;
   transition: all 0.15s;
@@ -1262,39 +1276,183 @@ html, body {
    7. Responsive Mobile Rules
    ========================================================================== */
 @media (max-width: 768px) {
+  :root {
+    --header-height: 42px;
+    --mobile-nav-height: 50px;
+  }
+
+  /* Compact Header on iPhone */
   .app-header {
-    padding: 0 12px;
+    height: var(--header-height);
+    padding: max(4px, env(safe-area-inset-top, 4px)) 10px 4px 10px;
+  }
+  
+  .logo-area {
+    gap: 6px;
+  }
+
+  .pulse-beacon {
+    width: 9px;
+    height: 9px;
   }
   
   .logo-title {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.8px;
+  }
+
+  .logo-subtitle {
+    display: none !important; /* Hide subtitle on mobile to keep header ultra-thin */
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .status-pill {
+    padding: 3px 8px;
+    font-size: 0.65rem;
+    gap: 4px;
+  }
+
+  .status-pill .status-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .header-icon-btn {
+    width: 30px;
+    height: 30px;
   }
   
+  /* Compact Controls Bar */
   .controls-bar {
-    padding: 8px 12px;
+    padding: 5px 10px;
+    gap: 4px;
+  }
+
+  .control-label {
+    font-size: 0.62rem;
+  }
+
+  .radius-selector-wrapper {
+    gap: 6px;
+  }
+
+  .btn-radius {
+    padding: 3px 8px;
+    font-size: 0.7rem;
+  }
+
+  .filter-strip {
+    gap: 6px;
+  }
+
+  .source-filters {
+    gap: 4px;
+  }
+
+  .btn-filter {
+    padding: 3px 8px;
+    font-size: 0.68rem;
+    gap: 4px;
+  }
+
+  .btn-filter .badge {
+    padding: 1px 5px;
+    font-size: 0.62rem;
+  }
+
+  .category-strip {
+    gap: 4px;
+    padding-top: 2px;
+  }
+
+  .btn-cat {
+    padding: 3px 8px;
+    font-size: 0.68rem;
+  }
+
+  .search-box {
+    max-width: 100%;
+    min-width: 120px;
+  }
+
+  .search-box input {
+    padding: 4px 22px 4px 26px;
+    font-size: 0.75rem;
   }
   
+  /* Mobile Bottom Navigation Bar */
   .mobile-view-nav {
     display: flex;
+    height: var(--mobile-nav-height);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .view-nav-btn {
+    padding: 4px 14px;
   }
   
+  /* Make Map significantly bigger on iPhone (68% map, 32% list) */
   .layout-split {
     flex-direction: column;
   }
   
+  .layout-split .map-panel {
+    width: 100%;
+    height: 68%;
+    order: 1;
+  }
+
   .layout-split .list-panel {
     width: 100%;
     max-width: 100%;
-    height: 50%;
+    height: 32%;
     border-right: none;
     border-top: 1px solid var(--glass-border);
     order: 2;
   }
-  
-  .layout-split .map-panel {
-    width: 100%;
-    height: 50%;
-    order: 1;
+
+  /* List cards on mobile - comfortable height and tap targets */
+  .cards-scroll-container {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .place-card {
+    padding: 14px;
+    gap: 14px;
+    min-height: 125px;
+  }
+
+  .card-thumbnail {
+    width: 84px;
+    height: 84px;
+  }
+
+  .card-thumbnail-placeholder {
+    width: 84px;
+    height: 84px;
+    font-size: 2rem;
+  }
+
+  .card-title {
+    font-size: 0.98rem;
+    line-height: 1.35;
+  }
+
+  .card-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    -webkit-line-clamp: 2;
+    margin-bottom: 8px;
+  }
+
+  .btn-card-action {
+    padding: 6px 12px;
+    font-size: 0.74rem;
+    min-height: 32px;
   }
 
   .presets-grid {
