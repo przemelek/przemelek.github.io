@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#080c14">
+  <meta name="description" content="Discover interesting places, monuments, and historical sites around you using Wikipedia & Wikimapia on interactive OpenStreetMap.">
+  <title>GeoSpotter - Nearby Wiki & Wikimapia Explorer</title>
+
+  <!-- PWA Manifest & Icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Google Fonts: Inter & Orbitron -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map CSS (Local) -->
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <span class="pulse-beacon"></span>
+        <div class="logo-text">
+          <h1 class="logo-title">GEOSPOTTER</h1>
+          <span class="logo-subtitle">Nearby Wiki &amp; Wikimapia</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- GPS Status Pill -->
+        <button id="gps-status-pill" class="status-pill status-locking" title="Click to refresh current location">
+          <span class="status-dot"></span>
+          <span id="gps-status-label" class="status-label">ACQUIRING GPS</span>
+        </button>
+
+        <!-- Location Preset / Simulation Button -->
+        <button id="presets-btn" class="header-icon-btn" title="Choose Preset City / Coordinates">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </button>
+
+        <!-- Settings Button -->
+        <button id="settings-btn" class="header-icon-btn" title="Settings (Language, Wikimapia API key, Map layer)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Controls Strip: Radius Selector & Filters -->
+    <section class="controls-bar">
+      <!-- Radius Buttons -->
+      <div class="radius-selector-wrapper">
+        <span class="control-label">RADIUS:</span>
+        <div class="radius-buttons" id="radius-buttons">
+          <button class="btn-radius" data-radius="50">50m</button>
+          <button class="btn-radius" data-radius="200">200m</button>
+          <button class="btn-radius" data-radius="500">500m</button>
+          <button class="btn-radius active" data-radius="1000">1 km</button>
+          <button class="btn-radius" data-radius="2000">2 km</button>
+          <button class="btn-radius" data-radius="5000">5 km</button>
+          <button class="btn-radius" data-radius="10000">10 km</button>
+        </div>
+      </div>
+
+      <!-- Filter pills & text search -->
+      <div class="filter-strip">
+        <div class="source-filters" id="source-filters">
+          <button class="btn-filter active" data-source="all">
+            All <span class="badge" id="count-all">0</span>
+          </button>
+          <button class="btn-filter" data-source="wikipedia">
+            <span class="dot-wiki"></span> Wikipedia <span class="badge" id="count-wiki">0</span>
+          </button>
+          <button class="btn-filter" data-source="wikimapia">
+            <span class="dot-mapia"></span> Wikimapia <span class="badge" id="count-mapia">0</span>
+          </button>
+          <button class="btn-filter" data-source="wikidata">
+            <span class="dot-data"></span> Wikidata <span class="badge" id="count-data">0</span>
+          </button>
+          <button id="quick-lang-btn" class="btn-filter" title="Toggle Wikipedia Language (PL / EN)">
+            🌐 <span id="quick-lang-label">PL</span>
+          </button>
+        </div>
+
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="text" id="text-filter" placeholder="Filter by keyword..." autocomplete="off">
+          <button id="clear-filter-btn" class="clear-btn hidden">&times;</button>
+        </div>
+      </div>
+
+      <!-- Category / Label Filter Strip -->
+      <div class="category-strip" id="category-filters">
+        <span class="control-label">TYPE:</span>
+        <button class="btn-cat active" data-category="all">All Types</button>
+        <button class="btn-cat" data-category="culture">🎨 Culture &amp; Museums</button>
+        <button class="btn-cat" data-category="historic">📜 Historic &amp; Memorials</button>
+        <button class="btn-cat" data-category="architecture">🏛️ Architecture</button>
+        <button class="btn-cat" data-category="infrastructure">🌉 Bridges &amp; Transit</button>
+        <button class="btn-cat" data-category="parks">🌳 Parks &amp; Squares</button>
+        <button class="btn-cat" data-category="religious">✝️ Sacred</button>
+        <button class="btn-cat" data-category="streets">🏠 Addresses</button>
+      </div>
+    </section>
+
+    <!-- Main Workspace: Split View (List + Map) -->
+    <main class="main-workspace layout-split" id="main-workspace">
+      
+      <!-- List Column -->
+      <aside class="list-panel" id="list-panel">
+        <div class="list-header">
+          <div class="list-summary">
+            <span id="places-summary-text">Searching nearby...</span>
+          </div>
+          <div class="list-controls">
+            <label for="sort-select" class="sort-label">Sort:</label>
+            <select id="sort-select" class="sort-select">
+              <option value="distance-asc">Closest first</option>
+              <option value="distance-desc">Furthest first</option>
+              <option value="name-asc">Name (A-Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Scrollable list of cards -->
+        <div class="cards-scroll-container" id="cards-container">
+          <!-- Dynamic cards injected here -->
+          <div class="empty-state" id="loading-state">
+            <div class="spinner"></div>
+            <p>Scanning radius for Wikipedia &amp; Wikimapia landmarks...</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Map Column -->
+      <section class="map-panel" id="map-panel">
+        <div id="map"></div>
+
+        <!-- Floating Map Action Buttons -->
+        <div class="map-floating-controls">
+          <button id="recenter-btn" class="map-fab" title="Recenter to My Location">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+            </svg>
+          </button>
+          <button id="search-here-btn" class="map-fab-pill hidden" title="Search places at current map center">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+            </svg>
+            <span>Search This Area</span>
+          </button>
+        </div>
+
+        <!-- Map Layer Toggle Floating Menu -->
+        <div class="map-layer-selector">
+          <button id="layer-toggle-btn" class="map-fab-small" title="Change Map Style">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </button>
+          <div id="layer-menu" class="layer-dropdown hidden">
+            <button class="layer-opt active" data-layer="osm">OpenStreetMap</button>
+            <button class="layer-opt" data-layer="hot">Humanitarian OSM</button>
+            <button class="layer-opt" data-layer="esri">Esri Street Map</button>
+            <button class="layer-opt" data-layer="topo">OpenTopoMap (Terrain)</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Mobile View Mode Switcher Nav (Bottom Bar) -->
+    <nav class="mobile-view-nav" id="mobile-view-nav">
+      <button class="view-nav-btn active" data-view="split">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="3" width="8" height="18" rx="1"/>
+        </svg>
+        <span>Split</span>
+      </button>
+      <button class="view-nav-btn" data-view="map">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+          <line x1="8" y1="2" x2="8" y2="18"/>
+          <line x1="16" y1="6" x2="16" y2="22"/>
+        </svg>
+        <span>Map</span>
+      </button>
+      <button class="view-nav-btn" data-view="list">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="8" y1="6" x2="21" y2="6"/>
+          <line x1="8" y1="12" x2="21" y2="12"/>
+          <line x1="8" y1="18" x2="21" y2="18"/>
+          <line x1="3" y1="6" x2="3.01" y2="6"/>
+          <line x1="3" y1="12" x2="3.01" y2="12"/>
+          <line x1="3" y1="18" x2="3.01" y2="18"/>
+        </svg>
+        <span>List</span>
+      </button>
+    </nav>
+
+    <!-- Place Details Modal / Drawer -->
+    <div id="place-modal" class="modal-backdrop hidden">
+      <div class="modal-card">
+        <button id="modal-close-btn" class="modal-close" title="Close details">&times;</button>
+        <div id="modal-body" class="modal-body">
+          <!-- Dynamic details injected here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Presets / Manual Coordinates Modal -->
+    <div id="presets-modal" class="modal-backdrop hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Location &amp; City Presets</h3>
+          <button id="presets-close-btn" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-desc">Test the app with popular landmarks or enter custom coordinates:</p>
+          
+          <div class="presets-grid" id="presets-grid">
+            <button class="preset-btn" data-lat="50.046679" data-lon="19.950907" data-name="Current Location (Podgórze, Kraków)" style="grid-column: 1 / -1; border-color: var(--accent-cyan); background: rgba(6, 182, 212, 0.1);">
+              📍 Current Location (Podgórze, Kraków: 50.0467, 19.9509)
+            </button>
+            <button class="preset-btn" data-lat="50.0619" data-lon="19.9373" data-name="Kraków Main Market">
+              🏰 Kraków Main Market
+            </button>
+            <button class="preset-btn" data-lat="52.2479" data-lon="21.0142" data-name="Warsaw Old Town">
+              🏛️ Warsaw Old Town
+            </button>
+            <button class="preset-btn" data-lat="48.8584" data-lon="2.2945" data-name="Paris - Eiffel Tower">
+              🗼 Paris - Eiffel Tower
+            </button>
+            <button class="preset-btn" data-lat="51.5007" data-lon="-0.1246" data-name="London - Big Ben">
+              🕰️ London - Big Ben
+            </button>
+            <button class="preset-btn" data-lat="40.7580" data-lon="-73.9855" data-name="New York - Times Square">
+              🗽 New York - Times Square
+            </button>
+            <button class="preset-btn" data-lat="35.6595" data-lon="139.7004" data-name="Tokyo - Shibuya">
+              🎌 Tokyo - Shibuya
+            </button>
+            <button class="preset-btn" data-lat="41.8902" data-lon="12.4922" data-name="Rome - Colosseum">
+              🏛️ Rome - Colosseum
+            </button>
+            <button class="preset-btn" data-lat="52.5163" data-lon="13.3777" data-name="Berlin - Brandenburg Gate">
+              🏛️ Berlin - Brandenburg Gate
+            </button>
+          </div>
+
+          <hr class="modal-divider">
+
+          <form id="custom-coords-form" class="custom-coords-form">
+            <h4>Manual Coordinates</h4>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="custom-lat">Latitude</label>
+                <input type="number" id="custom-lat" step="any" placeholder="52.2297" required>
+              </div>
+              <div class="form-group">
+                <label for="custom-lon">Longitude</label>
+                <input type="number" id="custom-lon" step="any" placeholder="21.0122" required>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary w-full">Set Location</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal-backdrop hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Explorer Settings</h3>
+          <button id="settings-close-btn" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          
+          <div class="setting-item">
+            <label for="wiki-lang-select">Wikipedia Language</label>
+            <select id="wiki-lang-select" class="setting-select">
+              <option value="en">English (en)</option>
+              <option value="pl" selected>Polski (pl)</option>
+              <option value="de">Deutsch (de)</option>
+              <option value="fr">Français (fr)</option>
+              <option value="es">Español (es)</option>
+              <option value="it">Italiano (it)</option>
+              <option value="uk">Українська (uk)</option>
+            </select>
+            <span class="subtle-note">Results are fetched from the selected Wikipedia edition.</span>
+          </div>
+
+          <div class="setting-item">
+            <label for="max-results-select">Max Results per Source</label>
+            <select id="max-results-select" class="setting-select">
+              <option value="25">25 items</option>
+              <option value="50" selected>50 items</option>
+              <option value="100">100 items</option>
+            </select>
+          </div>
+
+          <div class="modal-actions">
+            <button id="save-settings-btn" class="btn-primary w-full">Save Settings</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Leaflet Map JS (Local) -->
+  <script src="vendor/leaflet/leaflet.js"></script>
+
+  <!-- Core App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
