@@ -1,4 +1,4 @@
-const CACHE_NAME = 'geospotter-v4';
+const CACHE_NAME = 'geospotter-v6-isolated';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -26,7 +26,9 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+        keys
+          .filter((key) => key.startsWith('geospotter-') && key !== CACHE_NAME)
+          .map((key) => caches.delete(key))
       );
     }).then(() => self.clients.claim())
   );

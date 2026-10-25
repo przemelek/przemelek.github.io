@@ -1089,6 +1089,21 @@ function setupEventListeners() {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.btn-radius').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
+      if (btn.dataset.radius === 'screen') {
+        if (!map) return;
+        const bounds = map.getBounds();
+        const center = bounds.getCenter();
+        const ne = bounds.getNorthEast();
+        // Distance from screen center to corner covers the visible screen viewport
+        const screenDist = calculateDistance(center.lat, center.lng, ne.lat, ne.lng);
+        state.radius = Math.max(100, Math.min(Math.round(screenDist), 10000));
+        state.searchCenter = { lat: center.lat, lon: center.lng };
+        saveSettings();
+        refreshNearbyData(center.lat, center.lng);
+        return;
+      }
+
       state.radius = parseInt(btn.dataset.radius, 10);
       saveSettings();
 
@@ -1293,7 +1308,7 @@ function setupEventListeners() {
 function registerServiceWorker() {
   if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
+      navigator.serviceWorker.register('./sw.js', { scope: './' })
         .then(reg => console.log('ServiceWorker registered:', reg.scope))
         .catch(err => console.log('ServiceWorker registration error:', err));
     });

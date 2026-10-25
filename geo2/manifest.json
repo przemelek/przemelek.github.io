@@ -1,11 +1,13 @@
 {
+  "id": "/geo2/",
   "name": "GeoSpotter - Nearby Explorer",
   "short_name": "GeoSpotter",
-  "description": "Discover interesting nearby places and landmarks around your current location using Wikipedia and Wikimapia on interactive OpenStreetMap.",
-  "start_url": "./index.html",
+  "description": "Discover nearby landmarks, buildings, and interesting places from Wikipedia, Wikimapia, and Wikidata.",
+  "start_url": "/geo2/index.html",
+  "scope": "/geo2/",
   "display": "standalone",
   "background_color": "#080c14",
-  "theme_color": "#080c14",
+  "theme_color": "#06b6d4",
   "orientation": "any",
   "icons": [
     {
