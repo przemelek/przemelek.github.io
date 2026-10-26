@@ -1,0 +1,3458 @@
+#VRML V2.0 utf8 
+#$Dom Buffy
+#$(c) 2000-2001 by RMK
+#$this is a part of my project of side about Buffy
+#$http://www.kino.pl/smg/buffy
+#all comments are in Polish
+#zaczołem 27/07/2000
+
+#OPIS:
+#Sš oba opiętra
+#Na parterze, okna od frontu i jedno od tyłu w salonie oraz okno w kuchni na prawej ciane budynku
+#Na parterze drzwi frontowe, kuchenne i z tyłu do salonu
+#Schody
+#Na piętrze, okna od frontu,  okna w cianie bocznej domu dla pokoju Buffy i pokoju naprzeciwko
+#W pokoju Buffy i w pokoju na przeciw pokoju Buffy sš ciencia będšce dachem
+#Między pomieszczeniem naprzeciwko pokoju Buffy a pokojem Joyce sš drzwi (to pomieszczenie to
+#prawdopodobnie łazienka, choć ostatnio przychylam się ku przekonaniu, iż to pokój Dawn)
+#Między pokojem Buffy a pokojem Joyce mamy jakie pomieszczenie z dwoma drzwiami.
+#Schody sš o pół metra bardziej na prawo niż były wczeniej
+#W pokoju Joyce, na prawej cianie nowe okno, symetrycznie ustawione okno w pokoju Dawn, fakt, że
+#jest to tylko przypuszczalne położenie
+#Na parterze okna na cianach lewej i prawej, blisko frontu, sš to małe okienka o wysokoci 20 cm
+#i długoci 2 m
+#Dodałem zamknięcia dla dachu. Po prawej i lewej stronie budynku
+#Dodałem okno w korytarzu na piętrze, ale nie wiem czy jest dobre.
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	orientation 0 1 0 3.14
+	position    0 1.84 -20
+	description "Na zewnštrz"
+}
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+#	orientation 0 1 0 3.14
+	position    0 1.84 32
+	description "Z tyłu"
+}
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+        orientation 0 1 0 3.14
+        position    -5 10 -20
+        description "Z lotu ptaka"
+}
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	orientation 0 1 0 3.14
+	position    0 1.84 0.1
+	description "Start"
+}
+
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	orientation 0 1 0 3.14
+	position    0.75 4.65 0.1
+	description "Start na piętrze"
+}
+
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	position    -0.75 4.65 5.3
+	description "Na schodach"
+}
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	orientation 0 1 0 3.14
+	position    0.75 4.65 5.3
+	description "Patrze na drzwi do Joyce"
+}
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	position    0.75 4.65 5.3
+	description "Patrze na na okno w korytarzu na piętrze"
+}
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	orientation 0 1 0 3.14
+	position    -4.5 4.65 2
+	description "w tajemniczym pokoju ;-)"
+}
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	position    -4.5 4.65 7
+	description "w tajemniczym pokoju II ;-)"
+}
+
+
+Viewpoint {
+	orientation 0 1 0 3.14
+	position    4 1.84 2
+	description "W salonie"
+}
+
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	orientation 0 0 0 0
+	position    -2.5 1.84 11
+	description "W drzwiach kuchennych"
+}
+
+
+NavigationInfo { #avatarSize [ 0.25 , 1.84, 0.75 ]
+		 headlight FALSE }
+
+Background { 
+    skyColor [ 
+        0.0 0.2 0.7, 
+        0.0 0.5 1.0, 
+        1.0 1.0 1.0 ] 
+    skyAngle [ 1.3, 1.57 ] 
+    groundColor [ 
+        0 0.5 0.25 
+        0 0.7 0.25 
+        1 1 1 ] 
+    groundAngle [ 1.5, 1.57] 
+} 
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+#Transform {
+#translation 0 0 -10
+#children [
+#DEF Latarnia PointLight {
+#        location 0 2.5 0
+#        color    1.0 1.0 1.0
+#	intensity 0.1
+#        }
+#]
+#}
+
+
+#Transform {
+#translation 10 0 -10
+#children [ USE Latarnia ]
+#}
+
+#Transform {
+#translation -10 0 -10
+#children [ USE Latarnia ]
+#}
+
+#Czyżby łonko? ;-)
+DEF ObrotKuli Transform {
+children [
+Transform {
+#       translation -500 500 -500   # Co kurde blisko, nie?
+       translation 0 612 -612
+       children [
+#Słońce
+DEF Swiatlo PointLight {
+        location -5 -5 -5
+        color    0.75 0.75 0.75
+        }
+Viewpoint {
+	fieldOfView 0.7
+	jump        FALSE
+	orientation 0 0 0 0
+	position    0 0 0
+	description "W sloncu"
+}
+
+
+          Shape { 
+                appearance Appearance {
+		 material DEF Slonko Material {
+					     emissiveColor 1.0 1.0 0
+					 }
+			   }
+	         geometry Sphere { radius 25.0 }
+            }
+    ]
+}
+]
+}
+
+
+#Trawa ;-)
+#29/07/2000
+Transform {
+    translation 0 -0.2 6
+       children [
+          Shape { 
+                appearance Appearance {
+			material DEF trawka  Material {
+					     emissiveColor 0 0.5 0
+					 }
+			   }
+	         geometry Box {
+                        size 5000 0.1 5000
+		}
+
+            }
+    ]
+}
+
+
+#ROUTE CzasRuchu.fraction_changed TO Interpolacja.set_fraction
+#ROUTE CzasRuchu.fraction_changed TO kolorek.set_fraction
+#ROUTE CzasRuchu.fraction_changed TO kolorek2.set_fraction
+#ROUTE Interpolacja.value_changed TO ObrotKuli.set_rotation
+#ROUTE kolorek.value_changed TO Swiatlo.set_color
+##ROUTE kolorek_latarni.value_changed TO Latarnia.set_color
+#ROUTE kolorek2.value_changed TO Slonko.set_emissiveColor
+#ROUTE kolor_trawki.value_changed TO trawka.set_emissiveColor
+##ROUTE Interpolacja.value_changed TO ObrotKuli.set_translation
+##ROUTE ObrotKuli.translation_changed TO Swiatlo.set_location
+
+
+DEF DOMEK_ Transform {
+
+translation 0 0.5 0
+
+children [
+
+PointLight {
+        location -9 3 -5
+	intensity 0.25
+        color    0.25 0.25 0.25
+        }
+
+#wiatło w salonie
+PointLight {
+        location 4.5 2.8 5
+        color    0.25 0.25 0.25
+        radius   5
+        }
+
+#wiatło w kuchni
+PointLight {
+        location -4.5 2.8 11
+        color    0.25 0.25 0.25
+        radius   5
+        }
+
+
+
+
+#Podłoga
+Transform {
+    translation 0 0 6
+       children [
+    DEF Podloga Shape { 
+                appearance Appearance {
+#				material Material {
+#					     emissiveColor 0.25 0.25 0.25
+#					 }
+				texture ImageTexture {
+					url "wood.jpg"
+					}
+			   }
+	         geometry Box {
+                        size 12 0.1 12
+		}
+            }
+    ]
+}
+
+DEF PRAWA_SCIANA Transform {
+children [
+
+
+ DEF Okienko_ Transform {
+ children [
+
+
+#Lewa ciana pod okienkiem
+Transform {
+   translation -6 0.75 1
+   children [
+   DEF sokienkoD Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 1.75 2
+		}
+            }
+    ]
+}
+#Lewa ciana nad okienkiem
+Transform {
+   translation -6 2.6 1
+   children [
+   DEF sokienkoG Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 0.4 2
+		}
+            }
+    ]
+}
+#Lewa ciana zamknięcie okna, od strony frontu domu		# 
+Transform {
+   translation -6 1.4 0.1
+   children [
+   DEF sokienkoG Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 0.2
+		}
+            }
+    ]
+}
+
+
+#Prawa ciana szyba okna
+Transform {
+   translation -6 1.4 1
+   children [
+   Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0 0 0.25
+                                             transparency 0.5
+					 }
+			   }
+	         geometry Box {
+                        size 0.001 2.8 2
+		}
+            }
+    ]
+}
+
+
+]		# Do DEF Okienko_
+}		# Do DEF Okienko_
+
+#28/08/2000
+#07/01/2001
+#02/03/2001
+#30/03/2001 ZMIANA KONCEPCJI :) WYLATUJE DURZE OKNO, A ZOSTAJE ZASTAPIONE MALYM OKIENKIEM UMIESZCZONYM PRZY KONCU POKOJU
+##Prawa ciana od okna w jadalni [dużego] do okna w kuchni - nieauktualne na skutek zmiany!
+#Okienko przy końcu jadalni
+Transform {
+#   translation -6 1.4 6
+#   translation -6 1.4 4.5
+#   translation -6 1.4 5.5
+#   translation -6 1.4 7.5 
+   translation -0 0 5.0
+
+#   children [ USE ScianaL ]
+   children [ USE Okienko_
+#   DEF ScianaP Shape {
+#                appearance Appearance {
+#				material Material {
+#					     emissiveColor 1.25 0.25 0.25
+#					 }
+#			   }
+#	         geometry Box {
+##                        size 0.1 2.8 9
+##                        size 0.1 2.8 7
+#                        size 0.1 2.8 3
+#
+#		}
+#            }
+    ]
+}
+
+#Prawa ciana od okienka do okienka, w jadalni
+Transform {
+#   translation -6 1.4 6
+#   translation -6 1.4 4.5
+#   translation -6 1.4 5.5
+   translation -6 1.4 3.5
+#   children [ USE ScianaL ]
+   children [
+   DEF ScianaP Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 2.8 9
+#                        size 0.1 2.8 7
+                        size 0.1 2.8 3.3
+
+		}
+            }
+    ]
+}
+
+#30/03/2001			# new! :)
+#Prawa ciana od okienka do okienka, w jadalni
+Transform {
+#   translation -6 1.4 6
+#   translation -6 1.4 4.5
+#   translation -6 1.4 5.5
+   translation -6 1.4 7.75
+#   children [ USE ScianaL ]
+   children [
+   DEF ScianaP Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 2.8 9
+#                        size 0.1 2.8 7
+                        size 0.1 2.8 1.5
+
+		}
+            }
+    ]
+}
+
+
+
+
+#Prawa ciana od okna w kuchni do końca domu
+Transform {
+#   translation -6 1.4 6
+   translation -6 1.4 11.25
+#   children [ USE ScianaL ]
+   children [
+   DEF ScianaP Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 1.5
+		}
+            }
+    ]
+}
+
+#Góra okna w kuchni
+Transform {
+#   translation -6 1.4 6
+   translation -6 2.55 9.75
+#   children [ USE ScianaL ]
+   children [
+   DEF GorOkna Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 0.5 2.5
+		}
+            }
+    ]
+}
+
+#Dół okna w kuchni
+Transform {
+#   translation -6 1.4 6
+   translation -6 0.5 9.75
+#   children [ USE ScianaL ]
+   children [
+   DEF DolOkna Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 1.0 2.5
+		}
+            }
+    ]
+}
+
+#szyba okna w kuchni
+Transform {
+   translation -6 1.4 9.75
+   children [
+   DEF SzybaOkna Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0 0 0.25
+                                             transparency 0.5
+					 }
+			   }
+	         geometry Box {
+                        size 0.001 2.8 2.5
+		}
+            }
+    ]
+}
+
+]
+}  # TUKEJ213
+
+Transform {
+   translation 12 0 0
+   children [ USE PRAWA_SCIANA ]
+}
+
+
+#Tylna ciana
+#częć lewa, aż do drzwi w kuchni
+#Zmiana 10/08/2000, dodajem drzwi i okno w salonie
+Transform {
+#   translation 2 1.4 12
+   translation 0 1.4 12
+   children [ 
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 4 2.8 0.1
+		}
+            }
+    ]
+}
+
+#Dalczy cišg ;-) tylniej ciany
+#częć na prawo od drzwi w kuchni
+Transform {
+   translation -4.5 1.4 12
+   children [ 
+      DEF Sciana_ Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 3 2.8 0.1
+		}
+            }
+    ]
+}
+
+#ciana nad drzwiami w kuchni
+Transform {
+   translation -2.5 2.55 12
+   children [ 
+   DEF NDrzwiami Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 1 0.5 0.1
+		}
+            }
+    ]
+}
+
+#Zmiana koncepcji 29/07/2000
+#ciana frontowa, częć lewa od drzwi, czesc nad oknem
+Transform {
+   translation 3.25 2.55 0
+   children [ 
+   DEF Sciana Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 5.5 0.5 0.1
+		}
+            }
+    ]
+}
+
+#Prawa czesc sciany
+Transform {
+   translation 5.5 1.4 0
+   children [
+   DEF ScianaP1 Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 1 1.8 0.1
+		}
+            }
+    ]
+}
+
+#Lewa szyba 
+Transform {
+   translation 3 1.4 0.005
+   children [
+   DEF Szyba Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0 0 0.25
+                                             transparency 0.5
+					 }
+			   }
+	         geometry Box {
+                        size 5 1.8 0.001
+		}
+            }
+    ]
+}
+
+#Drazek w prawym oknie 
+Transform {
+   translation 3.125 1.5 0.0
+   children [
+   DEF ScianaP1_ Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 1.6 0.1
+		}
+            }
+    ]
+}
+
+#Drazek w prawym oknie 
+Transform {
+   translation 4.375 1.5 0.0
+   children [ USE ScianaP1_ ]
+}
+
+#Drazek w lewym oknie 
+Transform {
+   translation -3.125 1.5 0.0
+   children [ USE ScianaP1_ ]
+}
+
+#Drazek w lewym oknie 
+Transform {
+   translation -4.375 1.5 0.0
+   children [ USE ScianaP1_ ]
+}
+
+
+#prawa czesc sciany (prawej)
+Transform {
+   translation 2 1.4 0
+   children [ USE ScianaP1 ]
+}
+
+
+#czesc pod oknem
+Transform {
+   translation 3.25 0.35 0
+   children [ 
+   DEF Sciana_dol Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 5.5 0.7 0.1
+		}
+            }
+    ]
+}
+
+#czesc przy drzwiach (lewa)
+Transform {
+   translation 0.75 1.4 0
+   children [
+   DEF Scianka Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.5 1.8 0.1
+		}
+            }
+    ]
+}
+
+#Czesc przy drzwiach (prawa)
+Transform {
+  translation -0.75 1.4 0
+  children [ USE Scianka ]
+}
+
+#ciana frontowa, częć prawa od drzwi, czesc nad oknem
+Transform {
+   translation -3.25 2.55 0
+   children [ USE Sciana ]
+}
+
+#czesc pod oknem
+Transform {
+   translation -3.25 0.35 0
+   children [ USE Sciana_dol ]
+}
+
+#Lewa czesc sciany
+Transform {
+   translation -5.5 1.4 0
+   children [ USE ScianaP1 ]
+}
+
+#Prawa czesc sciany (lewej)
+Transform {
+   translation -2 1.4 0
+   children [ USE ScianaP1 ]
+}
+
+#Prawa szyba
+Transform {
+   translation -3 1.4 0.005
+   children [ USE Szyba ]
+}
+
+#ciana frontowa, częć nad drzwiami
+Transform {
+   translation 0 2.55 0
+   children [ USE NDrzwiami ]
+}
+
+#lewa ciana kuchni
+Transform {
+   translation -1.5 1.4 10.5
+   children [ 
+   DEF Sciana Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 3
+		}
+            }
+    ]
+}
+
+#Przegródka nad drzwiami do kuchni z korytarza
+Transform {
+  translation -1.5 2.55 8.5
+  children [
+        DEF ND1 Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 0.5 1
+		}
+            }
+    ]
+}
+
+#Przednia częć lewej ciany kuchni
+Transform {
+#  translation -1.5 1.4 8.0
+  translation -1.5 1.4 6.75
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 2.8 0.5
+                        size 0.1 2.8 2.5
+		}
+            }
+    ]
+}
+
+#Zamknięcie luki między lewš cianš jadalni, a prawš korytarza
+Transform {
+  translation -1.75 1.4 7.5
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.5 2.8 0.1
+		}
+            }
+    ]
+}
+
+#Uzupełnienie sufitu nad kuchniš.
+#13/01/2001
+Transform {
+#  translation -1.75 2.8 9.75
+  translation -1.75 2.8 9.75
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 1 1 1
+					 }
+			   }
+	         geometry Box {
+#                        size 0.5 0.1 4.5
+                        size 0.75 0.1 4.5
+		}
+            }
+    ]
+}
+
+
+#ciana po lewej stronie od wejcia, przy cianie frontowej, oddzielajšca przedpokój od salonu
+Transform {
+  translation 2 1.4 0.5
+  children [
+        DEF PrzyDrzwia Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 1
+		}
+            }
+    ]
+}
+
+
+
+
+Transform {
+translation -0.5 0 0
+children [
+
+
+#Taka sama ciana, tylko tym razem po prawej
+Transform {
+  translation -1.5 1.4 0.5
+  children [ USE PrzyDrzwia ]
+}
+
+#prawa ciana, oddzielajšca jadalnie od schodów, a przy okazji kontynuacja lewej ciany kuchni
+#11/08/2000
+Transform {
+#   translation -1.5 1.4 5.25
+   translation -1.5 1.4 5.0
+   children [ 
+   DEF Sciana2 Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 2.8 5.5
+                        size 0.1 2.8 5.0
+		}
+            }
+    ]
+}
+
+ 
+#Taka sama przegródka nad drzwiami do jadalni
+
+Transform {
+  translation -1.5 2.55 1.25
+  children [
+  DEF przegrodka  Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 0.5 2.5
+		}
+            }
+    ]
+}
+
+#Lewa częć tylnej ciany jadalni, na lewo od drzwi do kuchni
+Transform {
+  translation -1.75 1.4 7.5
+  children [ 
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.5 2.8 0.1
+
+		}
+            }
+    ]
+}
+
+#Przegródka nad drzwiami z jadalnego do kuchni
+Transform {
+  translation -2.5 2.55 7.5
+  children [ USE NDrzwiami ]
+}
+
+#Tylna ciana jadalni
+Transform {
+  translation -4.25 1.4 7.5 
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 2.5 2.8 0.1
+		}
+            }
+    ]
+}
+
+
+
+#02/03/2001
+#Tylna ciana jadalni
+Transform {
+#  translation -4.25 1.4 7.5 
+  translation -4.4 1.4 7.35
+
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 2.5 2.8 0.1
+                        size 2.3 2.8 0.5
+		}
+            }
+    ]
+}
+
+
+]
+}
+
+
+#Lewa ciana korytarza, przy końcu domu
+#10/08/2000
+Transform {
+#  translation 2 1.4 10.5
+  translation 1.1 1.4 10.5
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 3
+		}
+            }
+    ]
+}
+
+#27/08/2000
+Transform {
+translation -0.625 0 0
+#translation -0.75 0 0
+children [
+#Schody, a w każdym bšdż razie, pseud schody w postaci pochylni
+#Schod 1
+Transform {
+  translation -0.75 0.15 2.5
+  children [
+        DEF Schodek Shape {
+		 appearance Appearance {
+				texture ImageTexture {
+					url "wood.jpg"
+					}
+			   }
+
+	         geometry Box {
+			size 1.25 0.3 0.3
+		}
+            }
+    ]
+}
+
+#Słupek dla schodka nr 1
+Transform {
+  translation -0.15 0.3 2.5
+  children [
+        DEF Slupek Shape {
+		 appearance Appearance {
+				texture ImageTexture {
+					url "wood.jpg"
+					}
+			   }
+
+	         geometry Box {
+			size 0.05 1.5 0.05
+		}
+            }
+    ]
+}
+
+
+#Schod 2
+Transform {
+  translation -0.75 0.45 2.75
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 2
+Transform {
+  translation -0.15 0.6 2.75
+  children [ USE Slupek ]
+}
+
+#Schod 3
+Transform {
+  translation -0.75 0.75 3
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 3
+Transform {
+  translation -0.15 0.9 3
+  children [ USE Slupek ]
+}
+
+
+#Schod 4
+Transform {
+  translation -0.75 1 3.25
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 4
+Transform {
+  translation -0.15 1.2 3.25
+  children [ USE Slupek ]
+}
+
+
+#Schod 5
+Transform {
+  translation -0.75 1.25 3.5
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 5
+Transform {
+  translation -0.15 1.5 3.5
+  children [ USE Slupek ]
+}
+
+ 
+#Schod 6
+Transform {
+  translation -0.75 1.5 3.75
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 6
+Transform {
+  translation -0.15 1.8 3.75
+  children [ USE Slupek ]
+}
+
+#Schod 7
+Transform {
+  translation -0.75 1.75 4
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 7
+Transform {
+  translation -0.15 2.1 4
+  children [ USE Slupek ]
+}
+
+#Schod 8
+Transform {
+  translation -0.75 2 4.25
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 8
+Transform {
+  translation -0.15 2.4 4.25
+  children [ USE Slupek ]
+}
+
+
+#Schod 9
+Transform {
+  translation -0.75 2.25 4.5
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 9
+Transform {
+  translation -0.15 2.7 4.5
+  children [ USE Slupek ]
+}
+
+#Schod 10
+Transform {
+  translation -0.75 2.5 4.75
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 10
+Transform {
+  translation -0.15 3.0 4.75
+  children [ USE Slupek ]
+}
+
+#Schod 11
+Transform {
+  translation -0.75 2.75 5
+  children [ USE Schodek ]
+}
+
+#Słupek dla schodka nr 11
+Transform {
+  translation -0.15 3.3 5.0
+  children [ USE Slupek ]
+}
+
+#Barierka przy schodach
+Transform {
+  translation -0.15 2.55 3.75
+  rotation 1 0 0 -0.8760580506
+  children [
+        Shape {
+                appearance Appearance {
+			texture ImageTexture { url "wood.jpg" }
+			   }
+	         geometry Box {
+			size 0.07 0.05 4
+		}
+            }
+    ]
+}
+
+
+#ciana za schodami, tam majš być podobno drzwi do piwnicy
+Transform {
+  translation -0.75 1.4 5.15
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 1.25 2.8 0.1
+		}
+            }
+    ]
+}
+
+#ciana, w kształcie trójkšta, przy schodach, po ich lewej stronie
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+                                                -0.115  0.0  2.35
+                                                -0.115  3.0  5.15
+                                                -0.115  0.0  5.15
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#Sufit nad kuchniš i jadalniš
+Transform {
+#  translation -3.75 2.8 6
+  translation -3.39 2.8 6
+  children [
+   DEF sufit Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 1 1 1
+					 }
+			   }
+	         geometry Box {
+#                        size 4.5 0.1 12
+                        size 4.0 0.1 12
+
+		}
+            }
+    ]
+}
+
+
+]
+}
+
+
+#Lewa ciana korytarza, i prawa salonu
+Transform {
+  translation 2 1.4 5
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 5
+		}
+            }
+    ]
+}
+
+#Przegródka nad drzwiami do salonu
+Transform {
+  translation 2 2.55 1.25
+  children [ USE przegrodka ]
+}
+
+
+Transform {
+  translation 3.75 2.8 6
+  children [
+     DEF sufit Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 1 1 1
+					 }
+			   }
+	         geometry Box {
+                        size 4.5 0.1 12
+		}
+            }
+    ]
+}
+
+
+#Sufit nad korytarzem
+#13/01/2001
+Transform {
+#  translation 0.75 2.8 6
+#  translation 0.5 2.8 6
+  translation 0.5 2.8 6
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 1 1 1
+					 }
+			   }
+	         geometry Box {
+#                        size 1.5 0.1 12
+#                        size 2.0 0.1 12
+                        size 2.45 0.1 12
+
+		}
+            }
+    ]
+}
+
+#Sufit nad przedpokojem, czyli tam gdzie sš drzwi wejciowe
+Transform {
+  translation -0.75 2.8 1.25
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 1 1 1
+					 }
+			   }
+	         geometry Box {
+                        size 1.5 0.1 2.5
+		}
+            }
+    ]
+}
+
+
+#Sufit nad korytarzem, koło kuchni, za schodami
+Transform {
+  translation -0.75 2.8 8.5
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 1 1 1
+					 }
+			   }
+	         geometry Box {
+                        size 1.5 0.1 7
+		}
+            }
+    ]
+}
+
+#Przegródka nad drzwiami między salonem i korytarzem
+#10/08/2000
+Transform {
+#  translation 2 2.55 8
+  translation 1.1 2.55 8
+  children [ USE przegrodka ]
+}
+
+#Poprawka 28/07/2000
+#Sufit na piętrze, nad zwięczeniem schodów
+#Modyfikacja 29/07/2000
+#10/08/2000
+Transform {
+#  translation -0.5 5.6 5.5
+#  translation 0 5.6 6
+#  translation 0 5.6 5
+#  translation 0 5.6 5
+  translation 0 5.6 4.5
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 1 1 1
+					 }
+			   }
+	         geometry Box {
+#                        size 2 0.1 3
+#			 size 12 0.1 12
+#			 size 12 0.1 14
+#			 size 10 0.1 14
+			 size 10 0.1 13
+
+		}
+            }
+    ]
+}
+           
+
+#Pogrubiona ciana, na lewo od schodów, oddzielajšca salon od korytarza
+Transform {
+  translation 1.5 1.4 5.75
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.9 2.8 3.5
+		}
+            }
+    ]
+}
+
+#To trzeba jeszcze zmienić : SYMBOL 780319
+#Tylna ciana salonu, prowadzšca do jakiego pomieszczenia, prawdopodobnie łazienki
+#NEW: Zmiana lokalizacji ciany, teraz to jest już tylna ciana salonu i całego domu
+#Zmiana koncepcji 30/07/2000
+#10/08/2000
+Transform {
+#  translation 5.25 1.4 10
+#  translation 5.25 1.4 12
+  translation 3.5 1.4 12
+  children [
+   DEF Sianak Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 1.5 2.8 0.1
+                        size 0.5 2.8 0.1
+		}
+            }
+    ]
+}
+
+#Prawa czesc sciany
+Transform {
+#  translation 2.75 1.4 10
+#  translation 2.75 1.4 12
+  translation 2.0 1.4 12
+  children [ USE Sianak ]
+}
+
+#Przegr˘dka nad drzwiami 
+Transform {
+#  translation 4 2.55 10
+#  translation 4 2.55 12
+  translation 2.75 2.55 12
+  children [ USE NDrzwiami ]
+}
+
+#Okno z tyłu salonu, częć górna
+Transform {
+translation 4.75 2.55 12
+children [
+   DEF NOKNO Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 2.5 0.5 0.1
+		}
+            }
+    ]
+}
+
+#Częć dolna
+Transform {
+translation 4.75 0.25 12
+children [ USE NOKNO ]
+}
+
+Transform {
+translation 4.75 0.5 12
+children [ USE NOKNO ]
+}
+
+Transform {
+translation 4.75 1.4 12.0
+children [
+   Shape {
+                appearance Appearance {           
+				material Material {
+                                             emissiveColor 0 0 0.25
+                                             transparency 0.5
+					 }
+			   }
+	         geometry Box {
+                        size 2.5 2 0.001
+		}
+            }
+    ]
+}
+
+
+
+#Częć prawa
+Transform {
+translation 5.75 1.4 12
+children [
+   Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.5 2.8 0.1
+		}
+            }
+    ]
+}
+
+
+
+#28/07/2000
+#27/08/2000
+#Lewa ciana korytarza na piętrze, a jednoczenie prawa ciana pokoju Buffy
+Transform {
+#  translation 1.5 4.2 4.75   # ????
+  translation 1.5 4.2 3.75   # ????
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 2.8 4.5
+                        size 0.1 2.8 2.5
+		}
+            }
+    ]
+}
+
+#2.78
+#27/08/2000
+#18/09/2000
+#03/11/2000
+#14/03/2001
+#ciana oddzielajšca pomieszczenie (pokój Dawn?) między pokojem Buffy a Joyce od pokoju Joyce
+Transform {
+#  translation 3.75 4.2 7  # 
+#  translation 3.75 4.2 8.5  # Przesunšłem bardziej do pokoju Joyce
+#  translation 3.75 4.2 7 
+#  translation 3.75 4.2 8.5
+  translation 3.75 4.2 9.5 # bardziej wgłšb pokoju Joyce
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 4.5 2.8 0.1
+#                        size 4.6 2.8 0.1   # Wydłużam aby nie było brzydkich uskoków
+                        size 4.6 2.8 0.1
+
+
+		}
+            }
+    ]
+}
+
+#Przegródka nad oboma drzwiamia do pomieszczenia między pokojem Buffy i pokojem Joyce
+#18/09/2000
+Transform {
+#  translation 3.75 4.2 7  # 
+#  translation 1.5 5.3 6.75 
+  translation 1.5 5.3 5.5 
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 0.5 3.5
+                        size 0.1 0.5 1
+		}
+            }
+    ]
+}
+
+#Scianka między drzwiami do pomieszczenia między pokojem Buffy i pokojem Joyce
+#18/09/2000
+#03/11/2000
+#06/01/2001
+Transform {
+#  translation 1.5 4.2 6.75
+#  translation 1.5 4.2 6.5
+  translation 1.5 4.2 7.75
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 2.8 1.5
+#                        size 0.1 2.8 1
+#                        size 0.1 2.8 2.5
+                        size 0.1 2.8 3.5
+
+		}
+            }
+    ]
+}
+
+
+
+#Tylna ciana pokoju Joyce
+#Modyfikacja 29/07/2000
+#10/08/2000
+#06/01/2001
+Transform {
+#  translation 0 4.2 12
+#  translation 0 4.2 12
+#  translation 0 4.2 11
+  translation 0 4.2 11
+  children [
+        Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 12 2.8 0.1
+#                        size 10 2.8 0.1
+                        size 6 2.8 0.1
+
+		}
+            }
+    ]
+}
+
+#Lewa częć zamkniecia domu z tyłu na piętrze
+Transform {
+  translation 3 4.2 11.5
+  children [
+   DEF zamkniecie Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 1.1
+
+		}
+            }
+    ]
+}
+
+#Prawa częć zamknięcia domu z tyłu na piętrze [komin?]
+Transform {
+  translation -3 4.2 11
+  children [
+   DEF zamkniecie Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 2.1
+
+		}
+            }
+    ]
+
+}
+
+#Bardziej prawa częć zamknięcia domu z tyłu na piętrze [komin?]
+Transform {
+  translation -4 4.2 11
+  children [ USE zamkniecie ]
+}
+
+#Zakniecie komina?
+Transform {
+  translation -3.5 4.2 10
+  children [
+   DEF zamkniecie Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 1.1 2.8 0.1
+
+		}
+            }
+    ]
+}
+
+
+#Lewa częć tylniej ciany pokoju Joyce
+Transform {
+  translation 4.5 4.2 12
+  children [
+    DEF Scianka1 Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 3.0 2.8 0.1
+
+		}
+            }
+    ]
+}
+
+#Prawa częć tylnej ciany pokoju Joyce
+Transform {
+  translation -4.5 4.2 12
+  children [ USE Scianka1 ]
+}
+
+#Podłoga na piętrze nad kuchniš i jadalniš
+#Modyfikacja 29/07/2000
+Transform {
+#  translation -3.75 2.9 6
+#  translation -3.75 2.9 5
+#  translation -3.75 2.9 4.5
+  translation -4.0 2.9 4.5
+  children [
+   DEF podl Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+			   }
+	         geometry Box {
+#                        size 4.5 0.1 12
+#                        size 4.5 0.1 14
+#                        size 4.5 0.1 15
+                        size 4.0 0.1 15
+		}
+            }
+    ]
+}
+
+#Brakujšca czeć podłogi na piętrze nad korytarzem (przednia częć)
+Transform {
+  translation -1.75 2.9 -0.225
+  children [
+   DEF podl Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+			   }
+	         geometry Box {
+                        size 0.5 0.1 5.55
+		}
+            }
+    ]
+}
+
+#Brakujšca czeć sufitu na piętrze nad korytarzem (przednia częć)
+Transform {
+  translation -1.75 2.8 1.25
+  children [
+   DEF podl Shape {
+                appearance Appearance {
+				material Material {emissiveColor 1 1 1 }
+			   }
+		 
+	         geometry Box {
+                        size 0.5 0.1 2.5
+		}
+            }
+    ]
+}
+
+
+#Brakujšca czeć podłogi na piętrze nad korytarzem (tył)
+Transform {
+  translation -1.75 2.9 8.5
+  children [
+   DEF podl Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+			   }
+	         geometry Box {
+                        size 0.5 0.1 7
+		}
+            }
+    ]
+}
+
+#Podłoga w pokoju Buffy i w pomieszczeniu za jej pokojem (narazie jest to częć pokoju Joyce
+Transform {
+  translation 3.7 2.9 4.5
+  children [
+   DEF podl Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+			   }
+	         geometry Box {
+                        size 4.4 0.1 15
+		}
+            }
+    ]
+}
+
+
+
+#Podłoga na piętrze nad salonem
+Transform {
+#  translation 3.75 2.9 6
+  translation 3.75 2.9 4.5
+  children [ USE podl ]
+}
+
+#podłoga na piętrze nad korytarzem
+#Modyfikacja 29/07/2000
+#13/01/2001
+Transform {
+#  translation 0.75 2.9 6
+#  translation 0.75 2.9 5
+#  translation 0.75 2.9 4.5
+#  translation 0.5 2.9 4.5
+  translation 0.5 2.9 4.5
+  children [
+           Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+			   }
+	         geometry Box {
+#                        size 1.5 0.1 12
+#                       size 1.5 0.1 14
+#                        size 1.5 0.1 15
+#                        size 2.0 0.1 15
+                        size 2.45 0.1 15
+
+		}
+            }
+    ]
+}
+
+#Podłoga na piętrze nad przedpokojem, czyli tam gdzie sš drzwi wejciowe
+#Modyfikacja 29/07/2000
+#13/09/2000
+Transform {
+#  translation -0.75 2.9 1.25
+#  translation -0.75 2.9 0.25
+#  translation -0.75 2.9 -0.25
+  translation -0.8 2.9 -0.225
+  children [
+           Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+			   }
+	         geometry Box {
+#                        size 1.5 0.1 2.5
+#                        size 1.5 0.1 4.5
+#                        size 1.5 0.1 5.5
+                        size 1.4 0.1 5.6
+		}
+            }
+    ]
+}
+
+#Podłoga na piętrze nad korytarzem, koło kuchni, za schodami
+Transform {
+  translation -0.75 2.9 8.5
+  children [
+           Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+			   }
+	         geometry Box {
+                        size 1.5 0.1 7
+		}
+            }
+    ]
+}
+
+#Tylnia ciana pokoju Buffy
+#Modyfikacja 29/07/2000
+#10/08/2000
+#26/08/2000
+#03/11/2000    Należy uwzględnić to, że zgodnie z opisami ze scenopisów pokój Dawn znajduje się za pokojem Buffy
+#	       Dlatego też tylnia ciana pokoju Buffy wędruje do przodu ;-)		
+Transform {
+#  translation 3.75 4.2 5
+#  translation 3.25 4.2 4
+#  translation 3.75 4.2 4
+#  translation 3.75 4.2 5
+  translation 3.75 4.2 4.5
+
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 4.5 2.8 0.1
+#                        size 3.5 2.8 0.1
+#                        size 4.5 2.8 0.1
+#                        size 4.5 2.8 0.1
+                        size 4.5 2.8 0.1
+
+
+		}
+            }
+    ]
+}
+
+#Lewa częć ciany pokoju Buffy w kształcie trójkšta
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+#				texture ImageTexture { url "wood.jpg" }
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+
+
+						6.05  2.8 -3.5
+						6.05  2.8  2.0
+						6.05  5.9  2.0
+
+						5.95  2.8 -3.5
+						5.95  2.8  2.0
+						5.95  5.9  2.0
+
+						5.0  5.9  2.0
+						5.0  5.9 -2
+						5.0  3.6 -2
+
+
+						-6.05  2.8 -3.5
+						-6.05  2.8  2.0
+						-6.05  5.9  2.0
+
+						-5.95  2.8 -3.5
+						-5.95  2.8  2.0
+						-5.95  5.9  2.0
+
+						-5.0  5.9  2.0
+						-5.0  5.9 -2
+						-5.0  3.6 -2
+
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,-1
+					   3,4,5,-1
+					   2,1,0,-1
+				           5,4,3,-1
+
+					   6,7,8,-1
+					   8,7,6,-1
+
+					   9,10,11,-1
+					   11,10,9,-1
+
+					   12,13,14,-1
+					   14,13,12,-1
+
+					   15,16,17,-1
+					   17,16,15,-1
+
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+
+#Dach przed pokojem Buffy, korytarzem i pokojem naprzeciwko pokoju Buffy
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 0.25 0.25 0.25
+# 					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+						5.0  3.64 -2
+					       -5.0  3.64 -2
+					       -5.0  2.8 -3.5
+					 	5.0  2.8 -3.5
+
+					      ]
+				                         }
+				coordIndex [
+						0,1,2,3,-1
+						3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+
+#Lewa ciana pokoju Buffy i Joyce
+#Modyfikacja 29/07/2000
+#10/08/2000
+#26/08/2000
+#06/01/2001
+Transform {
+#  translation 6 4.2 6
+#  translation 5 4.2 6
+#  translation 6 4.2 6
+#  translation 6 4.2 7
+#  translation 6 4.2 7.75
+  translation 6 4.2 5.25		# PIku
+
+   children [
+   DEF ScianaL Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 2.8 10
+#                        size 0.1 2.8 8.5
+                        size 0.1 2.8 3.5
+
+		}
+            }
+    ]
+
+}
+
+#Lewa ciana pokoju Buffy i Joyce Cišg dalszy
+#Modyfikacja 29/07/2000
+#10/08/2000
+#26/08/2000
+#06/01/2001
+Transform {
+#  translation 6 4.2 6
+#  translation 5 4.2 6
+#  translation 6 4.2 6
+#  translation 6 4.2 7
+#  translation 6 4.2 7.75
+  translation 6 4.2 10.25		# PIku
+
+   children [
+   DEF ScianaL Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 2.8 10
+#                        size 0.1 2.8 8.5
+                        size 0.1 2.8 3.5
+
+		}
+            }
+    ]
+
+}
+
+
+#Dół okna w pokoju Dawn
+#Modyfikacja 29/07/2000
+#10/08/2000
+#26/08/2000
+#06/01/2001
+Transform {
+#  translation 6 4.2 6
+#  translation 5 4.2 6
+#  translation 6 4.2 6
+#  translation 6 4.2 7
+#  translation 6 4.2 7.75
+  translation 6 3.3 7.75		# PIku2
+
+   children [
+   DEF OknoDol Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 0.1 2.8 10
+#                        size 0.1 2.8 8.5
+                        size 0.1 1.0 1.5
+
+		}
+            }
+    ]
+
+}
+
+#Góra okna pokoju Dawn w lewej cianie
+Transform {
+  translation 6 5.4 7.75
+   children [
+   DEF OknoGor Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 0.5 1.5
+		}
+            }
+    ]
+
+}
+
+Transform {
+  translation 6.0 4.4 7.75
+   children [
+   DEF OknoSzyba Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0 0 0.25
+                                             transparency 0.5
+					 }
+			   }
+	         geometry Box {
+                        size 0.001 1.5 1.5
+		}
+            }
+    ]
+}
+
+#Dół okna pokoju Joyce w prawej cianie
+Transform {
+  translation -6 3.3 7.75
+   children [ USE OknoDol    ]
+
+}
+
+#Góra okna pokoju Joyce w prawej cianie
+Transform {
+  translation -6 5.4 7.75
+   children [ USE OknoGor   ]
+
+}
+
+#Szyba okna pokoju Joyce w prawej cianie
+Transform {
+  translation -6.0 4.4 7.75
+   children [ USE OknoSzyba   ]
+
+}
+
+#Dół okna pokoju Buffy w lewej cianie
+Transform {
+  translation 6 3.3 2.75
+   children [ USE OknoDol    ]
+
+}
+
+#Góra okna pokoju Buffy w lewej cianie
+Transform {
+  translation 6 5.4 2.75
+   children [ USE OknoGor   ]
+
+}
+
+#Szyba okna pokoju Buffy w lewej cianie
+Transform {
+  translation 6.0 4.4 2.75
+   children [ USE OknoSzyba   ]
+
+}
+
+Transform {
+  translation -6 3.3 2.75
+   children [ USE OknoDol]
+}
+Transform {
+  translation -6 5.4 2.75
+   children [ USE OknoGor]
+}
+Transform {
+  translation -6 4.4 2.75
+   children [ USE OknoSzyba]
+}
+
+
+
+#Przednia ciana pokoju Buffy i korytarza ( w tym miejscu powinno być okno ) przesunšć?
+#Modyfikacja 29/07/2000
+#Modyfikacja 30/07/2000
+#12/01/2001
+Transform {
+#  translation 3 4.2 -2
+#  translation 0 4.2 -2
+#  translation 0 4.2 -2
+#  translation 0 4.2 -2
+  translation 1.5 4.2 -2
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 6 2.8 0.1
+#                        size 12 2.8 0.1
+#                        size 10 2.8 0.1
+#                        size 4 2.8 0.1
+                        size 1 2.8 0.1
+
+		}
+            }
+    ]
+}
+
+#Przednia ciana pokoju Buffy i korytarza ( w tym miejscu powinno być okno ) przesunšć?
+#Modyfikacja 29/07/2000
+#Modyfikacja 30/07/2000
+#12/01/2001
+Transform {
+#  translation 3 4.2 -2
+#  translation 0 4.2 -2
+#  translation 0 4.2 -2
+#  translation 0 4.2 -2
+  translation -1.5 4.2 -2		# Miki
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 6 2.8 0.1
+#                        size 12 2.8 0.1
+#                        size 10 2.8 0.1
+#                        size 4 2.8 0.1
+                        size 1 2.8 0.1
+
+		}
+            }
+    ]
+}
+
+#Najbardziej lewa czesc przedniej sciany na pietrze
+#10/08/2000
+Transform {
+#  translation 4.75 4.2 -2
+  translation 4.75 4.2 -2
+  children [
+  DEF POkno Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.5 2.8 0.1
+		}
+            }
+    ]
+}
+
+#Czesc gorna, okna u Buffy, od frontu
+
+Transform {
+  translation 3.25 5.4 -2
+  children [
+  DEF NadOkno Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 2.5 0.6 0.1
+		}
+            }
+    ]
+}
+
+#Czesc dolna, okna Buffy, od frontu
+Transform {
+  translation 3.25 3.3 -2
+  children [
+  DEF PodOkno Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 2.5 1 0.1
+		}
+            }
+    ]
+}
+
+#Szyba, na pietrze w pokoju Buffy
+Transform {
+  translation 3 4.2 -2
+  children [    DEF Szyba Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0 0 0.25
+                                             transparency 0.5
+					 }
+			   }
+	         geometry Box {
+                        size 3 1.8 0.001
+		}
+            }
+    ]
+}
+
+#Przegródka okna w pokoju Buffy
+Transform {
+  translation 3.25 4.2 -2
+  children [
+  DEF przOkna Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.35 1.8 0.1
+		}
+            }
+    ]
+}
+
+#Szyba pokoju naprzeciwko pokoju Buffy
+Transform {
+  translation -3 4.2 -2
+  children [ USE Szyba ]
+}
+
+#Szyba w korytarzy na pietrze
+Transform {
+  translation 0 4.2 -2
+  children [ USE Szyba ]
+}
+
+#Przegródka okna w korytarzu
+Transform {
+  translation 0 4.2 -2
+  children [ USE przOkna ]
+}
+
+
+
+
+#Przegródka okna w pokoju naprzeciwko pokoju Buffy
+Transform {
+  translation -3.25 4.2 -2
+  children [ USE przOkna ]
+}
+
+
+
+#Najbardziej prawa czesc przedniej sciany na pietrze
+Transform {
+ translation -4.75 4.2 -2
+ children [ USE POkno ]
+}
+
+#Czesc gorna, okna, w pokoju naprzeciwko pokoju Buffy, od frontu
+Transform {
+  translation -3.25 5.4 -2
+  children [ USE NadOkno ]
+}
+
+#Czesc dolna, okna, w pokoju naprzeciwko pokoju Buffy, od frontu
+Transform {
+  translation -3.25 3.3 -2
+  children [ USE PodOkno ]
+}
+
+
+#prawa ciana pokoju Buffy, czyli lewa ciana korytarza
+Transform {
+  translation 1.5 4.2 -0.25
+  children [
+     DEF PSciana Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 3.5
+		}
+            }
+    ]
+}
+
+
+#Przegródka nad drzwiami do Buffy
+Transform {
+  translation 1.5 5.3 2
+  children [ USE ND1 ]
+}
+
+#Przegródka nad drzwiami do Joyce
+Transform {					#780319
+  translation 1 5.3 7 
+  children [ USE NDrzwiami ]
+}
+
+#14/03/2001
+#Ograniczenie [z lewej] drzwi pokoj Joyce [lewych :)]
+Transform {
+  translation 1.25 4.2 7 
+  children [
+          Shape {
+                 appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.5 2.8 0.1
+		}
+            }
+    ]
+}
+
+
+Transform {					#780319
+  translation 0 5.3 7 
+  children [ USE NDrzwiami ]
+}
+
+
+#Oki, tarozki pokój naprzeciwko pokoju Buffy
+
+Transform {
+translation -0.5 0 0
+children [
+
+
+#ciana na piętrze, po prawej stronie schodów
+Transform {
+  translation -1.5 4.2 4.80
+#  children [ USE Sciana2 ]
+  children [ Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+				      }
+  	         geometry Box {
+                        size 0.1 2.8 4.5
+		}
+            }
+    ]
+}
+
+
+
+#Poprawka 28/07/2000
+#13/01/2001
+#ciana na piętrze, po lewej stronie schodów
+Transform {
+#  translation 0.1 4.2 3.75
+  translation -0.20 4.2 3.75
+#  children [ USE Sciana2 ]
+  children [ Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+				      }
+  	         geometry Box {
+                        size 0.1 2.8 2.5
+		}
+            }
+    ]
+}
+
+
+
+#ciana, nad schodami
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 1 1 1
+					 }
+				      }
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+                                                -0.2    2.8  2.55
+						-1.50  2.8  2.55
+						-1.50  5.8  5.0
+                                                -0.2  5.6  5.0					      
+]
+				                         }
+				coordIndex [
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#ciana na piętrze, zamykajšce schody (równoległa do frontowej)
+Transform {
+  translation -0.5 4.2 7
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 2 2.8 0.1
+		}
+            }
+    ]
+}
+
+#13/01/2001
+#ciana oddzielajšca ten pokój od schodów
+Transform {
+# translation -0.7 4.3 2.6
+  translation -0.825 4.3 2.6
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                       size 1.7 2.7 0.1
+                        size 1.35 2.7 0.1
+
+		}
+            }
+    ]
+}
+
+#13/01/2001
+#Przegródka nad drzwiami do tego tajemniczego pomieszczenia
+Transform {
+# translation 0.1 5.3 2
+  translation -.20 5.3 2
+  children [ USE ND1 ]
+}
+
+#Lewa ciana niezidentyfikowanego pokoju ;-)częć przednia
+#27/08/2000
+#12/01/2001
+
+Transform {
+#  translation -1.0 4.2 -1.25
+#  translation -1.0 4.2 -0.25		# miki2
+  translation -1.0 4.2 -1.25
+
+  children [ 
+     DEF PSciana Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 1.5
+		}
+            }
+    ]
+}
+
+#Lewa ciana niezidentyfikowanego pokoju ;-) częć tylnia
+#12/01/2001
+#13/01/2001
+Transform {
+#  translation -1.0 4.2 -0.25		# miki2
+#  translation 0.1 4.2 0.5
+  translation -0.20 4.2 0.5
+  children [ 
+     DEF PSciana Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.1 2.8 2.0
+		}
+            }
+    ]
+}
+
+#Lewa ciana niezidentyfikowanego pokoju ;-) ta skierowana równolegle do ciany frontowej
+#12/01/2001
+#13/01/2001
+Transform {
+#  translation -1.0 4.2 -0.25		# miki2
+#  translation -0.45 4.2 -0.45
+  translation -0.6 4.2 -0.45
+
+
+  children [ 
+     DEF PSciana Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 1.2 2.8 0.1
+                        size 0.90 2.8 0.1
+
+		}
+            }
+    ]
+}
+
+
+#Czesc gorna, okna w korytarzu na pietrze
+Transform {
+  translation 0.5 5.4 -2
+  children [
+  DEF NadOkno Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 3.5 0.6 0.1
+		}
+            }
+    ]
+}
+
+#Czesc dolna, okna Buffy, od frontu
+Transform {
+  translation 0.5 3.3 -2
+  children [
+  DEF PodOkno Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 3.5 1 0.1
+		}
+            }
+    ]
+}
+
+
+
+
+#ciana oddzielajšca pokój Joyce, od pomieszczenia na przeciwko drzwi do Buffy.
+#28/08/2000, tu majš być drzwi
+#Modyfikacja 29/07/2000
+#10/08/2000
+#28/08/2000
+#Według nowego konceptu to będzie góra ciany ;-)
+Transform {
+#  translation -3.75 4.2 7
+#  translation -3.25 4.2 7
+#  translation -3.75 4.2 7
+#  translation -3.5 4.2 7
+#  translation -3.5 4.2 6
+  translation -3.5 5.3 6
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 4.5 2.8 0.1
+#                        size 3.5 2.8 0.1
+#                        size 4.0 2.8 0.1
+                        size 4.0 0.5 0.1
+		}
+            }
+    ]
+}
+
+#Lewa częć ciany
+Transform {
+  translation -2.5 4.2 6
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 4.5 2.8 0.1
+#                        size 3.5 2.8 0.1
+                        size 2.0 2.8 0.1
+		}
+            }
+    ]
+}
+
+#Prawa częć ciany
+Transform {
+  translation -5.0 4.2 6
+  children [
+           Shape {
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+#                        size 4.5 2.8 0.1
+#                        size 3.5 2.8 0.1
+                        size 1.0 2.8 0.1
+		}
+            }
+    ]
+}
+
+
+
+]
+}
+
+#Prawa ciana na piętrze
+#Modyfikacja 29/07/2000
+Transform {
+#  translation -6 4.2 6
+#  translation -6 4.2 7
+  translation -6 4.2 5.25		# 3.1415
+  children [ USE ScianaL ]
+}
+
+#Prawa ciana na piętrze Cišg dalszy
+#Modyfikacja 29/07/2000
+Transform {
+#  translation -6 4.2 6
+#  translation -6 4.2 7
+  translation -6 4.2 10.25		# PIku
+
+  children [ USE ScianaL ]
+}
+
+
+#29/07/2000
+#Projekt jest już tak duży, że na moim komputerze, nie da się go praktycznie oglšdać
+#jego oglšdanie odbywa się w okienku o rozmiarach 240x180
+
+
+#Najbardziej wysunięta na prawo częć dachu
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 1 0 0.5
+#					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+#						7.0  2.8 -3.0
+#						7.0  7.0  6.0
+#						5.0  7.0  6.0
+#						5.0  2.8 -3.0
+
+						6.5  2.8 -3.5
+						6.5  7.0  4.0
+						5.0  7.0  4.0
+						5.0  2.8 -3.5
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+#Najbardziej wysunięta na lewa częć dachu
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 1 0 0.5
+#					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+#						-7.0  2.8 -3.0
+#						-7.0  7.0  6.0
+#						-5.0  7.0  6.0
+#						-5.0  2.8 -3.0
+
+						-6.5  2.8 -3.5
+						-6.5  7.0  4.0
+						-5.0  7.0  4.0
+						-5.0  2.8 -3.5
+
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#rodkowa częć dachu, mam nadzieję ;-)
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 1 0 0.5
+#					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+#						 5.0  5.6  3.0
+#						 5.0  7.0  6.0
+#						-5.0  7.0  6.0
+#						-5.0  5.6  3.0
+
+						 5.0  5.6  1.5
+						 5.0  7.0  4.0
+						-5.0  7.0  4.0
+						-5.0  5.6  1.5
+
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#Dach nad pokojem Buffy
+#Częć prawa
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 1 0 0.5
+#					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+						 5.8   5.6  -2.05
+						 3.75  7.0  -2.05
+						 3.75  7.0   4.0
+					         5.8   5.6   4.0
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#Częć Lewa
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 1 0 0.5
+#					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+						 1.3   5.6  -2.05
+						 3.75  7.0  -2.05
+						 3.75  7.0   4.0
+					         1.3   5.6   4.0
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#Dach nad pokojem naprzeciwko pokoju Buffy
+#Częć lewa
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 1 0 0.5
+#					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+						 -5.8   5.6  -2.05
+						 -3.75  7.0  -2.05
+						 -3.75  7.0   4.0
+					         -5.8   5.6   4.0
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#Częć prawa
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 1 0 0.5
+#					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+						 -1.3   5.6  -2.05
+						 -3.75  7.0  -2.05
+						 -3.75  7.0   4.0
+					         -1.3   5.6   4.0
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#Zamknięcie dachu ;-) nad pokojem Buffy
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+#				texture ImageTexture { url "wood.jpg" }
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+						  1.3   5.6  -2.05
+						  3.75  7.0  -2.05
+						  5.8   5.6  -2.05
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,-1
+					   2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#Zamknięcie dachu ;-) nad pokojem naprzeciwko pokoju Buffy
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+#				texture ImageTexture { url "wood.jpg" }
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+						 -1.3   5.6  -2.05
+						 -3.75  7.0  -2.05
+						 -5.8   5.6  -2.05
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,-1
+					   2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+#Dach nad korytearzem, między pokojem Buffy i pokojem naprzeciwko
+Transform {
+  translation 0 5.65 0.75
+  children [
+           Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 0.25 0.25 0.25
+#					 }
+			   }
+	         geometry Box {
+                        size 3 0.1 5.5
+		}
+            }
+    ]
+}
+
+#Dach z tyłu domu
+#10/08/2000
+#09/01/2001
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 1 0 0.5
+#					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+#						7.0  2.8 -3.0
+
+#						6.2  7.0  4.0
+#						6.0  7.0  4.0
+#						6.0  2.8 12.0
+#						6.2  2.8 12.0
+
+						6.4  7.0  4.0
+						-6.4  7.0  4.0
+						-6.4  5.6 11.5
+						6.4  5.6 11.5
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+
+ DEF ZamkniecieDachu Transform {
+ children [
+
+
+#Zamknięcie dachu z tyłu domu po prawej stronie [chyba ;)]
+#09/01/2001
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+#				texture ImageTexture { url "wood.jpg" }
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+#						7.0  2.8 -3.0
+
+#						6.2  7.0  4.0
+#						6.0  7.0  4.0
+#						6.0  2.8 12.0
+#						6.2  2.8 12.0
+
+#						6.4  7.0  4.0
+#						-6.4  7.0  4.0
+#						-6.4  5.6 11.5
+#						6.4  5.6 11.5
+
+						-6.05 7.0 4.0
+						-6.05 5.6 1.5
+						-6.05 5.6 11.5
+						
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,-1
+					   2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+  ]
+}
+
+Transform {
+translation 12.1,0,0
+children [USE ZamkniecieDachu]
+}
+
+
+#Dach z tyłu domu, częć rodkowa
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+#				material Material {
+#					     emissiveColor 1 0 0.5
+#					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+#						7.0  2.8 -3.0
+
+						 3.0  3.265  11.0
+						-3.0  3.265  11.0
+#						-3.0  2.8 12.0
+#						 3.0  2.8 12.0
+						-3.0  2.9 12.0
+						 3.0  2.9 12.0
+
+
+						 6.0  7.0  4.0
+						-6.0  7.0  4.0
+						-6.0  5.9 6.42
+						 6.0  5.9 6.42
+
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+
+					   4,5,6,7,-1
+					   7,6,5,4,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+
+
+
+#Prawy i lewy filar
+Group { 
+	children [
+		Shape {
+                appearance Appearance {
+#				texture ImageTexture { url "wood.jpg" }
+				material Material {
+					     emissiveColor 0.25 0.25 0.25
+					 }
+}
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+                                                 6.25  -0.1  -2.0         # 0 wypad
+                                                 4.75  -0.1  -2.0         # 1 
+						 5.5 2.8  -1.25	# 2
+						 6.0 2.8  -1.25	# 3 wypad
+                                                 5.75  -0.1  -1.0         # 4 wypad
+                                                 4.75  -0.1  -1.0         # 5
+						 5.5 2.8  -1.0		# 6 
+						 6.0 2.8  -1.0		# 7 wypad
+
+                                                -6.25  -0.1  -2.0    #8   # 0 wypad
+                                                -4.75  -0.1  -2.0    #9   # 1 
+                                                -5.5 2.8  -1.25   #10  # 2
+                                                -6.0 2.8  -1.25   #11  # 3 wypad
+                                                -5.75  -0.1  -1.0    #12  # 4 wypad
+                                                -4.75  -0.1  -1.0    #13  # 5
+                                                -5.5 2.8  -1.0    #14  # 6 
+                                                -6.0 2.8  -1.0    #15  # 7 wypad
+
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+
+					   3,7,4,0,-1
+					   0,4,7,3,-1
+
+					   4,5,6,7,-1					   
+					   7,6,5,4,-1
+
+					   1,2,6,5,-1
+					   5,6,2,1,-1
+
+
+                                           8,9,10,11,-1
+                                           11,10,9,8,-1
+
+                                           11,15,12,8,-1
+                                           8,12,15,11,-1
+
+                                           12,13,14,15,-1
+                                           15,14,13,12,-1
+
+                                           9,10,14,13,-1
+                                           13,14,10,9,-1
+                                           ]
+			                        }
+		   }
+	       ]
+     }
+
+
+#Prawa częć sufitu nad pokojem Buffy i Joyce
+Transform {
+  translation 4.5 5.6 6.75
+  children [
+  DEF zufit Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 1 1 1					 }
+			   }
+	         geometry Box {
+                        size 3 0.1 10.5
+		}
+            }
+    ]
+}
+
+Transform {
+  translation -4.5 5.6 6.75
+  children [ USE zufit ]
+}
+
+#cianka na piętrze w pokoju Buffy i pokoju naprzeciwko, zamykajšca szparę utworzonš przez dach i podłogę
+Transform {
+  translation 0 3.25 -1.96 
+  children [
+  DEF zufit Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 12 0.8 0.001		}
+            }
+    ]
+}
+
+
+#Prawy filar przy drzwiach
+Transform {
+  translation 1 1.4 -1.75
+  bboxSize 2 2 2
+  children [
+  DEF Slupek  Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 0.25 3.0 0.25
+		}
+            }
+    ]
+}
+
+#Lewy filar przy drzwiach
+Transform {
+  translation -1 1.4 -1.75
+#  bboxSize 2 2 2
+#  bboxCenter -1 1.4 -1.75
+  children [ USE Slupek ]
+}
+
+#Weranda, prawa strona
+Transform {
+  translation 3.5 0.25 -1.75
+  children [
+  DEF weranda Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.25 0.25 0.25
+					 }
+			   }
+	         geometry Box {
+                        size 5.5 0.6 0.3
+		}
+            }
+    ]
+}
+
+
+#Weranda, lewa strona
+Transform {
+  translation -3.5 0.25 -1.75
+  children [ USE weranda ]
+}
+
+#Weranda, prawa strona
+Transform {
+  translation 0 -0.25 6
+  children [
+  Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.1 0.1 0.1
+					 }
+			   }
+	         geometry Box {
+                        size 14 0.5 16
+		}
+            }
+    ]
+}
+
+#schodek przed werandš
+Transform {
+  translation 0 -0.375 -2.5
+  children [
+  Shape {
+                appearance Appearance {
+				material Material {
+                                             emissiveColor 0.1 0.1 0.1
+					 }
+			   }
+	         geometry Box {
+                        size 1.5 0.25 1
+		}
+            }
+    ]
+}
+
+#Podłoga
+Transform {
+    translation 0 2.8 -1.7
+       children [
+    DEF Podloga Shape { 
+                appearance Appearance {
+#				material Material {
+#					     emissiveColor 0.25 0.25 0.25
+#					 }
+				texture ImageTexture {
+					url "wood.jpg"
+					}
+			   }
+	         geometry Box {
+                        size 12.2 0.1 3.4
+		}
+            }
+    ]
+}
+
+
+]
+
+}
+
+
+
+
+##Klonujemy domki ;-)
+#Transform {
+#translation 0 0 -30
+#rotation 0 1 0 3.14
+#children [ USE DOMEK_ ]
+#}
+
+   

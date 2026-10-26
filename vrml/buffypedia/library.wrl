@@ -1,0 +1,953 @@
+#VRML V2.0 utf8 
+NavigationInfo { avatarSize [ 0.25 , 1.84, 0.75 ]
+		 headlight FALSE }
+DEF s2 PointLight {
+        location 0 0 0
+        color    0.25 0.25 0.25
+        radius   5
+        }
+DEF s2 PointLight {
+        location 0 4.50 -10
+        color    0.125 0.125 0.125
+        radius   0.5
+        }
+Viewpoint {
+	fieldOfView 1.0
+	jump        TRUE
+	orientation 0 0 0 0
+	position    0 1.84 2.5
+	description "przy drzwiach"
+}
+Viewpoint {
+	fieldOfView 1.0
+	jump        TRUE
+	orientation 0 1 0 3.14
+	position    0 1.84 -4
+	description "w kregu ;-)"
+}
+Viewpoint {
+	fieldOfView 1.0
+	jump        TRUE
+	orientation 0 0 0 0
+	position    0 1.84 -4
+	description "patrzymy na ksiazki"
+}
+Viewpoint {
+	fieldOfView 1.0
+	jump        TRUE
+	orientation 0 0 0 0
+	position    0 1.84 -10
+	description "w kregu"
+}
+Viewpoint {
+	fieldOfView 1.0
+	jump        TRUE
+	orientation 0 1 0 1.6
+	position    3 1.84 -1 
+	description "za lada"
+}
+Transform {
+  children [
+   	 	Shape {
+			appearance Appearance { texture ImageTexture { url "marble.jpg" } }
+			geometry Box { size 12 0.01 10.5 }
+		      }
+           ]
+}	
+Transform {
+  translation 0 3 0
+  children [
+   	 	Shape {
+			appearance Appearance { material Material {emissiveColor 1 1 1 }}
+			geometry Box { size 12 0.01 10.5 }
+		      }
+           ]
+}	
+Transform {
+  translation 0 1.5 5.25
+  children [
+	   DEF Drzwi1 Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+ #			appearance Appearance { texture ImageTexture { url "marble.jpg" } }
+			geometry Box { size 6 3.0 0.01 }
+			}
+	   ]
+}
+Transform {
+  translation -0.75 1.25 5.22
+  children [
+	   DEF Drzwi1 Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 1.5 2.5 0.03 }
+			}
+	   ]
+}
+Transform {
+  translation 0.75 1.25 5.22
+  children USE Drzwi1
+}
+Group {
+  children [
+		Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						3 0 5.25
+					        3 3 5.25
+						3 3 1
+						3 0 1
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Group {
+   children [
+		Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						3 0 1
+					        3 3 1
+						5 3 -0
+						5 0 -0
+						
+						5 3 -5
+						5 0 -5
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   2,4,5,3,-1
+				           ] 
+			                        }	
+		   }
+	       ]
+     }
+           
+Transform {
+  translation -3 1.5 1.5
+  children [
+            DEF Sciana2 Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 0.01 3 7 }
+		      }
+           ]
+}
+Group {
+  children [
+		Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						-3 0 3
+					        -3 3 3
+						-2 3 5.25
+						-2 0 5.25
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Group {
+  children [
+		Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						3 0 3
+					        3 3 3
+						2 3 5.25
+						2 0 5.25
+					      ]
+				                         }
+				coordIndex [
+					   3,2,1,0
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+  
+Transform {
+  translation -4.25 1.5 -2.0 #???
+  children [
+	   DEF ScianaO1 Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 2.5 3 0.01 }
+			}
+	   ]
+}
+Transform {
+  translation -4.25 1.5 -5 #???
+  children [
+	   DEF ScianaO1 Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 2.5 3 0.2 }
+			}
+	   ]
+}
+Transform {
+  translation -5.5 1.5 -3.5 #???
+  children [
+	   DEF ScianaO1 Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 0.01 3 3 }
+			}
+	   ]
+}
+Transform {
+  translation 2.2 0.5 -1
+  children [
+	    DEF Lada Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 0.7 1 3 }
+		      }
+           ]
+}
+Group { 
+	children [
+		Shape {
+			appearance Appearance {
+                               texture ImageTexture { url "wood.jpg" } }
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						3.5 0 2.5
+						3.5 1 2.5
+						1.85 1 0.5
+						1.85 0 0.5
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Group { 
+	children [
+		Shape {
+			appearance Appearance {
+                               texture ImageTexture { url "wood.jpg" } }
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						2.5 0 0.5
+						2.5 1 0.5
+						3.5 1 1.3
+						3.5 0 1.3
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Group { 
+	children [
+		Shape {
+			appearance Appearance {
+                               texture ImageTexture { url "wood.jpg" } }
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						3.5 1 2.5
+						3.5 1 1.3
+						2.5 1 0.5
+						1.85 1 0.5
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+	
+Group { 
+	children [
+		Shape {
+			appearance Appearance {
+                               texture ImageTexture { url "marble.jpg" } }
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [					
+						-4.5		 0.0   -5.0
+						-3.5  		 0.0   -7.0
+						-5.62132034356   0.0   -9.12132034356
+						-5.62132034356   0.0   -12.12132034356
+						-3.5		 0.0   -14.24264068712
+						 3.5		 0.0   -14.24264068712
+						 5.62132034356   0.0   -12.12132034356
+						 5.62132034356   0.0   -9.12132034356
+						 3.5  		 0.0   -7.0
+						 4.5		 0.0   -5.0
+					      ]
+				                         }
+				coordIndex [
+					   9,8,7,6,5,4,3,2,1,0,-1
+					   0,1,2,3,4,5,6,7,8,9,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Transform {
+translation 0 0 0
+children [
+Transform {
+    translation -2.7 0.8 -9.0
+    rotation 0 1 0 1.57
+children [
+DEF biblio Transform {
+children [
+Transform {
+    children [
+		DEF biblio1 Shape {
+			appearance Appearance { texture ImageTexture { url "knigi.jpg" } }
+			geometry Box { size 2.2 1.6 0.5 }
+		      }
+             ]
+	  }
+Transform {
+translation 0.0 0.75 0.0
+    children [
+		DEF biblio2 Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 2.2 0.09 0.65 }
+		      }
+             ]
+}
+Transform {
+translation 0.7 1.2 0.0
+    children [
+		DEF slupek Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 0.1 1.2 0.1 }
+		      }
+             ]
+	  }
+Transform {
+translation 0.0 1.2 0.0
+    children [
+		USE slupek
+             ]
+	  }
+Transform {
+translation -0.7 1.2 0.0
+    children [
+		USE slupek
+             ]
+	  }
+Transform {
+translation 0 1.8 0.0
+    children [
+		DEF belka Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 2.3 0.1 0.2 }
+		      }
+             ]
+	  }
+]
+}
+]
+}
+Transform {
+translation 3.0 2.6 -8.1
+rotation 0 1 0 0.78
+    children [
+		DEF belka Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 1 0.1 0.2 }
+		      }
+             ]
+	  }
+Transform {
+translation 3.0 2.0 -8.1
+rotation 0 1 0 0.78
+    children [
+		USE slupek
+             ]
+	  }
+Transform {
+translation 2.7 2.0 -7.8
+rotation 0 1 0 0.78
+    children [
+		USE slupek
+             ]
+	  }
+Transform {
+translation 3.3 2.0 -8.4
+rotation 0 1 0 0.78
+    children [
+		USE slupek
+             ]
+	  }
+Transform {
+translation -3.0 2.6 -8.1
+rotation 0 1 0 -0.78
+    children [
+		DEF belka Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 1 0.1 0.2 }
+		      }
+             ]
+	  }
+Transform {
+translation -3.0 2.0 -8.1
+rotation 0 1 0 -0.78
+    children [
+		USE slupek
+             ]
+	  }
+Transform {
+translation -2.7 2.0 -7.8
+rotation 0 1 0 -0.78
+    children [
+		USE slupek
+             ]
+	  }
+Transform {
+translation -3.3 2.0 -8.4
+rotation 0 1 0 -0.78
+    children [
+		USE slupek
+             ]
+	  }
+Transform {
+    translation -1.9 0.8 -11
+    rotation 0 1 0 0.78
+    children [USE biblio]
+}			
+Transform {
+    translation 0 0.8 -11.8
+    rotation 0 1 0 0
+    children [USE biblio]
+}			
+Transform {
+    translation 2.7 0.8 -9.0
+    rotation 0 1 0 1.57
+    children [USE biblio]
+}			
+Transform {
+    translation 1.9 0.8 -11
+    rotation 0 1 0 -0.78
+    children [USE biblio]
+}		
+Group { 
+	children [
+		Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						-3.0 0.0 -5.1
+						-3.0 4.5 -5.1
+						-5.8 4.5 -7.9
+						-5.8 0.0 -7.9
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Group { 
+	children [
+		Shape {
+			appearance Appearance {
+                               texture ImageTexture { url "wood.jpg" } }
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						-2.5 0.0 -7.4
+						-2.5 1.6 -7.4
+						-5.3 1.6 -10.2
+						-5.3 0.0 -10.2
+						-2.45 0.0 -7.9
+						-2.45 1.6 -7.9
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+					   0,1,4,5,-1
+					   5,4,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Group { 
+	children [
+		Shape {
+			appearance Appearance {
+                               texture ImageTexture { url "wood.jpg" } }
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						2.5 0.0 -7.4
+						2.5 1.6 -7.4
+						5.3 1.6 -10.2
+						5.3 0.0 -10.2
+						2.45 0.0 -7.9
+						2.45 1.6 -7.9
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+					   0,1,4,5,-1
+					   5,4,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Group { 
+	children [
+		Shape {
+			appearance Appearance {
+                               texture ImageTexture { url "marble.jpg" } }
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						-2.5 1.601 -7.4
+						-2.45 1.601 -7.9
+						-2.45 1.601 -10.2
+						-5.3 1.601 -10.2
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Group { 
+	children [
+		Shape {
+			appearance Appearance {
+                               texture ImageTexture { url "marble.jpg" } }
+			geometry IndexedFaceSet {
+					coord Coordinate {
+					point [
+						2.5 1.601 -7.4
+						2.45 1.601 -7.9
+						2.45 1.601 -10.2
+						5.3 1.601 -10.2
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+					   3,2,1,0,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Transform { 
+translation -5.52 1.55 -14.2
+rotation 0 1 0 0.78
+	children [
+		DEF Podloga1 Shape {
+			appearance Appearance { texture ImageTexture { url "marble.jpg" } }
+			geometry Box { size 10 0.11 10 }
+		      }
+	       ]
+     }
+Transform { 
+translation -9.52 1.55 -16.2
+rotation 0 1 0 0.78
+	children [
+		DEF Podloga1 Shape {
+			appearance Appearance { texture ImageTexture { url "marble.jpg" } }
+			geometry Box { size 10 0.11 10 }
+		      }
+	       ]
+     }
+Transform { 
+translation 5.52 1.55 -14.2
+rotation 0 1 0 0.78
+	children [
+		USE Podloga1
+	       ]
+     }
+Transform { 
+translation 0 1.55 -16.5
+	children [
+		USE Podloga1
+	       ]
+     }
+Transform {
+rotation 0 1 0 -0.79
+translation -5 0 0
+children [
+Transform {
+    translation -3.5 0.1 -6
+    children [
+		DEF Schodek Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 0.2 0.2 2.1 }
+		      }
+             ]
+}						
+Transform {
+    translation -3.7 0.3 -6
+    children USE Schodek
+}
+Transform {
+    translation -3.9 0.5 -6
+    children USE Schodek
+}
+Transform {
+    translation -4.1 0.7 -6
+    children USE Schodek
+}
+Transform {
+    translation -4.3 0.9 -6
+    children USE Schodek
+}
+Transform {
+    translation -4.5 1.1 -6
+    children USE Schodek
+}
+Transform {
+    translation -4.7 1.3 -6
+    children USE Schodek
+}
+Transform {
+    translation -4.9 1.5 -6
+    children USE Schodek
+}
+Transform {
+    translation -5.2 1.5 -6
+    children [
+		DEF Schodek_S Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 0.5 0.2 2 }
+		      }
+]
+}
+]
+}
+Transform {
+    translation 4 2.25 -6
+    rotation 0 1 0 0.79
+    children [
+		DEF Schodek_S Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 6.0 4.5 0.1 }
+		      }
+]
+}
+Transform {
+    translation 4 2.25 -4.5
+    children [
+		DEF Schodek_S Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 3.0 4.5 0.1 }
+		      }
+]
+}
+Transform {
+rotation 0 1 0 0.79
+translation 5 0 0
+children [
+Transform {
+    translation 3.5 0.1 -6
+    children USE Schodek
+}
+Transform {
+    translation 3.7 0.3 -6
+    children USE Schodek
+}
+Transform {
+    translation 3.9 0.5 -6
+    children USE Schodek
+}
+Transform {
+    translation 4.1 0.7 -6
+    children USE Schodek
+}
+Transform {
+    translation 4.3 0.9 -6
+    children USE Schodek
+}
+Transform {
+    translation 4.5 1.1 -6
+    children USE Schodek
+}
+Transform {
+    translation 4.7 1.3 -6
+    children USE Schodek
+}
+Transform {
+    translation 4.9 1.5 -6
+    children USE Schodek
+}
+Transform {
+    translation 5.2 1.5 -6
+    children [
+		DEF Schodek_S Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 0.5 0.2 2 }
+		      }
+]
+}
+]
+}
+]
+}
+Transform {
+translation 0 0 -3
+children [
+Transform {
+    translation 0 1 -6
+    children [
+		Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 1.5 0.05 2.5 }
+		      }
+             ]
+}
+Transform {
+    translation 0.45 0.5 -5.5
+    children [
+		DEF Noga_s Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 0.1 1 0.1 }
+		      }
+             ]
+}			
+Transform {
+    translation 0.45 0.5 -6.6
+    children USE Noga_s
+}   
+Transform {
+    translation -0.45 0.5 -6.6
+    children USE Noga_s
+}   
+Transform {
+    translation -0.45 0.5 -5.5
+    children USE Noga_s
+}  
+]
+}
+Transform {
+    translation 4.6 1.5 -2.5
+    children [
+		DEF ScianaS Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 1.4 3.0 0.1 }
+		      }
+             ]
+}						
+Transform {
+    translation 2.35 1.5 -2.5
+    children [
+		DEF ScianaS Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 1 3.0 0.1 }
+		      }
+             ]
+}		
+Transform {
+    translation 3.35 2.75 -2.5
+    children [
+		DEF ScianaS Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 1.1 0.5 0.1 }
+		      }
+             ]
+}		
+Transform {
+    translation 1.9 1.5 -2.75
+    children [
+		DEF ScianaS Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 0.1 3.0 0.5 }
+		      }
+             ]
+}		
+Transform {
+    translation 1.9 2.75 -3.3
+    children [
+		DEF ScianaS Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 0.1 0.5 1.2 }
+		      }
+             ]
+}		
+Transform {
+    translation 0 2.25 -20
+    children [
+	     DEF Sciana_K Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 5 4.5 0.01 }
+		      }
+             ]
+}
+Transform {
+    translation -4.1 2.25 -18.3
+    rotation 0 1 0 0.78
+    children [ USE Sciana_K  ]
+}
+Transform {
+    translation 4.1 2.25 -18.3
+    rotation 0 1 0 -0.78
+    children [ USE Sciana_K  ]
+}
+Transform {
+    translation -8.38 2.25 -16.55
+    children [ USE Sciana_K  ]
+}
+Transform {
+    translation -11.72 2.25 -11.25
+    children [ USE Sciana_K  ]
+}
+Transform {
+    translation -10.75 2.25 -15
+    rotation 0 1 0 1.57
+    children [ USE Sciana_K  ]
+}
+Transform {
+    translation -10.75 2.25 -10
+    rotation 0 1 0 1.57
+    children [ USE Sciana_K  ]
+}
+Transform {
+    translation 5.8 2.25 -14.2
+    rotation 0 1 0 1.57
+    children [ USE Sciana_K  ]
+}
+Transform {
+    translation -7.45 2.25 -9.5
+    rotation 0 1 0 -0.78
+    children [ USE Sciana_K  ]
+}
+Transform {
+    translation 5.8 2.25 -9.2
+    rotation 0 1 0 1.57
+    children [ USE Sciana_K  ]
+}
+Transform {
+    translation 0 3.75 -5.25
+    children [
+	     DEF Sciana_K Shape {
+			appearance Appearance { material Material {emissiveColor 0 0.25 0.75 }}
+			geometry Box { size 12 1.5 0.01 }
+		      }
+             ]
+}
+Transform {
+    translation 0 4.5 -12.5
+    children [
+	     DEF Sciana_K Shape {
+			appearance Appearance { material Material {emissiveColor 0.75 0.75 1.0 }}
+			geometry Box { size 12 0.01 15 }
+		      }
+             ]
+}
+Transform {
+    translation 0 2.6 -15
+children [
+DEF biblioteczka Transform {
+children [
+Transform {
+    children [
+		Shape {
+			appearance Appearance { texture ImageTexture { url "knigi.jpg" } }
+			geometry Box { size 3 2.0 0.75 }
+		      }
+             ]
+}
+Transform {
+translation 1.5 0 0
+    children [
+	     DEF Scianka Shape {
+			appearance Appearance { texture ImageTexture { url "wood.jpg" } }
+			geometry Box { size 0.05 2.0 0.75 }
+		      }
+             ]
+}
+Transform {
+translation -1.5 0 0
+    children [
+		USE Scianka
+             ]
+}
+]
+}
+]
+}
+Transform {
+    translation -3.8 2.6 -13.6
+    rotation 0 1 0 0.78
+   children [ USE biblioteczka ]
+}
+Transform {
+    translation 3.8 2.6 -13.6
+    rotation 0 1 0 -0.78
+   children [ USE biblioteczka ]
+}
+Transform {
+    translation 0.0 2.6 -18
+   children [ USE biblioteczka ]
+}
+Transform {
+    translation -3.8 2.6 -16.6
+    rotation 0 1 0 0.78
+   children [ USE biblioteczka ]
+}
+Transform {
+    translation 3.8 2.6 -16.6
+    rotation 0 1 0 -0.78
+   children [ USE biblioteczka ]
+}
+Transform {
+    translation -3 1 1
+    rotation 0 1 0 1.57
+    children [
+		USE biblioteczka
+	     ]
+}
+Transform {
+    translation -7 2.6 -13
+    rotation 0 1 0 1.57
+    children [
+		USE biblioteczka
+	     ]
+}
+Transform { 
+translation -7.52 4.5 -13.2
+rotation 0 1 0 0.78
+	children [
+		DEF Podloga1 Shape {
+			appearance Appearance { material Material {emissiveColor 0.75 0.75 1.0 }}
+			geometry Box { size 10 0.01 10 }
+		      }
+	       ]
+     }

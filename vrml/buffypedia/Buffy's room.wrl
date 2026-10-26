@@ -1,0 +1,520 @@
+#VRML V2.0 utf8 
+Viewpoint {
+	fieldOfView 1.3
+	jump        FALSE
+	orientation 0 0 0 0
+	position    0 1.84 5.7
+	description "Start"
+}
+Viewpoint {
+	fieldOfView 1.3
+	jump        FALSE
+	orientation 0 1 0 -1.6
+	position     -2 1 3.5
+	description "Bed"
+}
+Viewpoint {
+	fieldOfView 1.3
+	jump        FALSE
+	orientation 0 1 0 -1
+	position     -2 1 3.5
+	description "Look at bookshelf"
+}
+Viewpoint {
+	fieldOfView 1.3
+	jump        FALSE
+	orientation 0 1 0 1.6
+	position     2 1.84 1.5
+	description "From door"
+}
+Viewpoint {
+	fieldOfView 1.3
+	jump        FALSE
+	orientation 1 0 0 -0.5
+	position     0 1.84 1
+	description "At desk"
+}
+Viewpoint {
+	fieldOfView 1.3
+	jump        FALSE
+	orientation 0 1 0 3.14
+	position     0 1.84 1
+	description "behind to desk"
+}
+Viewpoint {
+	fieldOfView 1.3
+	jump        FALSE
+	orientation 0 1 0 3.54
+	position     -2 1.5 1.5
+	description "At armchair"
+}
+PointLight {
+  intensity 0.5
+  color 1 0.8 0.8
+  location -0.4 0.975 0.15
+}
+PointLight {
+  intensity 0.5
+  color 1 0.8 0.8
+  location -2.2 0.825 2.5
+}
+Transform {
+    translation 0 0 3
+       children [
+    DEF Podloga Shape { 
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0 0 0.5
+					 }
+			   }
+	         geometry Box {
+			size 5 0.01 6
+		}
+            }
+    ]
+}
+Transform {
+    translation -2 1.25 0.5
+    children [
+    DEF Slupek Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "tapeta1.jpg"
+					}
+			   }
+                geometry Box {        
+			size 1 2.5 1
+                }
+            }
+    ]
+}
+Transform {
+    translation -2 1.25 0.5
+    translation 2.125 1.25 0.5
+    children [
+    DEF Slupek_P Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "tapeta1.jpg"
+					}
+			   }
+                geometry Box {        
+			size 0.75 2.5 1
+                }
+            }
+    ]
+}
+Transform {
+    translation 2.125 1.25 5
+    children [
+    DEF Slupek2 Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "szafa.jpg"
+					}
+			   }
+                geometry Box {        
+			size 0.75 2.5 2
+                }
+            }
+    ]
+}
+Transform {
+   translation 2.125 1.25 3
+    children [
+    DEF Szafa Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "szafa.jpg"
+					}
+			   }
+                geometry Box {        
+			size 0.75 2.5 2
+                }
+            }
+    ]
+}  
+Transform {
+  translation 2.125 1.25 2
+  children [
+    Shape {
+	   appearance Appearance {
+			       texture ImageTexture {
+				       url "tapeta1.jpg"
+				 }
+			}
+	   geometry Box { size 0.75 2.5 0.01 }
+	  }
+]
+}
+Transform {
+  translation -1.5 0.25 4
+  children [
+             Shape {
+               appearance Appearance {
+			       material Material {
+					     emissiveColor 0.5 1 0.5
+					     #transparency  0
+					     #specularColor 0.5 0.25 0.5
+					 }
+			   }
+                geometry Box {        
+			size 2 0.5 2
+                }
+            }
+    ]
+}				
+Transform {
+     translation 0 2.5 3
+       children [
+    DEF Podloga Shape { 
+                appearance Appearance {
+				material Material {
+					     emissiveColor 0.7 0.7 0.7
+					 }
+			   }
+	         geometry Box {
+			size 5 0.01 6
+		}
+            }
+    ]
+}
+Transform {
+    translation 0 1.25 0
+       children [
+    DEF Sciana1 Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "tapeta2.jpg"
+					}
+			   }
+	         geometry Box {
+			size 5 2.5 0.01
+		}
+            }
+    ]
+}
+Transform {
+  translation -0.375 1.25 6
+  children [
+          Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "okno_p.jpg"
+					}
+			   }
+	         geometry Box {
+			size 4.25 2.5 0.01
+		}
+            }
+   	     
+	   ]
+	 }
+Transform {
+    translation 0.4 0.375 0.25
+       children [
+    DEF szafka Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+				  url "wood.jpg"
+				}
+			   }
+	         geometry Box {
+			size 0.25 0.75 0.5
+		}
+            }
+    ]
+}
+Transform {
+  translation -0.4 0.375 0.25
+  children [
+   	     USE szafka
+	   ]
+	 }
+Transform {
+    translation 0.0 0.75 0.25
+       children [
+	  Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+				  url "wood.jpg"
+				}
+			   }
+	         geometry Box {
+			size 1.3 0.01 0.5
+		}
+            }
+    ]
+}
+Transform {
+    translation -2.5 1.25 3.5
+    children [
+    DEF Slupek3 Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "okna3.jpg"
+					}
+			   }
+                geometry Box {        
+			size 0.01 2.5 5
+                }
+            }
+    ]
+}
+Transform {
+    translation -1 0.8 0.5
+    children [
+    Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "knigi.jpg"
+					}
+			   }
+                geometry Box {        
+			size 0.7 1.6 1
+                }
+            }
+    ]
+}
+Transform {
+    translation -0.65 0.8 0.5
+    children [
+    DEF Scianka_b Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "wood.jpg"
+					}
+			   }
+                geometry Box {        
+			size 0.01 1.6 1
+                }
+            }
+    ]
+}
+Transform {
+   translation -1.35 0.8 0.5
+   children [ USE Scianka_b ]
+}
+Transform {
+    translation -1 1.6 0.5
+    children [
+    DEF dach_b Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "wood.jpg"
+					}
+			   }
+                geometry Box {        
+			size 0.7 0.01 1
+                }
+            }
+    ]
+}
+Transform {
+    translation 0 2.5 0.45
+       children [
+    DEF Sciana1 Shape { 
+                appearance Appearance {
+				texture ImageTexture {
+					url "tapeta2.jpg"
+					}
+			   }
+	         geometry Box {
+			size 5 .25 .90
+		}
+            }
+    ]
+}
+Transform {
+  translation -2 0.3 2.5
+  children [
+             Shape {
+               appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+				   }
+                geometry Box {        
+			size 0.7 0.6 0.7
+                }
+            }
+    ]
+}				
+Transform {
+   translation -0.4 0.85 0.15
+   children [
+		DEF nozka Shape {
+		appearance Appearance {
+			material Material {
+ 					     emissiveColor 0.5 0 0
+					  }
+				}
+		geometry Cylinder {
+		          height 0.20
+			  radius 0.05
+			}
+		}
+	]
+}
+Transform {
+   translation -0.4 0.975 0.15
+   rotation 1 0 0 3.14
+   children [
+		DEF Glowa Shape {
+		appearance Appearance {
+			material Material {
+ 					     emissiveColor 0 0.7 0.7
+					     transparency 0.1
+					  }
+				}
+		geometry Cone {
+			  bottomRadius 0.15
+		          height 0.25
+			}
+		}
+	]
+}
+Transform {
+   translation -0.4 0.975 0.15
+   children [
+		DEF Bulb Shape {
+		appearance Appearance {
+			material Material {
+ 					     emissiveColor 0.7 0.7 0
+					     transparency 0.1
+					  }
+				}
+		geometry Sphere {
+			  radius 0.07
+			}
+		}
+	]
+}
+Transform {
+  translation -2.2 0.7 2.5
+  children USE nozka
+}
+Transform {
+  translation -2.2 0.825 2.5
+  rotation 1 0 0 3.14
+  children USE Glowa
+}  
+Transform {
+  translation -2.2 0.825 2.5
+  children USE Bulb
+}
+Transform {
+  rotation 0 1 0 0.4
+  translation -2 0.3 1.5
+  children [
+             Shape {
+               appearance Appearance {
+				texture ImageTexture { url "plusz.jpg" }
+				material Material {
+ 					     emissiveColor 0.0 0.0 0.5
+					     transparency 0
+					  }
+				   }
+                geometry Box {        
+			size 0.7 0.6 0.7
+                }
+            }
+    ]
+}				
+Transform {
+  rotation 0 1 0 0.4
+  translation -2.1 0.9 1.35
+  children [
+             Shape {
+               appearance Appearance {
+				texture ImageTexture { url "plusz.jpg" }
+				material Material {
+ 					     emissiveColor 0.0 0.0 0.5
+					     transparency 0
+					  }
+				   }
+                geometry Box {        
+			size 0.7 0.6 0.2
+                }
+            }
+    ]
+}				
+Transform {
+  rotation 0 1 0 -0.5
+  translation 1.5 0.3 0.4
+  children [
+             Shape {
+               appearance Appearance {
+				texture ImageTexture { url "wood.jpg" }
+				   }
+                geometry Box {        
+			size 0.7 0.6 0.7
+                }
+            }
+    ]
+}				
+Transform {
+     rotation 0 1 0 -0.5
+     translation 1.5 1.3 0.4
+     children [
+               Shape {
+               appearance Appearance {
+                              material Material { emissiveColor 0.1 0.1 0.3 
+					          shininess 1}
+				     }
+               geometry Box { size 0.7 1.5 0.01 } 
+		     }
+              ]
+}	
+Group { 
+	children [
+		Shape {
+                        appearance Appearance { texture ImageTexture {url "tapeta1.jpg"} }
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+						-1.5 2.5 4
+						-1.5 2.5 6
+						-1.5 1.3 6
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+Group { 
+	children [
+		Shape {
+			appearance Appearance {
+                               material Material { emissiveColor 0.8 0.8 0.8  } }
+			geometry IndexedFaceSet {
+					normalPerVertex FALSE
+					coord Coordinate {
+					point [
+						-1.5 2.5 4
+						-1.5 1.3 6
+						-2.5 1.3 6
+						-2.5 2.5 4
+						
+					      ]
+				                         }
+				coordIndex [
+					   0,1,2,3,-1
+				           ] 
+			                        }
+		   }
+	       ]
+     }
+NavigationInfo {
+  avatarSize       [ 0.25, 1.84, 0.75 ]
+  headlight        FALSE
+  speed            1.0
+  type             "WALK" 
+  visibilityLimit  0.0 
+  isBound		 TRUE
+}
+WorldInfo {
+  title "Buffy's Room"
+}

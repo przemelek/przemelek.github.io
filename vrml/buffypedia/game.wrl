@@ -1,0 +1,8295 @@
+#VRML V2.0 utf8
+Fog {
+color 0.1 0.1 0.1
+fogType "LINEAR"
+visibilityRange 50
+}
+NavigationInfo { avatarSize [ 0.25 , 1.84, 0.75 ]
+speed 5.0
+headlight FALSE }
+Transform {
+translation 23 0 24
+children [
+DEF podloga  Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0.2 0.2 0.2
+}
+}
+geometry Box {
+size 47 0.1 48
+}
+}
+]
+}
+Transform {
+translation 23 5 24
+children [ USE podloga ] 
+}
+Transform {
+translation 0  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 10
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 20
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 24
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 32
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 34
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 36
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 42
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 44
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 0  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 1  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 1  5.0E-001 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 1  4.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 1  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 1  1.5E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 1  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 1  2.7E+000 20
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 1  2.7E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 1  2.7E+000 24
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 1  2.7E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 1  1.5E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 1  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 1  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 1  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 2  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 2  5.0E-001 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 2  4.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 2  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 2  1.2E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  2.5E+000 2
+}
+}
+]
+}
+Transform {
+translation 2  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 2  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 2  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 2  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 3  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+PointLight {
+location 3 5 4
+intensity 0.25
+color    0.5 0.5 0.5
+}
+Transform {
+translation 3  2.5E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 3  5.0E-001 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 3  4.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 3  2.5E-001 10
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 3  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 3  1.0E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  2.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 3  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 3  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 3  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+PointLight {
+location 3 5 44
+intensity 0.25
+color    0.5 0.5 0.5
+}
+Transform {
+translation 3  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 4  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Viewpoint {
+fieldOfView 0.7
+position    4 1.84 4
+description "viewpoint 0"
+}
+Transform {
+translation 4  2.5E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 4  5.0E-001 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 4  4.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 4  2.5E-001 10
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 4  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 4  7.5E-001 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.5E+000 2
+}
+}
+]
+}
+Viewpoint {
+fieldOfView 0.7
+position    4 1.84 18
+description "viewpoint 1"
+}
+Transform {
+translation 4  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 4  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 4  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 5  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 5  5.0E-001 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 5  4.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 5  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 5  5.0E-001 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 5  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 5  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 5  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 5  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 6  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 6  5.0E-001 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 6  4.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 6  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 6  2.5E-001 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 6  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 6  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 6  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 6  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 7  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 7  5.0E-001 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 7  4.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 7  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 7  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 7  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 7  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Viewpoint {
+fieldOfView 0.7
+position    7 1.84 44
+description "viewpoint 2"
+}
+Transform {
+translation 7  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  5.0E-001 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  4.5E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  5.0E-001 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  4.5E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  2.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 8  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 8  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 9  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 9  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 9  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 9  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 9  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 9  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 10  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 10  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 10  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 10  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 10  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 10  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 11  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 11  5.0E-001 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 11  4.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 11  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 11  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 11  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 11  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 12  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 12  5.0E-001 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 12  4.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 12  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 12  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 12  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 13  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 13  5.0E-001 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 13  4.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 13  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 13  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 13  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 13  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 14  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 14  5.0E-001 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 14  4.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 14  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 14  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 14  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 14  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 15  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 15  5.0E-001 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 15  4.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 15  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 15  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 15  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 15  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 16  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 16  5.0E-001 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 16  4.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 16  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 16  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 16  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 17  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 17  5.0E-001 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 17  4.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 17  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 17  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 17  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  4.5E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  4.5E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  5.0E-001 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  4.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  5.0E-001 10
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  4.5E+000 10
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  1.5E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  2.7E+000 20
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 18  2.7E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 18  2.7E+000 24
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 18  2.7E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 18  1.5E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  1.5E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 18  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 19  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 19  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 19  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 19  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 19  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 19  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Viewpoint {
+fieldOfView 0.7
+position    19 1.84 24
+description "viewpoint 3"
+}
+Transform {
+translation 19  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 19  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 19  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 20  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 20  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 20  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 20  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 20  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 20  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 20  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+DEF kostka
+Transform {
+translation 20 0 34
+children [
+
+
+DEF tulow Transform {
+translation 0 0.9 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 1 0 0
+}
+}
+geometry Box {
+size 1 1.8 0.5
+}
+}
+]
+}
+Transform {
+translation 0.5 1.7 -0.5
+children [
+
+Transform {
+children [
+DEF reka Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 1 0 0
+}
+}
+geometry Box {
+size 0.2 0.2 1
+}
+}
+]
+}
+]
+}
+Transform {
+translation -0.5 1.7 -0.5
+children [
+
+Transform {
+children [ USE reka ]
+}
+]
+}
+Transform {
+translation 0 2.1 0
+children [
+DEF glowo Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 1 0 0
+}
+}
+geometry Box {
+size 0.6 0.6 0.6
+}
+}
+]
+}
+]
+}
+Transform {
+translation 20  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 20  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Viewpoint {
+fieldOfView 0.7
+position    21 1.84 8
+description "viewpoint 4"
+}
+Transform {
+translation 21  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 21  4.5E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  4.5E+000 24
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  4.5E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 21  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 21  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 22  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 22  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 22  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 22  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 22  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 22  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 22  4.5E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+PointLight {
+location 22 5 24
+intensity 0.25
+color    0.5 0.5 0.5
+}
+Transform {
+translation 22  4.5E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 22  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 22  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 22  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 22  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 23  4.5E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  4.5E+000 24
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  4.5E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 23  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 23  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 24  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 24  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 24  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 24  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 24  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 24  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 24  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 24  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 24  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 25  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 25  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 25  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 25  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 25  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 25  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 25  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 25  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 25  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 25  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  1.5E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  2.7E+000 20
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 26  2.7E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 26  2.7E+000 24
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 26  2.7E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 26  1.5E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  1.5E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 26  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 27  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 27  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 27  2.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 27  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 27  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 27  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 27  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 28  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 28  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 28  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 28  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Viewpoint {
+fieldOfView 0.7
+position    28 1.84 32
+description "viewpoint 5"
+}
+Transform {
+translation 28  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 28  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 29  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 29  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 29  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 29  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 29  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 29  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 29  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 30  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 30  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 30  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 30  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 30  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 30  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 30  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 31  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 31  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 31  2.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 31  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 31  5.0E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 31  4.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 31  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  5.0E-001 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  4.5E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  5.0E-001 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  4.5E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 32  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  5.0E-001 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  4.5E+000 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  5.0E-001 42
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  4.5E+000 42
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  5.0E-001 44
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  4.5E+000 44
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  2.5E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 32  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 33  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 33  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 33  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 33  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 33  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 34  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 34  5.0E-001 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 34  4.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 34  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 34  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 35  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 35  2.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 35  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 35  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 36  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 36  2.5E-001 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 36  2.5E-001 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 36  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 36  1.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 36  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 36  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 36  1.5E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 36  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 36  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 37  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 37  5.0E-001 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 37  5.0E-001 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 37  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 37  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 37  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 37  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 37  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 37  2.7E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 37  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 37  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 37  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 38  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 38  7.5E-001 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.5E+000 2
+}
+}
+]
+}
+Transform {
+translation 38  7.5E-001 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  1.5E+000 2
+}
+}
+]
+}
+Transform {
+translation 38  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 20
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 24
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.5E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 32
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 34
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 36
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 42
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  2.7E+000 44
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 38  1.5E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 38  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 39  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 39  1.0E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  2.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 39  1.0E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  2.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 39  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Viewpoint {
+fieldOfView 0.7
+position    39 1.84 8
+description "viewpoint 6"
+}
+Transform {
+translation 39  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 20
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 24
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.5E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 32
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 34
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 36
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 42
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  2.7E+000 44
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 39  1.5E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  3.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 39  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 40  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 40  1.2E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  2.5E+000 2
+}
+}
+]
+}
+Transform {
+translation 40  1.2E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  2.5E+000 2
+}
+}
+]
+}
+Transform {
+translation 40  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 40  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 40  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 40  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 40  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 40  2.7E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 40  2.7E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 40  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 40  2.7E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 40  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 41  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 41  2.7E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 41  2.7E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 41  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 41  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+PointLight {
+location 41 5 8
+intensity 0.25
+color    0.5 0.5 0.5
+}
+Transform {
+translation 41  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 41  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 41  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 41  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 41  2.7E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 41  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 42  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 42  2.7E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 42  2.7E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 42  5.0E-001 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 42  4.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  1.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 42  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 42  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 42  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 42  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 42  2.7E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 42  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 43  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 43  2.7E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 43  2.7E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 43  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 43  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 43  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 43  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 43  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 43  2.0E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 43  2.0E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 43  2.0E+000 32
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 43  2.0E+000 34
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 43  2.0E+000 36
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 43  2.0E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 43  2.0E+000 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+PointLight {
+location 43 5 44
+intensity 0.25
+color    0.5 0.5 0.5
+}
+Transform {
+translation 43  2.7E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 43  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 44  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 44  2.7E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.7E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.0E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 44  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.2E+000 32
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  1.7E+000 34
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  1.2E+000 36
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  7.5E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.5E-001 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.7E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 44  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 45  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 10
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.0E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.2E+000 32
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  1.7E+000 34
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  1.2E+000 36
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  7.5E-001 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.5E-001 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.7E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 45  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 46  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 10
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.0E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  4.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 32
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 34
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 36
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 42
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 44
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.7E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E-001 2
+}
+}
+]
+}
+Transform {
+translation 46  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  0.0E+000  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 0
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 2
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 4
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 6
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 8
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 10
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 12
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 14
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 16
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 18
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 20
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 22
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 24
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 26
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 28
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 30
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 32
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 34
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 36
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 38
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 40
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 42
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 44
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 46
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  6.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+Transform {
+translation 47  2.5E+000 48
+children [
+Shape { 
+appearance Appearance {
+material Material {
+emissiveColor 0  2.0E-001  5.0E-001
+}
+}
+geometry Box {
+size 1  5.0E+000 2
+}
+}
+]
+}
+
+
+
+
+
+
+
+
+
+

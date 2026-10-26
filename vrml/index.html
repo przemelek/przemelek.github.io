@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VRML · Web viewer</title>
+<style>
+  :root { color-scheme: dark; font: 16px system-ui; background: #0a101c; color: #e1e9f3; }
+  body { max-width: 1100px; margin: auto; padding: 28px 20px; }
+  h1 { font-size: clamp(28px, 5vw, 48px); margin: 8px 0; letter-spacing: -.04em; }
+  p { color: #aebed0; line-height: 1.6; }
+  .tag { color: #67e8dd; font-size: 12px; letter-spacing: .15em; }
+  .toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 24px 0 14px; }
+  button, input { font: inherit; }
+  button { background: #24354c; color: inherit; border: 1px solid #42536b; border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+  input { max-width: 100%; }
+  vrml-viewer { height: min(65vh, 650px); border: 1px solid #304058; border-radius: 12px; overflow: hidden; }
+  #status { min-height: 1.6em; }
+  a { color: #67e8dd; }
+  code { color: #67e8dd; }
+</style>
+<script type="importmap">
+{"imports":{"three":"./vendor/three/build/three.module.min.js","three/addons/":"./vendor/three/examples/jsm/"}}
+</script>
+<script type="module" src="demo.js?v=animation-1"></script>
+<header>
+  <span class="tag">VRML 2.0 / WEBGL</span>
+  <h1>Old worlds. Modern browser.</h1>
+  <p>Open a VRML scene and explore it right here, in a canvas.</p>
+</header>
+<p><a href="embed.html?src=stolik/originals/stolik7.wrl">MSc measurement apparatus — stolik7</a> · <a href="BLOGGER.md">Embed in Blogger</a></p>
+<nav aria-label="BuffyPedia scenes">
+<p>Open a BuffyPedia scene:
+<a href="buffypedia/Buffy%27s%20room.html">Buffy’s room</a> ·
+<a href="buffypedia/dom1.html">Buffy’s house</a> ·
+<a href="buffypedia/library.htm">Library</a> ·
+<a href="buffypedia/game1.html">Game 1</a> ·
+<a href="buffypedia/game2.html">Game 2</a> ·
+<a href="buffypedia/game3.html">Game 3</a>
+<br>Choose a scene above, then use the <strong>Viewpoint</strong> menu at the top-left of its 3D viewer.<br>Games are static scene previews; gameplay is not supported yet.</p>
+</nav>
+<div class="toolbar">
+  <label>Open .wrl <input id="file" type="file" accept=".wrl,.vrml,model/vrml"></label>
+  <button id="fit" type="button">Fit scene</button>
+  <button id="demo" type="button">stolik7</button>
+</div>
+<vrml-viewer src="stolik/originals/stolik7.wrl"></vrml-viewer>
+<p id="status" role="status" aria-live="polite">Loading viewer…</p>
+<p>Use the Viewpoint menu to explore the measurement apparatus or a BuffyPedia scene.</p>
+<p>Use the bottom-left ▲ ▼ ◀ ▶ buttons to walk; ↶ ↷ turn. Hold to keep moving. Click the scene, then use WASD to walk, Q/E to turn, or ↑/↓ to walk and ←/→ to turn. Walking follows the ground and climbs steps up to 40 cm.</p>
+<p>Drag to orbit · Scroll or pinch to zoom · Right-drag or focus the canvas and use WASD to walk; Q/E or ←/→ to turn (click the scene first).</p>
+<p>VRML 2.0 scenes with clock-driven ROUTE animation. Scripts and interactive sensors are not supported.
+Local files with image textures need their assets hosted alongside the scene.</p>
+</html>
