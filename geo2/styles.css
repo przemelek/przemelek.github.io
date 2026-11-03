@@ -1459,3 +1459,26 @@ html, body {
     grid-template-columns: 1fr;
   }
 }
+
+.dot-osm {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+.badge-osm {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+.pin-osm { background: #22c55e; color: #fff; }
+.osm-attribution { margin: 4px 16px; font-size: 0.7rem; }
+.osm-attribution a { color: inherit; }
+
+.dot-zamki { width: 7px; height: 7px; border-radius: 50%; background: #eab308; }
+.badge-zamki { background: rgba(234, 179, 8, 0.2); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
+.pin-zamki { background: #eab308; color: #111827; }
+
+.dot-shelters { width: 7px; height: 7px; border-radius: 50%; background: #14b8a6; }
+.badge-shelters { background: rgba(20, 184, 166, 0.2); color: #2dd4bf; border: 1px solid rgba(20, 184, 166, 0.4); }
+.pin-shelters { background: #14b8a6; color: #082f2b; }

@@ -63,6 +63,8 @@
       </div>
     </header>
 
+    <p class="subtle-note osm-attribution">Place data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a> (ODbL) · Castles: <a href="https://zamki.net/" target="_blank" rel="noopener noreferrer">zamki.net</a> (snapshot: 2026-11-02) · Shelters: <a href="https://gdziesieukryc.pl/" target="_blank" rel="noopener noreferrer">KG PSP / Gdzie się ukryć</a> (snapshot: 2026-11-03)</p>
+
     <!-- Controls Strip: Radius Selector & Filters -->
     <section class="controls-bar">
       <!-- Radius Buttons -->
@@ -96,6 +98,15 @@
           <button class="btn-filter" data-source="wikidata">
             <span class="dot-data"></span> Wikidata <span class="badge" id="count-data">0</span>
           </button>
+          <button class="btn-filter" data-source="osm">
+            <span class="dot-osm"></span> OpenStreetMap <span class="badge" id="count-osm">0</span>
+          </button>
+          <button class="btn-filter" data-source="zamki">
+            <span class="dot-zamki"></span> zamki.net <span class="badge" id="count-zamki">0</span>
+          </button>
+          <button class="btn-filter" data-source="shelters">
+            <span class="dot-shelters"></span> Shelters <span class="badge" id="count-shelters">0</span>
+          </button>
           <button id="quick-lang-btn" class="btn-filter" title="Toggle Wikipedia Language (PL / EN)">
             🌐 <span id="quick-lang-label">PL</span>
           </button>
@@ -120,6 +131,7 @@
         <button class="btn-cat" data-category="infrastructure">🌉 Bridges &amp; Transit</button>
         <button class="btn-cat" data-category="parks">🌳 Parks &amp; Squares</button>
         <button class="btn-cat" data-category="religious">✝️ Sacred</button>
+        <button class="btn-cat" data-category="shelters">🛡️ Shelters</button>
         <button class="btn-cat" data-category="streets">🏠 Addresses</button>
       </div>
     </section>

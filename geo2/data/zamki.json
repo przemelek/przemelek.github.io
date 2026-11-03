@@ -1,0 +1,1254 @@
+{
+  "source": "https://zamki.net/api/castles",
+  "downloaded": "2026-11-02",
+  "castles": [
+    {
+      "category": null,
+      "desc": "Ośmioboczny ceglany stołp zamku królewskiego Kazimierza Wielkiego nad Jeziorem Gopło, owiany legendą o księciu Popielu.",
+      "id": 120,
+      "lat": 52.6736,
+      "lng": 18.3292,
+      "name": "Mysia Wieża w Kruszwicy"
+    },
+    {
+      "category": null,
+      "desc": "Największa górska twierdza w Europie z XVIII wieku z gigantycznym Donżonem, strzegąca Przełęczy Srebrnej w Sudetach.",
+      "id": 92,
+      "lat": 50.5744,
+      "lng": 16.6431,
+      "name": "Twierdza Srebrna Góra"
+    },
+    {
+      "category": null,
+      "desc": "Gdańsk: Unikalna nadmorska twierdza z wieżą-latarnią, wieńcem artyleryjskim i bastionami strzegąca ujścia Wisły do Bałtyku.",
+      "id": 150,
+      "lat": 54.3961,
+      "lng": 18.6811,
+      "name": "Twierdza Wisłoujście"
+    },
+    {
+      "category": null,
+      "desc": "Ocalały stołp trzynastowiecznego Zamku Piastowskiego na Ostrówku, jeden z najstarszych zabytków architektury obronnej w Polsce.",
+      "id": 114,
+      "lat": 50.6669,
+      "lng": 17.9194,
+      "name": "Wieża Piastowska w Opolu"
+    },
+    {
+      "category": null,
+      "desc": "Potężna warownia katedralna kapituły warmińskiej nad Zalewem Wiślanym z Wieżą Kopernika i basztą Radziejowskiego.",
+      "id": 60,
+      "lat": 54.3569,
+      "lng": 19.6819,
+      "name": "Wzgórze Katedralne we Fromborku"
+    },
+    {
+      "category": null,
+      "desc": "Dawna siedziba Piastów cieszyńskich nad Olzą z jedenastowieczną romańską Rotundą św. Mikołaja oraz gotycką Wieżą Piastowską.",
+      "id": 115,
+      "lat": 49.7511,
+      "lng": 18.6267,
+      "name": "Wzgórze Zamkowe w Cieszynie"
+    },
+    {
+      "category": null,
+      "desc": "Perła architektury gotyckiej z dwukondygnacyjnymi krużgankami, historyczna rezydencja biskupów warmińskich (m.in. Ignacego Krasickiego).",
+      "id": 47,
+      "lat": 54.1264,
+      "lng": 20.5801,
+      "name": "Zamek Biskupów Warmińskich w Lidzbarku"
+    },
+    {
+      "category": null,
+      "desc": "Spektakularne ruiny zamku rycerskiego z XIV wieku wkomponowane w potężne granitowe skały Rudaw Janowickich.",
+      "id": 90,
+      "lat": 50.8611,
+      "lng": 15.9108,
+      "name": "Zamek Bolczów"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Wkomponowane w szczyt jurajskiej skały ruiny niedostępnej strażnicy rycerskiej pośród bukowych lasów Pasma Zborowskiego.",
+      "id": 12,
+      "lat": 50.5333,
+      "lng": 19.5008,
+      "name": "Zamek Bąkowiec w Morsku"
+    },
+    {
+      "category": null,
+      "desc": "Niezdobyte kamienne ruiny warowni książąt świdnicko-jaworskich i Schaffgotschów nad urwiskiem Piekielnej Doliny w Karkonoszach.",
+      "id": 66,
+      "lat": 50.8336,
+      "lng": 15.6394,
+      "name": "Zamek Chojnik"
+    },
+    {
+      "category": null,
+      "desc": "Malownicze ruiny trzynastowiecznego zamku Bolka I w dolinie Czyżynki z okrągłym stołpem i murami obwodowymi.",
+      "id": 89,
+      "lat": 50.8556,
+      "lng": 16.245,
+      "name": "Zamek Cisy"
+    },
+    {
+      "category": null,
+      "desc": "Graniczna warownia obronna nad Jeziorem Leśniańskim na Pogórzu Izerskim, słynąca z tajnych przejść i bogatej historii.",
+      "id": 64,
+      "lat": 51.0305,
+      "lng": 15.3033,
+      "name": "Zamek Czocha"
+    },
+    {
+      "category": null,
+      "desc": "Wzniesiony na szczycie góry Choina w Górach Czarnych zamek książąt świdnicko-jaworskich z renesansowymi sgraffitami.",
+      "id": 65,
+      "lat": 50.7508,
+      "lng": 16.4105,
+      "name": "Zamek Grodno"
+    },
+    {
+      "category": null,
+      "desc": "Późnogotycko-renesansowa warownia książąt legnickich na stromym bazaltowym stożku powulkanicznym.",
+      "id": 69,
+      "lat": 51.1763,
+      "lng": 15.7594,
+      "name": "Zamek Grodziec"
+    },
+    {
+      "category": null,
+      "desc": "Rozległe ruiny zamku książąt świdnicko-jaworskich i rodu Schaffgotschów na bazaltowym wzgórzu Pogórza Izerskiego.",
+      "id": 72,
+      "lat": 51.0258,
+      "lng": 15.4192,
+      "name": "Zamek Gryf w Proszówce"
+    },
+    {
+      "category": null,
+      "desc": "Dawna siedziba wielkopolskiego rodu Górków ze słynną gotycką Basztą Halszki z XV wieku.",
+      "id": 139,
+      "lat": 52.6105,
+      "lng": 16.5752,
+      "name": "Zamek Górków w Szamotułach"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny kamiennej twierdzy rycerskiej na szczycie wzgórza Gomola nad Przełęczą Polskie Wrota, w XV wieku twierdza husycka.",
+      "id": 84,
+      "lat": 50.3983,
+      "lng": 16.3486,
+      "name": "Zamek Homole"
+    },
+    {
+      "category": null,
+      "desc": "Zachowane w stanie ruiny skrzydła gotyckiego zamku zakonu joannitów z 1377 roku z monumentalną 30-metrową wieżą główną.",
+      "id": 135,
+      "lat": 53.0358,
+      "lng": 14.6186,
+      "name": "Zamek Joannitów w Swobnicy"
+    },
+    {
+      "category": null,
+      "desc": "Średniowieczna siedziba komandorii zakonu joannitów na wąskim przesmyku między jeziorami Łagowskim i Trześniowskim.",
+      "id": 134,
+      "lat": 52.3337,
+      "lng": 15.2936,
+      "name": "Zamek Joannitów w Łagowie"
+    },
+    {
+      "category": null,
+      "desc": "Słynne ruiny karpackiej warowni Skotnickich i Firlejów, których spór sąsiedzki zainspirował Aleksandra Fredrę do napisania 'Zemsty'.",
+      "id": 129,
+      "lat": 49.7408,
+      "lng": 21.7783,
+      "name": "Zamek Kamieniec w Odrzykoniu"
+    },
+    {
+      "category": null,
+      "desc": "Dawna warownia graniczna księcia Bolka I Surowego nad Kwisą w Borach Dolnośląskich, przebudowana w rezydencję zamkową.",
+      "id": 76,
+      "lat": 51.3364,
+      "lng": 15.4342,
+      "name": "Zamek Kliczków"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Gdańsk: Relikty murów dawnego zamku komturskiego przy ujściu Motławy, rozebranego przez gdańszczan w 1454 roku.",
+      "id": 34,
+      "lat": 54.3547,
+      "lng": 18.6586,
+      "name": "Zamek Krzyżacki w Gdańsku"
+    },
+    {
+      "category": null,
+      "desc": "Monumentalna ruina magnackiego palazzo in fortezza Krzysztofa Ossolińskiego w Ujeździe, zaprojektowana według kalendarza.",
+      "id": 123,
+      "lat": 50.7136,
+      "lng": 21.3105,
+      "name": "Zamek Krzyżtopór"
+    },
+    {
+      "category": null,
+      "desc": "Historyczna siedziba królów Polski i nekropolia władców, renesansowe serce polskiej państwowości nad Wisłą.",
+      "id": 93,
+      "lat": 50.054,
+      "lng": 19.9354,
+      "name": "Zamek Królewski na Wawelu"
+    },
+    {
+      "category": null,
+      "desc": "Górujące nad okolicą ruiny królewskiej twierdzy z przełomu XIII i XIV wieku z trzema wieżami, dawny skarbiec Władysława Łokietka.",
+      "id": 95,
+      "lat": 50.7963,
+      "lng": 20.4604,
+      "name": "Zamek Królewski w Chęcinach"
+    },
+    {
+      "category": null,
+      "desc": "Zrekonstruowana czternastowieczna warownia Kazimierza Wielkiego strzegąca brodu na rzece Pilicy.",
+      "id": 110,
+      "lat": 51.5256,
+      "lng": 20.2206,
+      "name": "Zamek Królewski w Inowłodzu"
+    },
+    {
+      "category": null,
+      "desc": "Malownicze ruiny gotyckiej warowni Kazimierza Wielkiego w zakolu Warty, miejsce spotkań królów polskich z poselstwami krzyżackimi.",
+      "id": 118,
+      "lat": 52.1922,
+      "lng": 18.6064,
+      "name": "Zamek Królewski w Kole"
+    },
+    {
+      "category": null,
+      "desc": "Malownicze ruiny warowni Kazimierza Wielkiego w widłach Obry i Paklicy z dwiema szesnastowiecznymi bastejami artyleryjskimi.",
+      "id": 121,
+      "lat": 52.4447,
+      "lng": 15.5736,
+      "name": "Zamek Królewski w Międzyrzeczu"
+    },
+    {
+      "category": null,
+      "desc": "Renesansowy zamek-wieża zbudowany dla króla Zygmunta I Starego przez mistrza Benedykta na potrzeby sejmów walnych.",
+      "id": 109,
+      "lat": 51.4058,
+      "lng": 19.7019,
+      "name": "Zamek Królewski w Piotrkowie Trybunalskim"
+    },
+    {
+      "category": null,
+      "desc": "Relikty zamku Kazimierza Wielkiego włączone w Dom Wielki, w którym w 1505 roku uchwalono konstytucję Nihil novi.",
+      "id": 103,
+      "lat": 51.4022,
+      "lng": 21.1444,
+      "name": "Zamek Królewski w Radomiu"
+    },
+    {
+      "category": null,
+      "desc": "Wzniesiony na skarpie wiślanej zamek Kazimierza Wielkiego, ocalałe skrzydło zachodnie po wysadzeniu przez Szwedów w 1656 roku.",
+      "id": 107,
+      "lat": 50.6761,
+      "lng": 21.7475,
+      "name": "Zamek Królewski w Sandomierzu"
+    },
+    {
+      "category": null,
+      "desc": "Renesansowy zamek królewski na skarpie nad Sanem, miejsce ślubu Władysława Jagiełły z Elżbietą Granowską.",
+      "id": 108,
+      "lat": 49.5633,
+      "lng": 22.2092,
+      "name": "Zamek Królewski w Sanoku"
+    },
+    {
+      "category": null,
+      "desc": "Zamek Kazimierza Wielkiego w otoczeniu pełnego pierścienia średniowiecznych murów miejskich z Salą Rycerską i Skarbczykiem.",
+      "id": 111,
+      "lat": 50.5917,
+      "lng": 21.0028,
+      "name": "Zamek Królewski w Szydłowie"
+    },
+    {
+      "category": null,
+      "desc": "Dawny zamek książąt mazowieckich, a od XVI wieku oficjalna rezydencja królów Rzeczypospolitej Obojga Narodów i siedziba Sejmu.",
+      "id": 94,
+      "lat": 52.2476,
+      "lng": 21.0142,
+      "name": "Zamek Królewski w Warszawie"
+    },
+    {
+      "category": null,
+      "desc": "Ceglana twierdza królewska wzniesiona przez Kazimierza Wielkiego, wielokrotnie goszcząca Władysława Jagiełłę.",
+      "id": 101,
+      "lat": 52.0622,
+      "lng": 19.2005,
+      "name": "Zamek Królewski w Łęczycy"
+    },
+    {
+      "category": null,
+      "desc": "Dolnośląski gigant książąt świdnicko-jaworskich i rodu Hochbergów na skale nad Pełcznicą, trzeci co do wielkości zamek w Polsce.",
+      "id": 63,
+      "lat": 50.8423,
+      "lng": 16.2922,
+      "name": "Zamek Książ"
+    },
+    {
+      "category": null,
+      "desc": "Dawna siedziba Piastów głogowskich nad Odrą z zachowaną średniowieczną cylindryczną wieżą zamkową.",
+      "id": 79,
+      "lat": 51.6669,
+      "lng": 16.0844,
+      "name": "Zamek Książąt Głogowskich w Głogowie"
+    },
+    {
+      "category": null,
+      "desc": "Potężne ruiny ceglanej twierdzy nizinnej księcia Siemowita IV nad rzeką Łydynią z dwiema monumentalnymi basztami.",
+      "id": 112,
+      "lat": 52.8858,
+      "lng": 20.6122,
+      "name": "Zamek Książąt Mazowieckich w Ciechanowie"
+    },
+    {
+      "category": null,
+      "desc": "Malownicze ruiny ceglanej warowni księcia Janusza I Starszego na skarpie dawnego koryta Wisły z trzema wieżami.",
+      "id": 105,
+      "lat": 51.9548,
+      "lng": 21.2319,
+      "name": "Zamek Książąt Mazowieckich w Czersku"
+    },
+    {
+      "category": null,
+      "desc": "Dawny zamek książęcy na Wzgórzu Tumskim nad Wisłą z Wieżą Szlachecką i Wieżą Zegarową.",
+      "id": 113,
+      "lat": 52.5414,
+      "lng": 19.6872,
+      "name": "Zamek Książąt Mazowieckich w Płocku"
+    },
+    {
+      "category": null,
+      "desc": "Rozległy zamek Piastów i Podiebradów z czternastowieczną wieżą oraz renesansowymi dziedzińcami krużgankowymi.",
+      "id": 78,
+      "lat": 51.2081,
+      "lng": 17.3792,
+      "name": "Zamek Książąt Oleśnickich w Oleśnicy"
+    },
+    {
+      "category": null,
+      "desc": "Jedyny w Polsce gotycki zamek nadmorski, rezydencja króla Danii, Szwecji i Norwegii Eryka Pomorskiego.",
+      "id": 102,
+      "lat": 54.4216,
+      "lng": 16.4102,
+      "name": "Zamek Książąt Pomorskich w Darłowie"
+    },
+    {
+      "category": null,
+      "desc": "Monumentalna renesansowa siedziba dynastii Gryfitów panującej przez pięć stuleci nad Księstwem Pomorskim.",
+      "id": 99,
+      "lat": 53.4261,
+      "lng": 14.5601,
+      "name": "Zamek Książąt Pomorskich w Szczecinie"
+    },
+    {
+      "category": null,
+      "desc": "Malownicze ruiny średniowiecznego zamku biskupów krakowskich na wapiennym wzgórzu Garbu Tenczyńskiego z zachowanym stołpem.",
+      "id": 57,
+      "lat": 50.0758,
+      "lng": 19.4447,
+      "name": "Zamek Lipowiec w Babicach"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny średniowiecznej warowni rycerskiej i renesansowego dworu w Górach Kaczawskich, w XV wieku gniazdo śląskich rycerzy-rabusiów.",
+      "id": 70,
+      "lat": 50.9161,
+      "lng": 15.9844,
+      "name": "Zamek Niesytno w Płoninie"
+    },
+    {
+      "category": null,
+      "desc": "Rozległe ruiny gotyckiego zamku książąt świdnickich na Górze Zamkowej w Górach Wałbrzyskich z zachowaną bramą ostrołukową.",
+      "id": 87,
+      "lat": 50.7364,
+      "lng": 16.3036,
+      "name": "Zamek Nowy Dwór w Wałbrzychu"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Największe i najbardziej malownicze ruiny na Szlaku Orlich Gniazd, rozbudowane w XVI wieku przez potężny ród Bonerów.",
+      "id": 1,
+      "lat": 50.4526,
+      "lng": 19.5517,
+      "name": "Zamek Ogrodzieniec"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Tajemnicze relikty czternastowiecznej warowni na skale, pod którą rozciąga się system korytarzy Jaskini Ostrężnickiej.",
+      "id": 13,
+      "lat": 50.6744,
+      "lng": 19.3983,
+      "name": "Zamek Ostrężnik"
+    },
+    {
+      "category": null,
+      "desc": "Historyczna siedziba książąt jaworskich i starostów królewskich z wieżą widokową.",
+      "id": 80,
+      "lat": 51.0539,
+      "lng": 16.1939,
+      "name": "Zamek Piastowski w Jaworze"
+    },
+    {
+      "category": null,
+      "desc": "Jeden z najstarszych murowanych zamków w Polsce z romańskimi wieżami św. Piotra i św. Jadwigi, świadek najazdu Mongołów w 1241 r.",
+      "id": 77,
+      "lat": 51.2097,
+      "lng": 16.1619,
+      "name": "Zamek Piastowski w Legnicy"
+    },
+    {
+      "category": null,
+      "desc": "Dawna rezydencja książąt opolsko-raciborskich nad Odrą z perłą śląskiego gotyku – kaplicą św. Tomasza Becketa.",
+      "id": 116,
+      "lat": 50.0956,
+      "lng": 18.2219,
+      "name": "Zamek Piastowski w Raciborzu"
+    },
+    {
+      "category": null,
+      "desc": "Nazywany 'Śląskim Wawelem' ze względu na wspaniałe renesansowe krużganki oraz bramę z rzeźbami królów i książąt piastowskich.",
+      "id": 98,
+      "lat": 50.8656,
+      "lng": 17.4664,
+      "name": "Zamek Piastów Śląskich w Brzegu"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Górujące nad lasami Jury ruiny gotyckiego zamku rycerskiego Toporczyków i Pileckich z wysoką wieżą cylindryczną.",
+      "id": 9,
+      "lat": 50.4377,
+      "lng": 19.6752,
+      "name": "Zamek Pilcza w Smoleniu"
+    },
+    {
+      "category": null,
+      "desc": "Ukryte w Górach Suchych ruiny trzynastowiecznej strażnicy granicznej z zachowaną kamienną wieżą.",
+      "id": 85,
+      "lat": 50.6808,
+      "lng": 16.2719,
+      "name": "Zamek Radosno"
+    },
+    {
+      "category": null,
+      "desc": "Kamienna warownia z wieżą widokową malowniczo położona na skale nad przełomem Kwisy niedaleko Zamku Czocha.",
+      "id": 73,
+      "lat": 51.0233,
+      "lng": 15.2767,
+      "name": "Zamek Rajsko"
+    },
+    {
+      "category": null,
+      "desc": "Kamienne ruiny najwyżej położonego zamku w Polsce (870 m n.p.m.), twierdzy księcia Bolka I w Górach Suchych.",
+      "id": 86,
+      "lat": 50.6967,
+      "lng": 16.3069,
+      "name": "Zamek Rogowiec"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny średniowiecznej górskiej warowni rodu Kmitów na stromym wzgórzu nad przełomem Sanu u wrót Bieszczad.",
+      "id": 148,
+      "lat": 49.5286,
+      "lng": 22.2564,
+      "name": "Zamek Sobień"
+    },
+    {
+      "category": null,
+      "desc": "Romantyczne ruiny warowni wzniesionej pod koniec XVIII wieku nad przełomem Pełcznicy na miejscu średniowiecznego grodu.",
+      "id": 88,
+      "lat": 50.8386,
+      "lng": 16.2983,
+      "name": "Zamek Stary Książ"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Potężne ruiny siedziby magnackiego rodu Tęczyńskich na stożku powulkanicznym, zwanej dawniej 'Małym Wawelem'.",
+      "id": 7,
+      "lat": 50.103,
+      "lng": 19.5805,
+      "name": "Zamek Tenczyn w Rudnie"
+    },
+    {
+      "category": null,
+      "desc": "Odbudowana warownia rycerska rodu Ośmiorogów na skalistym półwyspie nad przełomem Dunajca.",
+      "id": 144,
+      "lat": 49.7911,
+      "lng": 20.6358,
+      "name": "Zamek Tropsztyn"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny najstarszego murowanego zamku na ziemiach polskich (XII w.), wzniesionego przez księcia Bolesława Wysokiego.",
+      "id": 71,
+      "lat": 51.0156,
+      "lng": 15.6644,
+      "name": "Zamek Wleń (Lenno)"
+    },
+    {
+      "category": null,
+      "desc": "Manierystyczna rezydencja obronna rodu Leszczyńskich z krużgankowym dziedzińcem projektu Santi Gucciego.",
+      "id": 127,
+      "lat": 50.5005,
+      "lng": 21.5369,
+      "name": "Zamek w Baranowie Sandomierskim"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Ceglany zamek prokuratorski i komturski Zakonu Krzyżackiego na nizinie staropruskiej Barcji.",
+      "id": 39,
+      "lat": 54.2194,
+      "lng": 21.3519,
+      "name": "Zamek w Barcianach"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Czternastowieczna strażnica prokuratorska Zakonu Krzyżackiego, w XVI wieku przekształcona w obronny kościół ze szczytem gotyckim.",
+      "id": 46,
+      "lat": 54.0272,
+      "lng": 21.2583,
+      "name": "Zamek w Bezławkach"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Zamek Bierzgłowski: Jeden z najstarszych zamków komturskich ziemi chełmińskiej z unikalnym trzynastowiecznym portalem ceramicznym.",
+      "id": 32,
+      "lat": 53.1322,
+      "lng": 18.3972,
+      "name": "Zamek w Bierzgłowie"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Zrekonstruowana królewska warownia Kazimierza Wielkiego wzniesiona na stromym jurajskim ostańcu skalnym.",
+      "id": 3,
+      "lat": 50.6133,
+      "lng": 19.4925,
+      "name": "Zamek w Bobolicach"
+    },
+    {
+      "category": null,
+      "desc": "Monumentalne ruiny zamku i pałacu biskupów krakowskich u stóp Gór Świętokrzyskich, w którym gościł król Władysław Jagiełło.",
+      "id": 55,
+      "lat": 50.9416,
+      "lng": 20.9577,
+      "name": "Zamek w Bodzentynie"
+    },
+    {
+      "category": null,
+      "desc": "Potężne ruiny twierdzy książąt świdnicko-jaworskich z unikalną w Polsce kamienną wieżą dziobową.",
+      "id": 67,
+      "lat": 50.9213,
+      "lng": 16.0963,
+      "name": "Zamek w Bolkowie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Ruiny zamku komturskiego nad Drwęcą z zachowaną 54-metrową ośmioboczną wieżą główną.",
+      "id": 37,
+      "lat": 53.2581,
+      "lng": 19.4044,
+      "name": "Zamek w Brodnicy"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Kamienne ruiny czternastowiecznej warowni rycerskiej na wysokim wzgórzu, w XVI wieku przekształconej w zbór ariański.",
+      "id": 11,
+      "lat": 50.3911,
+      "lng": 19.6408,
+      "name": "Zamek w Bydlinie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Późnogotycka warownia zakonna z basztami przystosowanymi do broni palnej, później rezydencja książąt pomorskich.",
+      "id": 21,
+      "lat": 54.1683,
+      "lng": 17.4914,
+      "name": "Zamek w Bytowie"
+    },
+    {
+      "category": null,
+      "desc": "Królewska warownia obronna Kazimierza Wielkiego nad Czarną Przemszą, strzegąca zachodniej granicy Korony ze Śląskiem.",
+      "id": 100,
+      "lat": 50.3259,
+      "lng": 19.1292,
+      "name": "Zamek w Będzinie"
+    },
+    {
+      "category": null,
+      "desc": "Zamek książąt legnickich z XVI-wiecznym renesansowym portalem zdobionym popiersiami Piastów.",
+      "id": 81,
+      "lat": 51.2733,
+      "lng": 15.9369,
+      "name": "Zamek w Chojnowie"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny renesansowego zamku obronnego Jana Saszowskiego z Gierałtowic na Górnym Śląsku z odbudowaną wieżą mieszkalno-obronną.",
+      "id": 141,
+      "lat": 50.2219,
+      "lng": 18.7711,
+      "name": "Zamek w Chudowie"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny średniowiecznej strażnicy celnej i zamku starostów nad Dunajcem z zrekonstruowanym kamiennym stołpem.",
+      "id": 145,
+      "lat": 49.8358,
+      "lng": 20.6736,
+      "name": "Zamek w Czchowie"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny królewskiego zamku granicznego na skale nad Jeziorem Czorsztyńskim naprzeciwko warowni w Niedzicy.",
+      "id": 122,
+      "lat": 49.4356,
+      "lng": 20.3131,
+      "name": "Zamek w Czorsztynie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Zachowana ośmioboczna wieża obronna oraz relikty murów dawnego zamku komturskiego, drugiego pod względem wielkości po Malborku.",
+      "id": 31,
+      "lat": 53.6644,
+      "lng": 17.3597,
+      "name": "Zamek w Człuchowie"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Zachowane ruiny i fortyfikacje siedemnastowiecznej twierdzy bastionowej rodu Warszyckich nad rzeką Liswartą.",
+      "id": 15,
+      "lat": 51.0508,
+      "lng": 18.7869,
+      "name": "Zamek w Dankowie"
+    },
+    {
+      "category": null,
+      "desc": "Imponujące ruiny gotycko-renesansowego zamku nizinnego arcybiskupa Macieja Drzewickiego nad rzeką Drzewiczką.",
+      "id": 133,
+      "lat": 51.4519,
+      "lng": 20.4764,
+      "name": "Zamek w Drzewicy"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Gotycki zamek wójtowski i prokuratorski Zakonu Krzyżackiego przy granicy z Mazowszem.",
+      "id": 26,
+      "lat": 53.2325,
+      "lng": 20.1719,
+      "name": "Zamek w Działdowie"
+    },
+    {
+      "category": null,
+      "desc": "Unikalna późnogotycka rezydencja rycerska kanclerza Jakuba Dębińskiego z bogatą kamieniarką wykuszową i tarczami herbowymi.",
+      "id": 132,
+      "lat": 49.9669,
+      "lng": 20.7222,
+      "name": "Zamek w Dębnie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Dawny zamek prokuratorski Zakonu Krzyżackiego wzniesiony pod koniec XIV wieku na wyspie pośrodku Jeziora Ełckiego.",
+      "id": 154,
+      "lat": 53.8192,
+      "lng": 22.3456,
+      "name": "Zamek w Ełku"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Dawny krzyżacki zamek prokuratorski Lötzen strzegący przesmyku między jeziorami Niegocin i Kisajno.",
+      "id": 45,
+      "lat": 54.0358,
+      "lng": 21.7611,
+      "name": "Zamek w Giżycku"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Najpotężniejsza krzyżacka twierdza komturska na lewym brzegu Wisły, w czasach Rzeczypospolitej siedziba starosty Jana Sobieskiego.",
+      "id": 18,
+      "lat": 53.8344,
+      "lng": 18.8236,
+      "name": "Zamek w Gniewie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Golub-Dobrzyń: Krzyżacki zamek komturski nad Drwęcą, przebudowany w XVII wieku przez królewnę Annę Wazównę w renesansową rezydencję.",
+      "id": 23,
+      "lat": 53.1169,
+      "lng": 19.0528,
+      "name": "Zamek w Golubiu"
+    },
+    {
+      "category": null,
+      "desc": "Wczesnorenesansowy kasztel obronny Leszczyńskich z czterema basztami, przebudowany przez Izabelę z Czartoryskich Działyńską.",
+      "id": 137,
+      "lat": 51.8519,
+      "lng": 17.9333,
+      "name": "Zamek w Gołuchowie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Relikty zamku komturskiego Zakonu Krzyżackiego na Górze Zamkowej nad Wisłą z odbudowaną wieżą ostatecznej obrony Klimek.",
+      "id": 155,
+      "lat": 53.4939,
+      "lng": 18.7492,
+      "name": "Zamek w Grudziądzu"
+    },
+    {
+      "category": null,
+      "desc": "Renesansowo-barokowy zamek Oppersdorffów, w którym podczas potopu szwedzkiego rezydował król Jan Kazimierz.",
+      "id": 117,
+      "lat": 50.3547,
+      "lng": 17.8617,
+      "name": "Zamek w Głogówku"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny czternastowiecznej twierdzy biskupów krakowskich z dominującą nad miastem kamienną wieżą cylindryczną.",
+      "id": 56,
+      "lat": 51.1636,
+      "lng": 21.2464,
+      "name": "Zamek w Iłży"
+    },
+    {
+      "category": null,
+      "desc": "Rozległe ruiny bastejowej twierdzy i rezydencji rodu Firlejów oraz Tarłów na wysokiej skarpie wiślanej naprzeciw Kazimierza Dolnego.",
+      "id": 130,
+      "lat": 51.3255,
+      "lng": 21.8847,
+      "name": "Zamek w Janowcu"
+    },
+    {
+      "category": null,
+      "desc": "Otoczony fosą czternastowieczny zamek rycerski u stóp Rudaw Janowickich, przebudowany w stylu neogotyku angielskiego.",
+      "id": 74,
+      "lat": 50.8442,
+      "lng": 15.8539,
+      "name": "Zamek w Karpnikach"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny królewskiego zespołu zamkowego Kazimierza Wielkiego wraz z trzynastowieczną basztą okrągłą nad Wisłą.",
+      "id": 106,
+      "lat": 51.3213,
+      "lng": 21.9472,
+      "name": "Zamek w Kazimierzu Dolnym"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Czternastowieczny zamek rycerski rodu Syrokomlów na skale nad potokiem Korzkiewka, pieczołowicie odbudowany z dawnych murów.",
+      "id": 10,
+      "lat": 50.1619,
+      "lng": 19.8825,
+      "name": "Zamek w Korzkwi"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Relikty potężnego zamku komturskiego wzniesionego przez Krzyżaków pod koniec XIII wieku na wzgórzu nad jeziorem.",
+      "id": 43,
+      "lat": 53.1536,
+      "lng": 18.8958,
+      "name": "Zamek w Kowalewie Pomorskim"
+    },
+    {
+      "category": null,
+      "desc": "Renesansowo-manierystyczna rezydencja Krasickich z czterema narożnymi basztami: Boską, Papieską, Królewską i Szlachecką.",
+      "id": 125,
+      "lat": 49.7766,
+      "lng": 22.6497,
+      "name": "Zamek w Krasiczynie"
+    },
+    {
+      "category": null,
+      "desc": "Monumentalne ruiny bastejowego zamku Pawła Orzechowskiego na Lubelszczyźnie z resztkami sgraffitowych dekoracji.",
+      "id": 149,
+      "lat": 51.0039,
+      "lng": 23.1686,
+      "name": "Zamek w Krupem"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Relikty królewskiego zamku Kazimierza Wielkiego na wyspie rzecznej, przebudowanego w XVI wieku w twierdzę bastionową.",
+      "id": 16,
+      "lat": 50.9694,
+      "lng": 18.7322,
+      "name": "Zamek w Krzepicach"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny gotyckiego zamku kapituły chełmińskiej, malowniczo położone na stromym wzgórzu nad doliną Drwęcy.",
+      "id": 51,
+      "lat": 53.3944,
+      "lng": 19.5786,
+      "name": "Zamek w Kurzętniku"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Ceglany zamek kapituły pomezańskiej zespolony z katedrą, słynący z największego na świecie gdaniska wspartego na pięciu arkadach.",
+      "id": 49,
+      "lat": 53.7369,
+      "lng": 18.9222,
+      "name": "Zamek w Kwidzynie"
+    },
+    {
+      "category": null,
+      "desc": "Otoczona fosą rezydencja wielkopolskich rodów Górków i Działyńskich ze skarbcem starodruków Biblioteki Kórnickiej.",
+      "id": 136,
+      "lat": 52.2444,
+      "lng": 17.0903,
+      "name": "Zamek w Kórniku"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Krzyżacki zamek prokuratorski strzegący szlaków prowadzących w głąb dawnej Barcji.",
+      "id": 25,
+      "lat": 54.0769,
+      "lng": 21.3755,
+      "name": "Zamek w Kętrzynie"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny gotyckiego zamku granicznego książąt mazowieckich z zachowaną wieżą bramną w dolinie rzeki Liwiec.",
+      "id": 104,
+      "lat": 52.3783,
+      "lng": 21.9686,
+      "name": "Zamek w Liwie"
+    },
+    {
+      "category": null,
+      "desc": "Relikty gotyckiego zamku biskupów chełmińskich z zachowanym portalem bramnym i murami obwodowymi.",
+      "id": 61,
+      "lat": 53.5058,
+      "lng": 19.7469,
+      "name": "Zamek w Lubawie"
+    },
+    {
+      "category": null,
+      "desc": "Zamek królewski z XIII-wiecznym romańskim donżonem i Kaplicą Trójcy Świętej, miejsce podpisania Unii Lubelskiej w 1569 r.",
+      "id": 97,
+      "lat": 51.2505,
+      "lng": 22.5732,
+      "name": "Zamek w Lublinie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Krzyżacki zamek wójtowski z XIV wieku nad rzeką Łebą z zachowanym gotyckim szczytem wschodnim.",
+      "id": 35,
+      "lat": 54.5416,
+      "lng": 17.7469,
+      "name": "Zamek w Lęborku"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Największy ceglany zamek świata i dawna stolica Państwa Zakonu Krzyżackiego nad Nogatem (lista UNESCO).",
+      "id": 17,
+      "lat": 54.0396,
+      "lng": 19.0282,
+      "name": "Zamek w Malborku"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny gniazda rodowego potężnych Leliwitów Melsztyńskich na wzgórzu nad Dunajcem z częściowo odbudowaną wieżą główną.",
+      "id": 146,
+      "lat": 49.8739,
+      "lng": 20.7794,
+      "name": "Zamek w Melsztynie"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Sąsiadujące z Bobolicami malownicze ruiny średniowiecznego zamku rycerskiego połączone z nimi legendarną Grzędą Mirowską.",
+      "id": 4,
+      "lat": 50.6144,
+      "lng": 19.4752,
+      "name": "Zamek w Mirowie"
+    },
+    {
+      "category": null,
+      "desc": "Kompleks zamkowo-pałacowy z tzw. Czarną Wieżą średniowiecznego zamku strzegącego Przełęczy Międzyleskiej.",
+      "id": 82,
+      "lat": 50.1489,
+      "lng": 16.6661,
+      "name": "Zamek w Międzylesiu"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Dawny zamek wójtowski Zakonu Krzyżackiego, z zachowanym skrzydłem gotyckim i bramą wjazdową.",
+      "id": 33,
+      "lat": 53.9161,
+      "lng": 19.9272,
+      "name": "Zamek w Morągu"
+    },
+    {
+      "category": null,
+      "desc": "Słynna śląska rezydencja zamkowo-pałacowa o 99 wieżach i 365 komnatach.",
+      "id": 143,
+      "lat": 50.4408,
+      "lng": 17.7672,
+      "name": "Zamek w Mosznej"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Zamek prokuratorski Zakonu Krzyżackiego z dwiema potężnymi wieżami na południowych rubieżach dawnych Prus.",
+      "id": 20,
+      "lat": 53.3592,
+      "lng": 20.4286,
+      "name": "Zamek w Nidzicy"
+    },
+    {
+      "category": null,
+      "desc": "Twierdza Dunajec, dawna graniczna warownia rodów Berzeviczych, Zapolyów i Łaskich na skale nad Jeziorem Czorsztyńskim.",
+      "id": 128,
+      "lat": 49.4226,
+      "lng": 20.3181,
+      "name": "Zamek w Niedzicy"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Zamek wójtowski Zakonu Krzyżackiego na wysokiej skarpie wiślanej, ostatni bastion krzyżacki na Pomorzu w wojnie trzynastoletniej.",
+      "id": 41,
+      "lat": 53.6503,
+      "lng": 18.7294,
+      "name": "Zamek w Nowem nad Wisłą"
+    },
+    {
+      "category": null,
+      "desc": "Potężnie ufortyfikowana rezydencja Kmitów i Stanisława Lubomirskiego z pięciobocznym obwodem bastionowym.",
+      "id": 124,
+      "lat": 49.9144,
+      "lng": 20.4577,
+      "name": "Zamek w Nowym Wiśniczu"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Ruiny królewskiego zamku Kazimierza Wielkiego z zachowaną wieżą bramną w sercu Ojcowskiego Parku Narodowego.",
+      "id": 6,
+      "lat": 50.2113,
+      "lng": 19.8294,
+      "name": "Zamek w Ojcowie"
+    },
+    {
+      "category": null,
+      "desc": "Zamek kapituły warmińskiej nad Łyną, którego obroną przed Krzyżakami w 1521 roku dowodził administrator Mikołaj Kopernik.",
+      "id": 48,
+      "lat": 53.7773,
+      "lng": 20.4746,
+      "name": "Zamek w Olsztynie (Warmiński)"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Rozległe ruiny zamku królewskiego z cylindryczną wieżą, słynące z bohaterskiej obrony Kacpra Karlińskiego w 1587 roku.",
+      "id": 5,
+      "lat": 50.7497,
+      "lng": 19.2736,
+      "name": "Zamek w Olsztynie k. Częstochowy"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Czternastowieczny zamek krzyżacki na planie czworoboku, w którym w lipcu 1410 roku po bitwie pod Grunwaldem kwaterował król Władysław Jagiełło.",
+      "id": 156,
+      "lat": 53.5858,
+      "lng": 20.2839,
+      "name": "Zamek w Olsztynku"
+    },
+    {
+      "category": null,
+      "desc": "Doskonale zachowany gotycki zamek nizinny rodu Oporowskich wzniesiony z cegły na wyspie otoczonej fosą.",
+      "id": 131,
+      "lat": 52.2619,
+      "lng": 19.5702,
+      "name": "Zamek w Oporowie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Zamek komturski Zakonu Krzyżackiego nad Drwęcą, w którym zimą 1807 roku rezydował cesarz Napoleon Bonaparte.",
+      "id": 24,
+      "lat": 53.7047,
+      "lng": 19.9602,
+      "name": "Zamek w Ostródzie"
+    },
+    {
+      "category": null,
+      "desc": "Górująca nad miastem warownia biskupów wrocławskich z unikalnymi renesansowymi 'końskimi schodami'.",
+      "id": 58,
+      "lat": 50.4647,
+      "lng": 17.1722,
+      "name": "Zamek w Otmuchowie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Unikalne ruiny zamku komturskiego zbudowanego z kamienia polnego (eratyków) zamiast tradycyjnej cegły.",
+      "id": 44,
+      "lat": 53.2494,
+      "lng": 18.5567,
+      "name": "Zamek w Papowie Biskupim"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Warownia krzyżacka założona na miejscu grodu Prusów w 1320 roku, wielokrotnie oblegana w wojnach polsko-krzyżackich.",
+      "id": 40,
+      "lat": 54.0628,
+      "lng": 19.6561,
+      "name": "Zamek w Pasłęku"
+    },
+    {
+      "category": null,
+      "desc": "Zachowane skrzydło w ruinie dawnego zamku kapituły warmińskiej nad rzeką Wałszą, w którym rezydował Mikołaj Kopernik.",
+      "id": 59,
+      "lat": 54.2369,
+      "lng": 20.1258,
+      "name": "Zamek w Pieniężnie"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Renesansowa perła Orlich Gniazd w Dolinie Prądnika, rozbudowana przez ród Szafrańców obok słynnej Maczugi Herkulesa.",
+      "id": 2,
+      "lat": 50.2441,
+      "lng": 19.7797,
+      "name": "Zamek w Pieskowej Skale"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Malownicze ruiny gotyckiego zamku komturskiego z XIII wieku położone na lesistym cyplu ziemi chełmińskiej.",
+      "id": 42,
+      "lat": 53.3442,
+      "lng": 18.8364,
+      "name": "Zamek w Pokrzywnie"
+    },
+    {
+      "category": null,
+      "desc": "Zamek Kazimierza Wielkiego na Kujawach z zachowaną czternastowieczną okrągłą wieżą zamkową.",
+      "id": 119,
+      "lat": 52.2856,
+      "lng": 18.8986,
+      "name": "Zamek w Przedczu"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Malownicze ruiny warowni dawnego wójtostwa zakonnego na półwyspie Jeziora Motława Wielka.",
+      "id": 30,
+      "lat": 53.8475,
+      "lng": 19.4975,
+      "name": "Zamek w Przezmarku"
+    },
+    {
+      "category": null,
+      "desc": "Dawna warownia obronna książąt opolsko-raciborskich, Promnitzów i Hochbergów, przebudowana w okazałą rezydencję.",
+      "id": 140,
+      "lat": 49.9772,
+      "lng": 18.9405,
+      "name": "Zamek w Pszczynie"
+    },
+    {
+      "category": null,
+      "desc": "Dawny zamek obronny i rezydencja biskupów płockich na wzgórzu nad Narwią.",
+      "id": 62,
+      "lat": 52.7031,
+      "lng": 21.0933,
+      "name": "Zamek w Pułtusku"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Malownicze ruiny gotyckiego zamku królewskiego na wzgórzu jurajskim koło Olkusza z częściowo zrekonstruowaną bramą i podzamczem.",
+      "id": 8,
+      "lat": 50.298,
+      "lng": 19.5933,
+      "name": "Zamek w Rabsztynie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Monumentalne ruiny jednego z najwspanialszych i najsilniejszych zamków komturskich na ziemi chełmińskiej, wzór architektury ceglanej.",
+      "id": 19,
+      "lat": 53.3831,
+      "lng": 18.9366,
+      "name": "Zamek w Radzyniu Chełmińskim"
+    },
+    {
+      "category": null,
+      "desc": "Górujące nad doliną Ścinawki ruiny zamku obronnego z cylindryczną wieżą u podnóża Gór Stołowych.",
+      "id": 83,
+      "lat": 50.4936,
+      "lng": 16.4472,
+      "name": "Zamek w Ratnie Dolnym"
+    },
+    {
+      "category": null,
+      "desc": "Gotycki zamek biskupów warmińskich malowniczo usytuowany nad głębokim jarem rzeki Sajny.",
+      "id": 52,
+      "lat": 54.0505,
+      "lng": 21.1447,
+      "name": "Zamek w Reszlu"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Rogóźno-Zamek: Potężne ruiny krzyżackiego zamku wójtowskiego z przełomu XIII i XIV wieku z monumentalną sześciokondygnacyjną wieżą bramną.",
+      "id": 152,
+      "lat": 53.5042,
+      "lng": 18.9261,
+      "name": "Zamek w Rogóźnie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Monumentalny zamek komturski wzniesiony na wzgórzu między jeziorami Ołów i Ryńskim w sercu Mazur.",
+      "id": 27,
+      "lat": 53.9372,
+      "lng": 21.5475,
+      "name": "Zamek w Rynie"
+    },
+    {
+      "category": null,
+      "desc": "Ruiny trzynastowiecznego zamku strzegącego szlaku handlowego na Węgry w dolinie Popradu w Beskidzie Sądeckim.",
+      "id": 147,
+      "lat": 49.4906,
+      "lng": 20.6656,
+      "name": "Zamek w Rytrze"
+    },
+    {
+      "category": null,
+      "desc": "Malownicze ruiny zamku obronnego nad Czarną Przemszą, od 1443 roku siedziby biskupów krakowskich władających Księstwem Siewierskim.",
+      "id": 53,
+      "lat": 50.4772,
+      "lng": 19.2391,
+      "name": "Zamek w Siewierzu"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Zamek wzniesiony przez zakon joannitów nad Wierzycą, w 1370 roku wykupiony przez Zakon Krzyżacki na siedzibę wójta.",
+      "id": 36,
+      "lat": 54.0675,
+      "lng": 18.4463,
+      "name": "Zamek w Skarszewach"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Ruiny krzyżackiego zamku prokuratorskiego nad Jeziorem Domowym Dużym, uwiecznione w powieści 'Krzyżacy' Henryka Sienkiewicza.",
+      "id": 38,
+      "lat": 53.5619,
+      "lng": 20.9886,
+      "name": "Zamek w Szczytnie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Relikty gotyckiego zamku prokuratorskiego Zakonu Krzyżackiego z XIV wieku na Mazurach, dawnej siedziby pierwszego prokuratora zakonnego.",
+      "id": 153,
+      "lat": 53.9228,
+      "lng": 21.3119,
+      "name": "Zamek w Szestnie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Zamek wójtowski Zakonu Krzyżackiego na dawnej wyspie, pełniący funkcję letniej rezydencji Wielkich Mistrzów.",
+      "id": 28,
+      "lat": 53.9213,
+      "lng": 19.0277,
+      "name": "Zamek w Sztumie"
+    },
+    {
+      "category": null,
+      "desc": "Monumentalne ruiny czworobocznego zamku kapituły pomezańskiej nad Jeziorem Szymbarskim z dziesięcioma basztami.",
+      "id": 50,
+      "lat": 53.6236,
+      "lng": 19.3831,
+      "name": "Zamek w Szymbarku"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Ruiny jednej z najstarszych warowni komturskich Zakonu Krzyżackiego na ziemi chełmińskiej z zachowanym gdaniskiem.",
+      "id": 22,
+      "lat": 53.0097,
+      "lng": 18.6111,
+      "name": "Zamek w Toruniu"
+    },
+    {
+      "category": null,
+      "desc": "Górująca nad doliną Potoku Toszeckiego warownia książąt górnośląskich i rodu Colonna.",
+      "id": 142,
+      "lat": 50.4547,
+      "lng": 18.5236,
+      "name": "Zamek w Toszku"
+    },
+    {
+      "category": null,
+      "desc": "Strategiczna warownia rodu Wedlów-Tuczyńskich na pograniczu Wielkopolski, Pomorza i Brandenburgii.",
+      "id": 138,
+      "lat": 53.1916,
+      "lng": 16.1558,
+      "name": "Zamek w Tucznie"
+    },
+    {
+      "category": null,
+      "desc": "Królewska twierdza i arsenał Zygmunta Augusta nad Narwią, zrekonstruowana na fundamentach szesnastowiecznej warowni.",
+      "id": 96,
+      "lat": 53.2086,
+      "lng": 22.7668,
+      "name": "Zamek w Tykocinie"
+    },
+    {
+      "category": "Szlak Orlich Gniazd",
+      "desc": "Ukryte w leśnym wąwozie relikty rycerskiego zamku na pograniczu Jury i ziemi krakowskiej.",
+      "id": 14,
+      "lat": 50.4836,
+      "lng": 19.7564,
+      "name": "Zamek w Udorzu"
+    },
+    {
+      "category": null,
+      "desc": "Czternastowieczna warownia obronna nad Wartą, wzniesiona jako ufortyfikowana rezydencja arcybiskupów gnieźnieńskich.",
+      "id": 54,
+      "lat": 51.9744,
+      "lng": 18.7908,
+      "name": "Zamek w Uniejowie"
+    },
+    {
+      "category": null,
+      "desc": "Otoczone fosą ruiny średniowiecznej rycerskiej wieży mieszkalnej i warowni obronnej z XIV wieku w Borach Dolnośląskich.",
+      "id": 91,
+      "lat": 51.6303,
+      "lng": 15.5106,
+      "name": "Zamek w Witkowie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Krzyżacki zamek prokuratorski Angerburg wzniesiony w 1398 roku na wyspie u ujścia Węgorapy do jeziora Mamry.",
+      "id": 151,
+      "lat": 54.2128,
+      "lng": 21.7458,
+      "name": "Zamek w Węgorzewie"
+    },
+    {
+      "category": null,
+      "desc": "Monumentalne renesansowe ruiny obronnego zamku księcia Karola I Podiebrada wzniesione na fundamentach gotyckiej warowni.",
+      "id": 75,
+      "lat": 50.5897,
+      "lng": 16.8069,
+      "name": "Zamek w Ząbkowicach Śląskich"
+    },
+    {
+      "category": null,
+      "desc": "Dawna magnacka rezydencja forteczna (palazzo in fortezza) Lubomirskich i Potockich otoczona fortyfikacjami bastionowymi.",
+      "id": 126,
+      "lat": 50.0683,
+      "lng": 22.2348,
+      "name": "Zamek w Łańcucie"
+    },
+    {
+      "category": "Zamki Krzyżackie",
+      "desc": "Malownicze ruiny wodnego zamku komturskiego Zakonu Krzyżackiego w widłach Wisły i Wdy z charakterystyczną odchyloną od pionu wieżą.",
+      "id": 29,
+      "lat": 53.4072,
+      "lng": 18.4552,
+      "name": "Zamek w Świeciu"
+    },
+    {
+      "category": null,
+      "desc": "Malownicze ruiny jednej z najstarszych prywatnych warowni na Śląsku, rodowej siedziby rycerskiego rodu Świnków.",
+      "id": 68,
+      "lat": 50.9405,
+      "lng": 16.1044,
+      "name": "Zamek w Świnach"
+    }
+  ]
+}

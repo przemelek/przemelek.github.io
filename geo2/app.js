@@ -25,7 +25,7 @@ const state = {
   userPos: { lat: 50.046679, lon: 19.950907, accuracy: 5, isSimulated: true }, // Default to test location
   searchCenter: { lat: 50.046679, lon: 19.950907 },
   radius: 1000,            // meters: 50, 200, 500, 1000, 2000, 5000, 10000
-  sourceFilter: 'all',     // 'all' | 'wikipedia' | 'wikimapia' | 'wikidata'
+  sourceFilter: 'all',     // 'all' | 'wikipedia' | 'wikimapia' | 'wikidata' | 'osm' | 'zamki' | 'shelters'
   categoryFilter: 'all',   // 'all' | 'culture' | 'historic' | 'architecture' | 'infrastructure' | 'parks' | 'religious' | 'streets'
   textFilter: '',          // search keyword in places
   sortOrder: 'distance-asc',// 'distance-asc' | 'distance-desc' | 'name-asc'
@@ -118,6 +118,7 @@ const CATEGORY_DEFINITIONS = {
   parks: { key: 'parks', label: '🌳 Parks & Squares', color: '#10b981' },
   religious: { key: 'religious', label: '✝️ Sacred', color: '#3b82f6' },
   streets: { key: 'streets', label: '🏠 Addresses', color: '#64748b' },
+  shelters: { key: 'shelters', label: '🛡️ Shelters', color: '#14b8a6' },
   other: { key: 'other', label: '📍 Landmarks', color: '#0ea5e9' }
 };
 
@@ -313,6 +314,27 @@ function renderPlaceMarkersOnMap(places) {
       pinLetter = 'D';
       badgeClass = 'badge-wikidata';
       badgeLabel = 'Wikidata';
+    }
+
+    if (place.source === 'osm') {
+      pinClass = 'pin-osm';
+      pinLetter = 'O';
+      badgeClass = 'badge-osm';
+      badgeLabel = 'OpenStreetMap';
+    }
+
+    if (place.source === 'zamki') {
+      pinClass = 'pin-zamki';
+      pinLetter = 'Z';
+      badgeClass = 'badge-zamki';
+      badgeLabel = 'zamki.net';
+    }
+
+    if (place.source === 'shelters') {
+      pinClass = 'pin-shelters';
+      pinLetter = 'S';
+      badgeClass = 'badge-shelters';
+      badgeLabel = 'Gdzie się ukryć';
     }
 
     const baseColor = place.category?.color || (place.source === 'wikipedia' ? '#2563eb' : (place.source === 'wikidata' ? '#a855f7' : '#d97706'));
@@ -700,6 +722,177 @@ async function fetchWikidataPlaces(lat, lon, radius, lang, limit) {
   }
 }
 
+// Cache raw coordinates so distance and bearing stay accurate when the center moves.
+const osmCache = new Map();
+
+async function fetchOsmPlaces(lat, lon, radius, lang, limit) {
+  const cacheKey = `${lat}_${lon}_${radius}`;
+  try {
+    let elements = osmCache.get(cacheKey);
+    if (!elements) {
+      const around = `(around:${radius},${lat},${lon})`;
+      const query = `[out:json][timeout:15];(
+        nwr${around}[historic];
+        nwr${around}[tourism~"^(artwork|viewpoint|museum|gallery|attraction)$"];
+        nwr${around}[leisure~"^(park|garden)$"][name];
+      );out center tags;`;
+      const response = await fetch('https://overpass-api.de/api/interpreter', {
+        method: 'POST',
+        body: new URLSearchParams({ data: query }),
+        signal: AbortSignal.timeout(20000)
+      });
+      if (!response.ok) throw new Error(`Overpass HTTP ${response.status}`);
+      const data = await response.json();
+      if (data.remark || !Array.isArray(data.elements)) {
+        throw new Error(data.remark || 'Invalid Overpass response');
+      }
+      elements = data.elements;
+      osmCache.set(cacheKey, elements);
+    }
+
+    const places = [];
+    for (const element of elements) {
+      const tags = element.tags || {};
+      const pLat = element.lat ?? element.center?.lat;
+      const pLon = element.lon ?? element.center?.lon;
+      if (!Number.isFinite(pLat) || !Number.isFinite(pLon) ||
+          Math.abs(pLat) > 90 || Math.abs(pLon) > 180 ||
+          !['node', 'way', 'relation'].includes(element.type) ||
+          !Number.isSafeInteger(element.id) || element.id <= 0) continue;
+      const distance = calculateDistance(lat, lon, pLat, pLon);
+      // shortcut: areas use their bounding-box center, fetch geometry if boundary distance is needed.
+      if (distance > radius) continue;
+      const title = tags[`name:${lang}`] || tags.name || tags['name:en'] ||
+        tags.inscription || tags.historic || tags.tourism || tags.leisure;
+      if (!title) continue;
+      const kind = tags.historic || tags.tourism || tags.leisure || '';
+      const extract = tags[`description:${lang}`] || tags.description ||
+        [kind.replace(/_/g, ' '), tags.artist_name, tags.start_date].filter(Boolean).join(' • ');
+      const bearing = calculateBearing(lat, lon, pLat, pLon);
+      const direction = getBearingInfo(bearing);
+      const category = tags.historic ? CATEGORY_DEFINITIONS.historic :
+        tags.leisure ? CATEGORY_DEFINITIONS.parks :
+        ['artwork', 'museum', 'gallery'].includes(tags.tourism) ? CATEGORY_DEFINITIONS.culture :
+        classifyPlace(title, extract);
+      places.push({
+        id: `osm_${element.type}_${element.id}`, source: 'osm', title,
+        lat: pLat, lon: pLon, distance, bearing,
+        cardinal: direction.label, arrow: direction.arrow, extract,
+        thumbnail: null, polygon: null, category,
+        url: `https://www.openstreetmap.org/${element.type}/${element.id}`
+      });
+    }
+    return places.sort((a, b) => a.distance - b.distance).slice(0, limit);
+  } catch (err) {
+    console.warn('OpenStreetMap fetch warning:', err);
+    return [];
+  }
+}
+
+let shelterManifest = null;
+const shelterTiles = new Map();
+
+async function loadShelterJson(file) {
+  const response = await fetch(`./data/shelters/${file}`);
+  if (!response.ok) throw new Error(`Shelter data HTTP ${response.status}`);
+  return response.json();
+}
+
+async function fetchShelterPlaces(lat, lon, radius, limit) {
+  if (!shelterManifest) {
+    const manifest = await loadShelterJson('index.json');
+    if (!Array.isArray(manifest.tiles) || !manifest.tiles.every(tile =>
+      /^\d+\.json$/.test(tile.file) &&
+      [tile.south, tile.west, tile.north, tile.east].every(Number.isFinite) &&
+      tile.south >= -90 && tile.north <= 90 && tile.west >= -180 && tile.east <= 180 &&
+      tile.south <= tile.north && tile.west <= tile.east)) {
+      throw new Error('Invalid shelter manifest');
+    }
+    shelterManifest = manifest;
+  }
+  // A spherical bounding box includes the entire search circle, including tile edges.
+  const angle = Math.min(Math.PI, (radius + 0.5) / 6371000);
+  const deltaLat = angle * 180 / Math.PI;
+  const south = Math.max(-90, lat - deltaLat);
+  const north = Math.min(90, lat + deltaLat);
+  const deltaLon = south === -90 || north === 90 ? 180 :
+    Math.asin(Math.min(1, Math.sin(angle) / Math.cos(lat * Math.PI / 180))) * 180 / Math.PI;
+  const selected = shelterManifest.tiles.filter(tile =>
+    tile.north >= south && tile.south <= north && [-360, 0, 360].some(offset =>
+      tile.east >= lon - deltaLon + offset && tile.west <= lon + deltaLon + offset));
+  const batches = await Promise.all(selected.map(async tile => {
+    if (!shelterTiles.has(tile.file)) {
+      const rows = await loadShelterJson(tile.file);
+      if (!Array.isArray(rows) || !rows.every(row => row &&
+        typeof row.id_publiczny === 'string' && /^[A-Za-z0-9_-]+$/.test(row.id_publiczny) &&
+        Number.isFinite(row.lokalizacja_lat) && Math.abs(row.lokalizacja_lat) <= 90 &&
+        Number.isFinite(row.lokalizacja_lon) && Math.abs(row.lokalizacja_lon) <= 180 &&
+        typeof row.lokalizacja_adres === 'string' && typeof row.dostepnosc === 'string')) {
+        throw new Error('Invalid shelter tile');
+      }
+      shelterTiles.set(tile.file, rows);
+    }
+    return shelterTiles.get(tile.file);
+  }));
+  const places = [];
+  for (const rows of batches) {
+    for (const row of rows) {
+      const distance = calculateDistance(lat, lon, row.lokalizacja_lat, row.lokalizacja_lon);
+      if (distance > radius) continue;
+      const bearing = calculateBearing(lat, lon, row.lokalizacja_lat, row.lokalizacja_lon);
+      const direction = getBearingInfo(bearing);
+      places.push({
+        id: `shelter_${row.id_publiczny}`, source: 'shelters',
+        title: row.lokalizacja_adres || 'Miejsce ochronne',
+        lat: row.lokalizacja_lat, lon: row.lokalizacja_lon, distance, bearing,
+        cardinal: direction.label, arrow: direction.arrow,
+        extract: `Miejsce ochronne · Dostępność: ${row.dostepnosc} · Dane: 2026-11-03`,
+        thumbnail: null, polygon: null, category: CATEGORY_DEFINITIONS.shelters,
+        url: 'https://gdziesieukryc.pl/'
+      });
+    }
+  }
+  return places.sort((a, b) => a.distance - b.distance).slice(0, limit);
+}
+
+// shortcut: bundled snapshot avoids cross-origin requests; refresh data/zamki.json when the catalog changes.
+let zamkiCache = null;
+
+async function fetchZamkiPlaces(lat, lon, radius, limit) {
+  try {
+    if (!zamkiCache) {
+      const response = await fetch('./data/zamki.json');
+      if (!response.ok) throw new Error(`zamki.net snapshot HTTP ${response.status}`);
+      const data = await response.json();
+      if (!Array.isArray(data.castles)) throw new Error('Invalid zamki.net snapshot');
+      zamkiCache = data.castles;
+    }
+    const places = [];
+    for (const castle of zamkiCache) {
+      if (!castle || !Number.isSafeInteger(castle.id) || castle.id <= 0 ||
+          typeof castle.name !== 'string' || !castle.name.trim() ||
+          !Number.isFinite(castle.lat) || Math.abs(castle.lat) > 90 ||
+          !Number.isFinite(castle.lng) || Math.abs(castle.lng) > 180) continue;
+      const distance = calculateDistance(lat, lon, castle.lat, castle.lng);
+      if (distance > radius) continue;
+      const bearing = calculateBearing(lat, lon, castle.lat, castle.lng);
+      const direction = getBearingInfo(bearing);
+      places.push({
+        id: `zamki_${castle.id}`, source: 'zamki', title: castle.name,
+        lat: castle.lat, lon: castle.lng, distance, bearing,
+        cardinal: direction.label, arrow: direction.arrow,
+        extract: [castle.desc, castle.category].filter(value => typeof value === 'string' && value).join(' • '),
+        thumbnail: null, polygon: null, category: CATEGORY_DEFINITIONS.historic,
+        url: 'https://zamki.net/'
+      });
+    }
+    return places.sort((a, b) => a.distance - b.distance).slice(0, limit);
+  } catch (err) {
+    console.warn('zamki.net fetch warning:', err);
+    return [];
+  }
+}
+
 /**
  * Triggers a combined fetch of all data sources for the current center and radius.
  */
@@ -713,27 +906,37 @@ async function refreshNearbyData(centerLat, centerLon) {
   cardsContainer.innerHTML = `
     <div class="empty-state">
       <div class="spinner"></div>
-      <p>Scanning ${formatDistance(state.radius)} around position for Wikipedia, Wikimapia &amp; Wikidata places...</p>
+      <p>Scanning ${formatDistance(state.radius)} around position for Wikipedia, Wikimapia, Wikidata, OpenStreetMap, zamki.net &amp; shelters...</p>
     </div>
   `;
   summaryText.textContent = `Scanning within ${formatDistance(state.radius)}...`;
 
   try {
-    const [wikiRes, mapiaRes, dataRes] = await Promise.allSettled([
+    const [wikiRes, mapiaRes, dataRes, osmRes, zamkiRes, sheltersRes] = await Promise.allSettled([
       fetchWikipediaPlaces(centerLat, centerLon, state.radius, state.wikipediaLang, state.maxResults),
       fetchWikimapiaPlaces(centerLat, centerLon, state.radius, state.wikimapiaKey, state.maxResults),
-      fetchWikidataPlaces(centerLat, centerLon, state.radius, state.wikipediaLang, state.maxResults)
+      fetchWikidataPlaces(centerLat, centerLon, state.radius, state.wikipediaLang, state.maxResults),
+      fetchOsmPlaces(centerLat, centerLon, state.radius, state.wikipediaLang, state.maxResults),
+      fetchZamkiPlaces(centerLat, centerLon, state.radius, state.maxResults),
+      fetchShelterPlaces(centerLat, centerLon, state.radius, state.maxResults)
     ]);
 
     const wikiPlaces = wikiRes.status === 'fulfilled' ? wikiRes.value : [];
     const mapiaPlaces = mapiaRes.status === 'fulfilled' ? mapiaRes.value : [];
     const dataPlaces = dataRes.status === 'fulfilled' ? dataRes.value : [];
 
-    // Combine and deduplicate
-    const combined = [...wikiPlaces, ...mapiaPlaces, ...dataPlaces];
+    const osmPlaces = osmRes.status === 'fulfilled' ? osmRes.value : [];
+
+    const zamkiPlaces = zamkiRes.status === 'fulfilled' ? zamkiRes.value : [];
+    const shelterPlaces = sheltersRes.status === 'fulfilled' ? sheltersRes.value : [];
+    const combined = [...wikiPlaces, ...mapiaPlaces, ...dataPlaces, ...osmPlaces, ...zamkiPlaces, ...shelterPlaces];
 
     state.places = combined;
     applyFiltersAndRender();
+    if (sheltersRes.status === 'rejected') {
+      summaryText.textContent += ' · Shelter data unavailable; retry to reload';
+      console.warn('Shelter fetch warning:', sheltersRes.reason);
+    }
     updateRadiusCircle(centerLat, centerLon);
     zoomToRadiusBounds();
   } catch (err) {
@@ -771,11 +974,23 @@ function applyFiltersAndRender() {
   if (countMapia) countMapia.textContent = totalMapia;
   if (countData) countData.textContent = totalData;
 
+  const countOsm = document.getElementById('count-osm');
+  if (countOsm) countOsm.textContent = state.places.filter(p => p.source === 'osm').length;
+
+  const countZamki = document.getElementById('count-zamki');
+  if (countZamki) countZamki.textContent = state.places.filter(p => p.source === 'zamki').length;
+
+  const countShelters = document.getElementById('count-shelters');
+  if (countShelters) countShelters.textContent = state.places.filter(p => p.source === 'shelters').length;
+
   // Filter by source
   let filtered = state.places.filter(p => {
     if (state.sourceFilter === 'wikipedia') return p.source === 'wikipedia';
     if (state.sourceFilter === 'wikimapia') return p.source === 'wikimapia';
     if (state.sourceFilter === 'wikidata') return p.source === 'wikidata';
+    if (state.sourceFilter === 'osm') return p.source === 'osm';
+    if (state.sourceFilter === 'zamki') return p.source === 'zamki';
+    if (state.sourceFilter === 'shelters') return p.source === 'shelters';
     return true;
   });
 
@@ -827,6 +1042,21 @@ function applyFiltersAndRender() {
     } else if (place.source === 'wikidata') {
       badgeClass = 'badge-wikidata';
       badgeLabel = 'Wikidata';
+    }
+
+    if (place.source === 'osm') {
+      badgeClass = 'badge-osm';
+      badgeLabel = 'OpenStreetMap';
+    }
+
+    if (place.source === 'zamki') {
+      badgeClass = 'badge-zamki';
+      badgeLabel = 'zamki.net';
+    }
+
+    if (place.source === 'shelters') {
+      badgeClass = 'badge-shelters';
+      badgeLabel = 'Gdzie się ukryć';
     }
 
     const isActive = state.activePlaceId === place.id;
@@ -902,14 +1132,14 @@ window.showPlaceDetails = function(placeId) {
 
   const modal = document.getElementById('place-modal');
   const body = document.getElementById('modal-body');
-  const isWiki = place.source === 'wikipedia';
+  const sourceLabel = { wikipedia: 'Wikipedia', wikimapia: 'Wikimapia', wikidata: 'Wikidata', osm: 'OpenStreetMap', zamki: 'zamki.net', shelters: 'Gdzie się ukryć' }[place.source];
 
   body.innerHTML = `
     <div class="detail-modal-content">
       ${place.thumbnail ? `<img src="${place.thumbnail}" alt="${escapeHtml(place.title)}" class="detail-modal-img">` : ''}
       <div class="card-top-row">
-        <span class="card-badge ${isWiki ? 'badge-wikipedia' : 'badge-wikimapia'}">
-          ${isWiki ? 'Wikipedia' : 'Wikimapia'}
+        <span class="card-badge badge-${place.source}">
+          ${sourceLabel}
         </span>
         <span class="card-distance font-tech">
           ${place.arrow} ${formatDistance(place.distance)} (${place.cardinal} / ${place.bearing}°)
